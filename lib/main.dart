@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fithub/constants.dart';
 
+import 'package:fithub/screens/gender_screen.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -27,7 +29,7 @@ class MyApp extends StatelessWidget {
         textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
         useMaterial3: true,
       ),
-      home: const SplashScreen(),
+      home: const GenderScreen(),
     );
   }
 }

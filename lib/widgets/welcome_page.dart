@@ -34,11 +34,11 @@ class WelcomePage extends StatelessWidget {
               children: [
                 Text(
                   upText,
-                  style: welcomeStyleUp,
+                  style: welcomeUpStyle,
                 ),
                 Text(
                   downText,
-                  style: welcomeStyleDown,
+                  style: welcomeDownStyle,
                 ),
                 if (isLast) Padding(
                   padding: const EdgeInsets.only(top: 40, bottom: 0, ),
@@ -66,7 +66,7 @@ class WelcomePage extends StatelessWidget {
                       children: [
                         Text(
                           'Start Now',
-                          style: welcomeStyleButton,
+                          style: welcomeButtonStyle,
                         ),
                         Icon(Icons.arrow_right, size: 33)
                       ],

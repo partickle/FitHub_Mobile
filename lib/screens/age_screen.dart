@@ -1,11 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AgeScreen extends StatefulWidget {
-  const AgeScreen({Key? key}) : super(key: key);
+  const AgeScreen({super.key});
 
   @override
-  _AgeScreenState createState() => _AgeScreenState();
+  State<AgeScreen> createState() => _AgeScreenState();
 }
 
 class _AgeScreenState extends State<AgeScreen> {
@@ -96,9 +95,9 @@ class _AgeScreenState extends State<AgeScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _buildRoundBackButton(Icons.arrow_back, () {
-                    // Handle back button press
-                  }),
+                  // _buildRoundBackButton(Icons.arrow_back, () {
+                  //   // Handle back button press
+                  // }),
                   SizedBox(
                     width: 120,
                     height: 50,
