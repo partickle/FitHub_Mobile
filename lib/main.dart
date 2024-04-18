@@ -1,4 +1,4 @@
-import 'package:fithub/screens/welcome_screen.dart';
+import 'package:fithub/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fithub/constants.dart';
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
         useMaterial3: true,
       ),
-      home: const WelcomeScreen(),
+      home: const SplashScreen(),
     );
   }
 }
