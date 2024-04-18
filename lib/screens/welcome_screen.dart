@@ -1,6 +1,6 @@
-import 'package:fithub/screens/gender_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
+import 'package:fithub/widgets/welcome_page.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -15,78 +15,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
   @override
   void dispose() {
-    _controller.dispose();
-
     super.dispose();
+    
+    _controller.dispose();
   }
-
-  Widget buildPage({
-    required String urlImage,
-    required String upText,
-    required String downText,
-    required bool isLast
-  }) => 
-      Column(
-        children: <Widget>[
-          Image.asset(
-            urlImage,
-            height: MediaQuery.of(context).size.height * 0.6,
-            width: MediaQuery.of(context).size.width,
-            fit: BoxFit.cover,
-          ),
-          Container(
-            padding: const EdgeInsets.only(top: 40),
-            child: Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    upText,
-                    style: welcomeStyleUp,
-                  ),
-                  Text(
-                    downText,
-                    style: welcomeStyleDown,
-                  ),
-                  if (isLast) Padding(
-                    padding: const EdgeInsets.only(top: 40, bottom: 0, ),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.only(left: 20),
-                        fixedSize: const Size(180, 50),
-                        backgroundColor: kPrimaryColor,
-                        foregroundColor: kBackgroundColor
-                      ).copyWith(
-                        overlayColor: MaterialStateProperty.resolveWith<Color>(
-                          (Set<MaterialState> states) {
-                            if (states.contains(MaterialState.pressed) || states.contains(MaterialState.focused)) {
-                              return kPressedColor;
-                            }
-                            return kPrimaryColor;
-                          })),
-                      onPressed: () async {
-                        Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (context) => const GenderScreen()),
-                        );
-                      },
-                      child: const Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            'Start Now',
-                            style: welcomeStyleButton,
-                          ),
-                          Icon(Icons.arrow_right, size: 33)
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          )
-        ],
-      );
 
   @override
   Widget build(BuildContext context) {
@@ -96,20 +28,20 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         children: <Widget>[
           PageView(
             controller: _controller,
-            children: [
-              buildPage(
+            children: const [
+              WelcomePage(
                 urlImage: 'assets/images/welcome1.jpg',
                 upText: 'Meet with sport,',
                 downText: 'start your journey',
                 isLast: false
               ),
-              buildPage(
+              WelcomePage(
                 urlImage: 'assets/images/welcome2.png',
                 upText: 'Create a workout plan',
                 downText: 'to stay fit',
                 isLast: false
               ),
-              buildPage(
+              WelcomePage(
                 urlImage: 'assets/images/welcome3.jpg',
                 upText: 'Action is the',
                 downText: 'key to all success',
