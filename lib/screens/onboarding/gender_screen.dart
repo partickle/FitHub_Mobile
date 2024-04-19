@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fithub/widgets/onboarding_page.dart';
-import 'package:fithub/widgets/gender_button.dart';
-import 'package:fithub/screens/goal_screen.dart';
+import 'package:fithub/widgets/onboarding/onboarding_page.dart';
+import 'package:fithub/widgets/onboarding/elements/gender_button.dart';
+import 'package:fithub/screens/onboarding/age_screen.dart';
 
 class GenderScreen extends StatefulWidget {
   const GenderScreen({super.key});
@@ -22,9 +22,9 @@ class _GenderScreenState extends State<GenderScreen> {
       nextBtnText: 'Next',
       isBackBtn: false,
       isNextBtn: isMaleSelected || isFemaleSelected, 
-      onPressed: () async {
+      onPressed: () {
         Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => const GoalScreen()),
+          MaterialPageRoute(builder: (context) => const AgeScreen()),
         );
       }, 
       child: Column(

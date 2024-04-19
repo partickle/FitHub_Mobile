@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
-import 'package:fithub/widgets/welcome_page.dart';
+import 'package:fithub/widgets/onboarding/welcome_page.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -16,7 +16,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   void dispose() {
     super.dispose();
-    
     _controller.dispose();
   }
 

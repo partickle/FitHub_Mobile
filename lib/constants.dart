@@ -37,7 +37,7 @@ const onboardingTitleStyle = TextStyle(
   fontFamily: 'Open Sans',
   fontSize: 28,
   fontWeight: FontWeight.bold,
-  height: 1,
+  height: 1.3,
   letterSpacing: 1,
 );
 
@@ -60,6 +60,22 @@ const onboardGenderButStyle = TextStyle(
 const onboardNextButStyle = TextStyle(
   fontFamily: 'Open Sans',
   fontSize: 18,
+  fontWeight: FontWeight.w500,
+  height: 1,
+  letterSpacing: 0.5,
+);
+
+const onboardIntScrollStyle = TextStyle(
+  fontFamily: 'Open Sans',
+  fontSize: 50,
+  fontWeight: FontWeight.w500,
+  height: 1,
+  letterSpacing: 0.5,
+);
+
+const onboardStrScrollStyle = TextStyle(
+  fontFamily: 'Open Sans',
+  fontSize: 24,
   fontWeight: FontWeight.w500,
   height: 1,
   letterSpacing: 0.5,

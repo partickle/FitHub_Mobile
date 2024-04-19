@@ -36,6 +36,7 @@ class OnboardingPage extends StatelessWidget {
                     children: [
                       Text(
                         title,
+                        textAlign: TextAlign.center,
                         style: onboardingTitleStyle
                       ),
                       const SizedBox(height: 18),
@@ -82,17 +83,16 @@ class OnboardingPage extends StatelessWidget {
       ),
       floatingActionButton: !(isNextBtn)? null: Padding(
         padding: const EdgeInsets.only(bottom: 20, right: 10),
-        child: SizedBox(
-          width: 120,
-          height: 55,
-          child: FloatingActionButton(
-            foregroundColor: kSecTextColor,
-            backgroundColor: kPrimaryColor,
-            elevation: 0,
-            onPressed: onPressed,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(28),
+        child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              foregroundColor: kSecTextColor,
+              backgroundColor: kPrimaryColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(28),
+              ),
             ),
+            onPressed: onPressed,
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -103,7 +103,6 @@ class OnboardingPage extends StatelessWidget {
             ),
           ),
         ),
-      ),
     );
   }
 }

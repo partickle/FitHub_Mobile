@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
-import 'package:fithub/screens/gender_screen.dart';
+import 'package:fithub/screens/onboarding/gender_screen.dart';
 
 class WelcomePage extends StatelessWidget {
   final String urlImage;
@@ -47,15 +47,8 @@ class WelcomePage extends StatelessWidget {
                       padding: const EdgeInsets.only(left: 20),
                       fixedSize: const Size(180, 50),
                       backgroundColor: kPrimaryColor,
-                      foregroundColor: kBackgroundColor
-                    ).copyWith(
-                      overlayColor: MaterialStateProperty.resolveWith<Color>(
-                        (Set<MaterialState> states) {
-                          if (states.contains(MaterialState.pressed) || states.contains(MaterialState.focused)) {
-                            return kPressedColor;
-                          }
-                          return kPrimaryColor;
-                        })),
+                      foregroundColor: kSecTextColor
+                    ),
                     onPressed: () async {
                       Navigator.of(context).pushReplacement(
                         MaterialPageRoute(builder: (context) => const GenderScreen()),
