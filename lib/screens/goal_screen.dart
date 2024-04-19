@@ -101,9 +101,9 @@ class _GoalScreenState extends State<GoalScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _buildRoundBackButton(Icons.arrow_back, () {
-                    // Handle back button press
-                  }),
+                  // _buildRoundBackButton(Icons.arrow_back, () {
+                  //   // Handle back button press
+                  // }),
                   SizedBox(
                     width: 120,
                     height: 50,
