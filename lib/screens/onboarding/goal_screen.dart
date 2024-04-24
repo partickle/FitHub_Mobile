@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
 import 'package:fithub/widgets/onboarding/onboarding_page.dart';
-import 'package:fithub/widgets/onboarding/elements/onboarding_wheel_scroll.dart';
+import 'package:fithub/widgets/onboarding/elements/wheel_scroll.dart';
 import 'package:fithub/screens/onboarding/level_screen.dart';
 
 class GoalScreen extends StatefulWidget {
