@@ -11,7 +11,7 @@ class LevelScreen extends StatefulWidget {
 }
 
 class _LevelScreenState extends State<LevelScreen> {
-  int selectedGoal = 4;
+  int selectedGoal = 2;
 
   @override
   Widget build(BuildContext context) {

@@ -12,7 +12,7 @@ class GoalScreen extends StatefulWidget {
 }
 
 class _GoalScreenState extends State<GoalScreen> {
-  int selectedGoal = 4;
+  int selectedGoal = 2;
 
   @override
   Widget build(BuildContext context) {
