@@ -1,3 +1,4 @@
+import 'package:fithub_app/screens/registration/registration_screen.dart';
 import 'package:flutter/material.dart';
 
 class AuthorizationScreen extends StatefulWidget {
@@ -59,7 +60,7 @@ class _AuthorizationScreenState extends State<AuthorizationScreen>
                 ClipPath(
                   clipper: TrapezoidClipper(),
                   child: Image.asset(
-                    'assets/images/rectangle.png',
+                    'assets/icons/rectangle.png',
                     width: 700,
                     height: 500,
                     fit: BoxFit.cover,
@@ -94,7 +95,12 @@ class _AuthorizationScreenState extends State<AuthorizationScreen>
                       ),
                       const SizedBox(width: 16),
                       GestureDetector(
-                        onTap: () => _toggleSelected(false),
+                        onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const RegistrationScreen()),
+                            ),
                         child: Container(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 16, vertical: 8),
@@ -135,47 +141,48 @@ class _AuthorizationScreenState extends State<AuthorizationScreen>
             const SizedBox(height: 50),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 32),
-              child: TextField(
-                controller: _emailController,
-                style: const TextStyle(color: Color(0xFFFFFFFF)),
-                decoration: const InputDecoration(
-                  hintText: 'Email',
-                  hintStyle: TextStyle(color: Color(0xFFFFFFFF)),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xFF2C2C2E)),
+              child: Column(
+                children: <Widget>[
+                  TextField(
+                    controller: _emailController,
+                    style: const TextStyle(color: Color(0xFFFFFFFF)),
+                    decoration: const InputDecoration(
+                      hintText: 'Email',
+                      hintStyle: TextStyle(color: Color(0xFFFFFFFF)),
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Color(0xFF2C2C2E)),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 12),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 32),
-              child: TextField(
-                controller: _passwordController,
-                style: const TextStyle(color: Color(0xFFFFFFFF)),
-                obscureText: !_passwordVisible,
-                decoration: InputDecoration(
-                  hintText: 'Password',
-                  hintStyle: const TextStyle(color: Color(0xFFFFFFFF)),
-                  focusedBorder: const UnderlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xFF2C2C2E)),
+                  const SizedBox(height: 12),
+                  TextField(
+                    controller: _passwordController,
+                    style: const TextStyle(color: Color(0xFFFFFFFF)),
+                    obscureText: !_passwordVisible,
+                    decoration: InputDecoration(
+                      hintText: 'Password',
+                      hintStyle: const TextStyle(color: Color(0xFFFFFFFF)),
+                      focusedBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide(color: Color(0xFF2C2C2E)),
+                      ),
+                      suffixIcon: _passwordController.text.isNotEmpty
+                          ? IconButton(
+                              icon: Icon(
+                                _passwordVisible
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                                color: Theme.of(context).primaryColorDark,
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  _passwordVisible = !_passwordVisible;
+                                });
+                              },
+                            )
+                          : null,
+                    ),
                   ),
-                  suffixIcon: _passwordController.text.isNotEmpty
-                      ? IconButton(
-                          icon: Icon(
-                            _passwordVisible
-                                ? Icons.visibility
-                                : Icons.visibility_off,
-                            color: Theme.of(context).primaryColorDark,
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              _passwordVisible = !_passwordVisible;
-                            });
-                          },
-                        )
-                      : null,
-                ),
+                ],
               ),
             ),
             const SizedBox(height: 12),
@@ -201,14 +208,34 @@ class _AuthorizationScreenState extends State<AuthorizationScreen>
                         // Обработка нажатия кнопки "Login" или "Sign Up"
                         String email = _emailController.text;
                         String password = _passwordController.text;
-                      },
+                        if (_isLoginSelected) {
+                          // Логика для входа
+                          print('Logging in with $email');
+                        } else {
+                          // Навигация на экран регистрации
+                          // Навигация на экран регистрации
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const RegistrationScreen()),
+                            );
+                          };
+                        },
                       backgroundColor: const Color(0xFFD0FD3E),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(28),
                       ),
-                      child: Text(
-                        _isLoginSelected ? 'Login' : 'Sign Up',
-                        style: const TextStyle(color: Colors.black),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            _isLoginSelected ? 'Login' : 'Sign Up',
+                            style: const TextStyle(color: Colors.black),
+                          ),
+                          const Padding(padding: EdgeInsets.only(left: 8)),
+                          const Icon(Icons.arrow_forward, color: Colors.black),
+                        ],
                       ),
                     ),
                   ),

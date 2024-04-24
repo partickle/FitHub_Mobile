@@ -1,0 +1,39 @@
+<svg id="Белое_лого" data-name="Белое лого" xmlns="http://www.w3.org/2000/svg" width="2987" height="3269" viewBox="0 0 2987 3269">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #d0fd3e;
+      }
+
+      .cls-1, .cls-2 {
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="F">
+    <g id="Горизонталь">
+      <path id="Прямоугольник_2" data-name="Прямоугольник 2" class="cls-1" d="M0.726,0.375h2387.2v598.25H0.726V0.375Z" style="fill:#d0fd3e;fill-rule:evenodd;" />
+      <path id="Треугольник_2" data-name="Треугольник 2" class="cls-1" d="M2985.78,0l-598,598V0h598Z" style="fill:#d0fd3e;fill-rule:evenodd;" />
+    </g>
+    <g id="Верикаль">
+      <path id="Прямоугольник_2-2" data-name="Прямоугольник 2" class="cls-1" d="M0.73,280.413V2670.27H599.645V280.413H0.73Z" style="fill:#d0fd3e;fill-rule:evenodd;" />
+      <path id="Треугольник_2-2" data-name="Треугольник 2" class="cls-1" d="M599.219,2670l-598,598V2670h598Z" style="fill:#d0fd3e;fill-rule:evenodd;" />
+    </g>
+    <path id="Шпала" class="cls-1" d="M528.005,850.01H2151v559.98H528.005V850.01Z" style="fill:#d0fd3e;fill-rule:evenodd;" />
+  </g>
+  <g id="H">
+    <g id="Левая_вертикаль" data-name="Левая вертикаль">
+      <path id="Прямоугольник_2-3" data-name="Прямоугольник 2" class="cls-2" d="M2986.99,3269.01V944H2388.01V3269.01h598.98Z" style="fill-rule:evenodd;fill:#fff;" />
+      <path id="Треугольник_2-3" data-name="Треугольник 2" class="cls-2" d="M412.466,3265l597.994-598v598H412.466Z" style="fill-rule:evenodd;fill:#fff;" />
+    </g>
+    <g id="Правая_вертикаль" data-name="Правая вертикаль">
+      <path id="Прямоугольник_2-4" data-name="Прямоугольник 2" class="cls-2" d="M1389.99,3265.01V1661H791.011V3265.01H1389.99Z" style="fill-rule:evenodd;fill:#fff;" />
+      <path id="Треугольник_2-4" data-name="Треугольник 2" class="cls-2" d="M2389,944l598-598V944H2389Z" style="fill-rule:evenodd;fill:#fff;" />
+    </g>
+    <path id="Шпала-2" data-name="Шпала" class="cls-2" d="M1193,1962.01H2744v559.98H1193V1962.01Z" style="fill-rule:evenodd;fill:#fff;" />
+  </g>
+</svg>
