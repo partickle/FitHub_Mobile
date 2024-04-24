@@ -1,5 +1,5 @@
 name: fithub
-description: "FitHub mobile project."
+description: "FitHub mobile app."
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -9,6 +9,24 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.6
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.4.0
+
+flutter_icons:
+  image_path: "assets/icons/app_icon.png"
+  android: true 
+  ios: true
+  remove_alpha_ios: true
+
+flutter_native_splash:
+  android: true
+  ios: true
+  color: "#1c1c1e"
+  image: "assets/images/splash.png"
+  android_12:
+    color: "#1c1c1e"
+    image: "assets/images/splash.png"
+    icon_background_color: "1c1c1e"
 
 dev_dependencies:
   flutter_test:
@@ -33,9 +51,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
