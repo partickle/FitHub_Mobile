@@ -1,9 +1,9 @@
-import 'package:fithub_app/screens/registration/authorization_screen.dart';
-import 'package:fithub_app/screens/registration/registrarion_finish_screen.dart';
+import 'package:fithub/features/registration/screens/authorization_screen.dart';
+import 'package:fithub/features/registration/screens/second_registration_screen.dart';
 import 'package:flutter/material.dart';
 
 class RegistrationScreen extends StatefulWidget {
-  const RegistrationScreen({Key? key}) : super(key: key);
+  const RegistrationScreen({super.key});
 
   @override
   State<RegistrationScreen> createState() => _RegistrationScreenState();
@@ -122,7 +122,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           fontWeight: FontWeight.w700,
                         ),
                       ),
-                      const SizedBox(height: 16),
+                      SizedBox(height: 16),
                       Text(
                         'Enter your information below or\nlogin with another account',
                         style: TextStyle(

@@ -1,8 +1,8 @@
-import 'package:fithub_app/screens/registration/registration_screen.dart';
+import 'package:fithub/features/registration/screens/first_registration_screen.dart';
 import 'package:flutter/material.dart';
 
 class AuthorizationScreen extends StatefulWidget {
-  const AuthorizationScreen({Key? key}) : super(key: key);
+  const AuthorizationScreen({super.key});
 
   @override
   State<AuthorizationScreen> createState() => _AuthorizationScreenState();
@@ -21,7 +21,7 @@ class _AuthorizationScreenState extends State<AuthorizationScreen>
     super.initState();
     _emailController = TextEditingController();
     _passwordController = TextEditingController();
-    WidgetsBinding.instance!.addObserver(this);
+    WidgetsBinding.instance.addObserver(this);
     _passwordController.addListener(() {
       setState(
           () {}); // При изменении текста обновляем UI для показа/скрытия иконки
@@ -33,7 +33,7 @@ class _AuthorizationScreenState extends State<AuthorizationScreen>
     _emailController.dispose();
     _passwordController.dispose();
     _scrollController.dispose();
-    WidgetsBinding.instance!.removeObserver(this);
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 
@@ -210,7 +210,7 @@ class _AuthorizationScreenState extends State<AuthorizationScreen>
                         String password = _passwordController.text;
                         if (_isLoginSelected) {
                           // Логика для входа
-                          print('Logging in with $email');
+                          debugPrint('Logging in with $email');
                         } else {
                           // Навигация на экран регистрации
                           // Навигация на экран регистрации
@@ -220,7 +220,7 @@ class _AuthorizationScreenState extends State<AuthorizationScreen>
                                   builder: (context) =>
                                       const RegistrationScreen()),
                             );
-                          };
+                          }
                         },
                       backgroundColor: const Color(0xFFD0FD3E),
                       shape: RoundedRectangleBorder(

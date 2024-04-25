@@ -1,7 +1,7 @@
-import 'package:fithub_app/screens/constants.dart';
-import 'package:fithub_app/screens/registration/authorization_screen.dart';
-import 'package:fithub_app/screens/registration/registrarion_finish_screen.dart';
-import 'package:fithub_app/screens/registration/registration_screen.dart';
+import 'package:fithub/constants.dart';
+import 'package:fithub/features/registration/screens/authorization_screen.dart';
+import 'package:fithub/features/registration/screens/first_registration_screen.dart';
+import 'package:fithub/features/registration/screens/second_registration_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -24,8 +24,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/authorization', // Устанавливаем начальный маршрут
       routes: {
         '/authorization': (context) => const AuthorizationScreen(),
-        '/registration': (context) => const RegistrationScreen
-        (),
+        '/registration': (context) => const RegistrationScreen(),
          '/registration_finish': (context) => const RegistrationFinishScreen(),
       },
     );

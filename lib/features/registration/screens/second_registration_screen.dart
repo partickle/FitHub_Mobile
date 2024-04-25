@@ -1,8 +1,8 @@
-import 'package:fithub_app/screens/registration/authorization_screen.dart';
+import 'package:fithub/features/registration/screens/authorization_screen.dart';
 import 'package:flutter/material.dart';
 
 class RegistrationFinishScreen extends StatefulWidget {
-  const RegistrationFinishScreen({Key? key}) : super(key: key);
+  const RegistrationFinishScreen({super.key});
 
   @override
   State<RegistrationFinishScreen> createState() => _RegistrationFinishScreenState();
@@ -21,7 +21,7 @@ class _RegistrationFinishScreenState extends State<RegistrationFinishScreen>
     _emailController = TextEditingController();
     _passwordController = TextEditingController();
     _passwordAgainController = TextEditingController();
-    WidgetsBinding.instance!.addObserver(this);
+    WidgetsBinding.instance.addObserver(this);
     _passwordController.addListener(() {
       setState(
           () {}); // При изменении текста обновляем UI для показа/скрытия иконки
@@ -34,7 +34,7 @@ class _RegistrationFinishScreenState extends State<RegistrationFinishScreen>
     _passwordController.dispose();
     _passwordAgainController.dispose();
     _scrollController.dispose();
-    WidgetsBinding.instance!.removeObserver(this);
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 
@@ -202,7 +202,7 @@ class _RegistrationFinishScreenState extends State<RegistrationFinishScreen>
                         // Обработка нажатия кнопки "Sign Up"
                         String email = _emailController.text;
                         String password = _passwordController.text;
-                        print('Signing up with $email');
+                        debugPrint('Signing up with $email');
                         // Здесь можно добавить логику регистрации пользователя
                       },
                       backgroundColor: const Color(0xFFD0FD3E),
