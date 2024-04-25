@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
 
@@ -75,7 +76,7 @@ class OnboardingPage extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.of(context).pop();
+                  AutoRouter.of(context).pop();
                 },
                 child: const Icon(Icons.arrow_back, size: 25),
               ),

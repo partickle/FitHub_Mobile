@@ -1,8 +1,11 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:fithub/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
-import 'package:fithub/widgets/onboarding/welcome_page.dart';
+import 'package:fithub/features/onboarding/widgets/welcome_page.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+@RoutePage()
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
 
@@ -27,24 +30,29 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         children: <Widget>[
           PageView(
             controller: _controller,
-            children: const [
+            children: [
               WelcomePage(
                 urlImage: 'assets/images/welcome1.jpg',
                 upText: 'Meet with sport,',
                 downText: 'start your journey',
-                isLast: false
+                isLast: false,
+                onPressed:() {},
               ),
               WelcomePage(
                 urlImage: 'assets/images/welcome2.png',
                 upText: 'Create a workout plan',
                 downText: 'to stay fit',
-                isLast: false
+                isLast: false,
+                onPressed: () {},
               ),
               WelcomePage(
                 urlImage: 'assets/images/welcome3.jpg',
                 upText: 'Action is the',
                 downText: 'key to all success',
-                isLast: true
+                isLast: true,
+                onPressed: () {
+                  AutoRouter.of(context).replace(const GenderRoute());
+                },
               )
             ],
           ),

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:fithub/constants.dart';
 
-import 'package:fithub/screens/splash_screen.dart';
+import 'package:fithub/fithub_app.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -11,24 +10,6 @@ void main() {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  runApp(const MyApp());
-}
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'FitHub',
-      theme: ThemeData(
-        scaffoldBackgroundColor: kBackgroundColor,
-        primaryColor: kPrimaryColor,
-        textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
-        useMaterial3: true,
-      ),
-      home: const SplashScreen(),
-    );
-  }
+  runApp(const FitHubApp());
 }

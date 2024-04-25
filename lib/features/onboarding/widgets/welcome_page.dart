@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
-import 'package:fithub/screens/onboarding/gender_screen.dart';
 
 class WelcomePage extends StatelessWidget {
   final String urlImage;
   final String upText;
   final String downText;
   final bool isLast;
+  final VoidCallback onPressed;
 
   const WelcomePage({
     super.key,
@@ -14,6 +14,7 @@ class WelcomePage extends StatelessWidget {
     required this.upText,
     required this.downText,
     required this.isLast,
+    required this.onPressed,
   });
 
   @override
@@ -49,11 +50,7 @@ class WelcomePage extends StatelessWidget {
                       backgroundColor: kPrimaryColor,
                       foregroundColor: kSecTextColor
                     ),
-                    onPressed: () async {
-                      Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (context) => const GenderScreen()),
-                      );
-                    },
+                    onPressed: onPressed,
                     child: const Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [

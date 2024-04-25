@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:fithub/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
-import 'package:fithub/widgets/onboarding/onboarding_page.dart';
-import 'package:fithub/widgets/onboarding/elements/wheel_scroll.dart';
-import 'package:fithub/screens/onboarding/goal_screen.dart';
+import 'package:fithub/features/onboarding/widgets/onboarding_page.dart';
+import 'package:fithub/features/onboarding/widgets/elements/wheel_scroll.dart';
 
+@RoutePage()
 class AgeScreen extends StatefulWidget {
   const AgeScreen({super.key});
 
@@ -23,9 +25,7 @@ class _AgeScreenState extends State<AgeScreen> {
       isBackBtn: true,
       isNextBtn: true,
       onPressed: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => const GoalScreen()),
-        );
+        AutoRouter.of(context).push(const GoalRoute());
       }, 
       child: OnboardingWheelScroll(
         initialItem: selectedAge,
