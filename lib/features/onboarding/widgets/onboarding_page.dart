@@ -25,64 +25,70 @@ class OnboardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          Center(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 100),
-                  child: Column(
-                    children: [
-                      Text(
-                        title,
-                        textAlign: TextAlign.center,
-                        style: onboardingTitleStyle
-                      ),
-                      const SizedBox(height: 18),
-                      Text(
-                        subtitle,
-                        textAlign: TextAlign.center,
-                        style: onboardingSubtitleStyle
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(bottom: 100),
-                    child: Center(
-                      child: child,
+      body: SafeArea(
+        left: false,
+        right: false,
+        top: false,
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            Center(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 100),
+                    child: Column(
+                      children: [
+                        Text(
+                          title,
+                          textAlign: TextAlign.center,
+                          style: onboardingTitleStyle
+                        ),
+                        const SizedBox(height: 18),
+                        Text(
+                          subtitle,
+                          textAlign: TextAlign.center,
+                          style: onboardingSubtitleStyle
+                        ),
+                      ],
                     ),
                   ),
-                ),
-              ],
-            ),
-          ),
-          if (isBackBtn) Positioned(
-            bottom: 35,
-            left: 25,
-            child: SizedBox(
-              width: 55,
-              height: 55,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.all(10),
-                  foregroundColor: kTextColor,
-                  backgroundColor: kSecBackgroundColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(28),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 100),
+                      child: Center(
+                        child: child,
+                      ),
+                    ),
                   ),
-                ),
-                onPressed: () {
-                  AutoRouter.of(context).pop();
-                },
-                child: const Icon(Icons.arrow_back, size: 25),
+                ],
               ),
+            ),
+            if (isBackBtn) Positioned(
+              bottom: 35,
+              left: 25,
+              child: SizedBox(
+                width: 55,
+                height: 55,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.all(10),
+                    foregroundColor: kTextColor,
+                    backgroundColor: kSecBackgroundColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(28),
+                    ),
+                  ),
+                  onPressed: () {
+                    AutoRouter.of(context).maybePop();
+                    print(MediaQuery.of(context).viewInsets.bottom);
+                  },
+                  child: const Icon(Icons.arrow_back, size: 25),
+                ),
+              )
             )
-          )
-        ],
+          ],
+        ),
       ),
       floatingActionButton: !(isNextBtn)? null: Padding(
         padding: const EdgeInsets.only(bottom: 20, right: 10),

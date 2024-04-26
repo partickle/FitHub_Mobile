@@ -23,7 +23,7 @@ class WelcomePage extends StatelessWidget {
       children: <Widget>[
         Image.asset(
           urlImage,
-          height: MediaQuery.of(context).size.height * 0.6,
+          height: MediaQuery.of(context).size.height * 0.55,
           width: MediaQuery.of(context).size.width,
           fit: BoxFit.cover,
         ),

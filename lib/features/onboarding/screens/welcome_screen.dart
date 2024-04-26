@@ -25,67 +25,72 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        fit: StackFit.expand,
-        children: <Widget>[
-          PageView(
-            controller: _controller,
-            children: [
-              WelcomePage(
-                urlImage: 'assets/images/welcome1.jpg',
-                upText: 'Meet with sport,',
-                downText: 'start your journey',
-                isLast: false,
-                onPressed:() {},
-              ),
-              WelcomePage(
-                urlImage: 'assets/images/welcome2.png',
-                upText: 'Create a workout plan',
-                downText: 'to stay fit',
-                isLast: false,
-                onPressed: () {},
-              ),
-              WelcomePage(
-                urlImage: 'assets/images/welcome3.jpg',
-                upText: 'Action is the',
-                downText: 'key to all success',
-                isLast: true,
-                onPressed: () {
-                  AutoRouter.of(context).replace(const GenderRoute());
-                },
-              )
-            ],
-          ),
-          Positioned(
-            bottom: 50,
-            left: 0,
-            right: 0,
-            child: Center(
-              child: SmoothPageIndicator(
-                controller: _controller,
-                count: 3,
-                effect: const ExpandingDotsEffect(
-                  activeDotColor: kPrimaryColor,
-                  dotHeight: 4,
-                  dotWidth: 16,
-                  spacing: 10,
+      body: SafeArea(
+        left: false,
+        right: false,
+        top: false,
+        child: Stack(
+          fit: StackFit.expand,
+          children: <Widget>[
+            PageView(
+              controller: _controller,
+              children: [
+                WelcomePage(
+                  urlImage: 'assets/images/welcome1.jpg',
+                  upText: 'Meet with sport,',
+                  downText: 'start your journey',
+                  isLast: false,
+                  onPressed:() {},
+                ),
+                WelcomePage(
+                  urlImage: 'assets/images/welcome2.png',
+                  upText: 'Create a workout plan',
+                  downText: 'to stay fit',
+                  isLast: false,
+                  onPressed: () {},
+                ),
+                WelcomePage(
+                  urlImage: 'assets/images/welcome3.jpg',
+                  upText: 'Action is the',
+                  downText: 'key to all success',
+                  isLast: true,
+                  onPressed: () {
+                    AutoRouter.of(context).replace(const GenderRoute());
+                  },
+                )
+              ],
+            ),
+            Positioned(
+              bottom: 50,
+              left: 0,
+              right: 0,
+              child: Center(
+                child: SmoothPageIndicator(
+                  controller: _controller,
+                  count: 3,
+                  effect: const ExpandingDotsEffect(
+                    activeDotColor: kPrimaryColor,
+                    dotHeight: 4,
+                    dotWidth: 16,
+                    spacing: 10,
+                  ),
                 ),
               ),
             ),
-          ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: MediaQuery.of(context).size.height * 7 / 13,
-            child: ClipPath(
-              clipper: TrapezoidClipper(),
-              child: Container(
-                color: kBackgroundColor,
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              height: MediaQuery.of(context).size.height * 7 / 13,
+              child: ClipPath(
+                clipper: TrapezoidClipper(),
+                child: Container(
+                  color: kBackgroundColor,
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
