@@ -1,5 +1,5 @@
 name: fithub
-description: "FitHub mobile project."
+description: "FitHub mobile app."
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -18,15 +18,32 @@ dependencies:
   get_it: ^7.7.0
   flutter_bloc: ^8.1.5
 
+flutter_icons:
+  image_path: "assets/icons/app_icon.png"
+  android: true 
+  ios: true
+  remove_alpha_ios: true
+
+flutter_native_splash:
+  android: true
+  ios: true
+  color: "#1c1c1e"
+  image: "assets/images/splash.png"
+  android_12:
+    color: "#1c1c1e"
+    image: "assets/images/splash.png"
+    icon_background_color: "1c1c1e"
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
   auto_route_generator: ^8.0.0
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.4.0
 
 flutter:
   uses-material-design: true
   assets:
     - assets/icons/logo.svg
     - assets/images/
-
