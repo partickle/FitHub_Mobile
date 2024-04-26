@@ -81,7 +81,6 @@ class OnboardingPage extends StatelessWidget {
                   ),
                   onPressed: () {
                     AutoRouter.of(context).maybePop();
-                    print(MediaQuery.of(context).viewInsets.bottom);
                   },
                   child: const Icon(Icons.arrow_back, size: 25),
                 ),

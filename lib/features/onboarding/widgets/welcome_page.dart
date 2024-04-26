@@ -23,7 +23,7 @@ class WelcomePage extends StatelessWidget {
       children: <Widget>[
         Image.asset(
           urlImage,
-          height: MediaQuery.of(context).size.height * 0.55,
+          height: MediaQuery.of(context).size.height * 0.57,
           width: MediaQuery.of(context).size.width,
           fit: BoxFit.cover,
         ),
@@ -45,20 +45,20 @@ class WelcomePage extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 40, bottom: 0, ),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.only(left: 20),
+                      padding: const EdgeInsets.only(left: 18),
                       fixedSize: const Size(180, 50),
                       backgroundColor: kPrimaryColor,
                       foregroundColor: kSecTextColor
                     ),
                     onPressed: onPressed,
-                    child: const Row(
+                    child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
                           'Start Now',
                           style: welcomeButtonStyle,
                         ),
-                        Icon(Icons.arrow_right, size: 33)
+                        const Icon(Icons.arrow_right, size: 33)
                       ],
                     ),
                   ),

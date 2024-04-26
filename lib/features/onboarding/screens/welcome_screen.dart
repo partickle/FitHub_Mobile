@@ -81,7 +81,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               bottom: 0,
               left: 0,
               right: 0,
-              height: MediaQuery.of(context).size.height * 7 / 13,
+              height: MediaQuery.of(context).size.height * 6.5 / 13,
               child: ClipPath(
                 clipper: TrapezoidClipper(),
                 child: Container(

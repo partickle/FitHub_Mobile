@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 const kPrimaryColor = Color(0xFFD0FD3E);
 const kPressedColor = Color.fromARGB(255, 138, 171, 28);
@@ -10,72 +11,64 @@ const kTimerColor = Color(0xFFFF2424);
 
 const double kDefaulfPadding = 20.0;
 
-const welcomeUpStyle = TextStyle(
-  fontFamily: 'Open Sans',
+var welcomeUpStyle = GoogleFonts.openSans(
   fontSize: 34,
   fontWeight: FontWeight.w300,
-  height: 1,
-  letterSpacing: 1,
+  height: 1
 );
 
-const welcomeDownStyle = TextStyle(
-  fontFamily: 'Open Sans',
+var welcomeDownStyle = GoogleFonts.openSans(
   fontSize: 34,
   fontWeight: FontWeight.bold,
-  height: 1,
-  letterSpacing: 1,
+  height: 1
 );
 
-const welcomeButtonStyle = TextStyle(
-  fontFamily: 'Open Sans',
+var welcomeButtonStyle = GoogleFonts.openSans(
   fontSize: 18,
-  fontWeight: FontWeight.bold,
-  height: 1,
+  fontWeight: FontWeight.w600,
+  height: 1
 );
 
-const onboardingTitleStyle = TextStyle(
-  fontFamily: 'Open Sans',
-  fontSize: 28,
+var onboardingTitleStyle = GoogleFonts.openSans(
+  fontSize: 26,
   fontWeight: FontWeight.bold,
-  height: 1.3,
-  letterSpacing: 1,
+  height: 1.2,
 );
 
-const onboardingSubtitleStyle = TextStyle(
-  fontFamily: 'Open Sans',
-  fontSize: 14,
+var onboardingSubtitleStyle = GoogleFonts.openSans(
+  fontSize: 13,
   fontWeight: FontWeight.w400,
-  height: 1.3,
-  letterSpacing: 0.5,
+  height: 1.2,
 );
 
-const onboardGenderButStyle = TextStyle(
-  fontFamily: 'Open Sans',
-  fontSize: 16,
+var onboardGenderButStyle = GoogleFonts.openSans(
+  fontSize: 15,
   fontWeight: FontWeight.w400,
   height: 1,
   letterSpacing: 0.8,
 );
 
-const onboardNextButStyle = TextStyle(
-  fontFamily: 'Open Sans',
+var onboardNextButStyle = GoogleFonts.openSans(
   fontSize: 18,
-  fontWeight: FontWeight.w500,
-  height: 1,
-  letterSpacing: 0.5,
+  fontWeight: FontWeight.w600,
 );
 
-const onboardIntScrollStyle = TextStyle(
-  fontFamily: 'Open Sans',
+var onboardIntScrollStyle = GoogleFonts.openSans(
   fontSize: 50,
   fontWeight: FontWeight.w500,
   height: 1,
   letterSpacing: 0.5,
 );
 
-const onboardStrScrollStyle = TextStyle(
-  fontFamily: 'Open Sans',
+var onboardStrScrollStyle = GoogleFonts.openSans(
   fontSize: 24,
+  fontWeight: FontWeight.w500,
+  height: 1,
+  letterSpacing: 0.5,
+);
+
+var registerSwitchStyle = GoogleFonts.openSans(
+  fontSize: 15,
   fontWeight: FontWeight.w500,
   height: 1,
   letterSpacing: 0.5,
