@@ -17,19 +17,19 @@ class AppRouter extends _$AppRouter {
       initial: true,
     ),
     AutoRoute(
-      path: '/gender',
+      path: '/onboarding/gender',
       page: GenderRoute.page,
     ),
     AutoRoute(
-      path: '/age',
+      path: '/onboarding/age',
       page: AgeRoute.page
     ),
     AutoRoute(
-      path: '/goal',
+      path: '/onboarding/goal',
       page: GoalRoute.page
     ),
     AutoRoute(
-      path: '/level',
+      path: '/onboarding/level',
       page: LevelRoute.page
     ),
   ];
