@@ -83,5 +83,7 @@ var registerMaybeStyle = GoogleFonts.openSans(
 var registerSubtitleStyle = GoogleFonts.openSans(
   fontSize: 13,
   fontWeight: FontWeight.w400,
-  // height: 1
+  height: 1.4
 );
+
+var registerInputStyle = GoogleFonts.openSans();

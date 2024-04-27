@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
 import 'package:fithub/features/registration/widgets/elements/login_button.dart';
-import 'package:fithub/features/registration/screens/authorization.dart';
-import 'package:fithub/features/registration/screens/first_registration.dart';
+import 'package:fithub/features/registration/screens/authorization_screen.dart';
+import 'package:fithub/features/registration/screens/first_registration_screen.dart';
 
 class RegistrationPage extends StatelessWidget {
   final String urlImage;
@@ -49,12 +49,9 @@ class RegistrationPage extends StatelessWidget {
                   width: MediaQuery.of(context).size.width,
                   fit: BoxFit.cover,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 50),
-                  child: Align(
-                    alignment: Alignment.topCenter,
-                    child: child,
-                  ),
+                Align(
+                  alignment: Alignment.topCenter,
+                  child: child,
                 ),
               ],
             ),

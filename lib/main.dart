@@ -1,5 +1,5 @@
 import 'package:fithub/constants.dart';
-import 'package:fithub/features/registration/screens/authorization.dart';
+import 'package:fithub/features/registration/screens/authorization_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,6 +15,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'FitHub',
       theme: ThemeData(
+        textSelectionTheme: const TextSelectionThemeData(
+          cursorColor: kPrimaryColor,
+          selectionColor: kPrimaryColor,
+          selectionHandleColor: kPrimaryColor,
+        ),
         scaffoldBackgroundColor: kBackgroundColor,
         primaryColor: kPrimaryColor,
         textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
