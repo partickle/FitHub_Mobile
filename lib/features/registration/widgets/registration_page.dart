@@ -7,6 +7,8 @@ class RegistrationPage extends StatelessWidget {
   final String title;
   final String buttonText;
   final bool isButton;
+  final bool isLogin;
+  final double imageHeight;
   final VoidCallback onPressed;
   final Widget child;
 
@@ -16,14 +18,14 @@ class RegistrationPage extends StatelessWidget {
     required this.title,
     required this.buttonText,
     required this.isButton,
+    required this.isLogin,
+    required this.imageHeight,
     required this.onPressed,
     required this.child
   });
 
   @override
   Widget build(BuildContext context) {
-    bool pressed = false;
-
     return Scaffold(
       body: SafeArea(
         top: false,
@@ -42,7 +44,7 @@ class RegistrationPage extends StatelessWidget {
                   ),
                   child: Image.asset(
                     urlImage,
-                    height: MediaQuery.of(context).size.height * 0.55,
+                    height: MediaQuery.of(context).size.height * imageHeight,
                     width: MediaQuery.of(context).size.width,
                     fit: BoxFit.cover,
                   ),
@@ -64,6 +66,7 @@ class RegistrationPage extends StatelessWidget {
                   children: [
                     LoginButton(
                       text: 'Login',
+                      isSelected: isLogin,
                       onTap: () {
                         // AutoRouter.of(context).replace(AuthorizationRoute());
                       }
@@ -71,6 +74,7 @@ class RegistrationPage extends StatelessWidget {
                     const SizedBox(width: 30),
                     LoginButton(
                       text: 'Sing up',
+                      isSelected: !isLogin,
                       onTap: () {
                         // AutoRouter.of(context).replace(RegistrationRoute());
                       }
@@ -79,15 +83,27 @@ class RegistrationPage extends StatelessWidget {
                 ),
               ),
             ),
-            // TextButton(
-            //   onPressed: () {
-            //     // AutoRouter.of(context).replace(HomeRoute());
-            //   },
-            //   child: const Text(
-            //     'Maybe later',
-            //     style: onboardingTitleStyle,
-            //   ),
-            // )
+            Padding(
+              padding: const EdgeInsets.only(left: 25, bottom: 37),
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                    foregroundColor: kSecBackgroundColor,
+                    //splashFactory: NoSplash.splashFactory,
+                    elevation: 0
+                  ),
+                  onPressed: () {
+                    // AutoRouter.of(context).replace(HomeRoute());
+                  },
+                  child: Text(
+                    'Maybe later',
+                    style: registerMaybeStyle.copyWith(color: kTextColor),
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),

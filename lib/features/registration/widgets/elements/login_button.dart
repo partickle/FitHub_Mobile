@@ -1,40 +1,57 @@
 import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
 
-class LoginButton extends StatelessWidget {
+class LoginButton extends StatefulWidget {
   final String text;
+  final bool isSelected;
   final VoidCallback onTap;
 
   const LoginButton({
     super.key,
     required this.text,
+    required this.isSelected,
     required this.onTap
   });
 
   @override
-  Widget build(BuildContext context) {
-    Color color = kTextColor;
+  State<LoginButton> createState() => _LoginButtonState();
+}
 
+class _LoginButtonState extends State<LoginButton> {
+  Color color = kTextColor;
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(bottom: 10),
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         border: Border(
-          bottom: BorderSide(width: 3.0, color: kPrimaryColor),
+          bottom: BorderSide(
+            width: 3.0,
+            color:
+              widget.isSelected ? kPrimaryColor : Colors.transparent
+          ),
         ),
       ),
       child: GestureDetector(
         onTapDown: (_) {
-          color = kBackgroundColor;
+          setState(() {
+            color = widget.isSelected ? kTextColor : kPrimaryColor;
+          });
         },
         onTapUp: (_) {
-          color = kTextColor;
+          setState(() {
+            color = kTextColor;
+          });
         },
         onTapCancel: () {
-          color = kTextColor;
+          setState(() {
+            color = kTextColor;
+          });
         },
-        onTap: onTap,
+        onTap: widget.onTap,
         child: Text(
-          text,
+          widget.text,
           style: registerSwitchStyle.copyWith(color: color),
         ),
       ),

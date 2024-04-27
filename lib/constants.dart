@@ -14,39 +14,35 @@ const double kDefaulfPadding = 20.0;
 var welcomeUpStyle = GoogleFonts.openSans(
   fontSize: 34,
   fontWeight: FontWeight.w300,
-  height: 1,
-  letterSpacing: 1,
+  height: 1
 );
 
 var welcomeDownStyle = GoogleFonts.openSans(
   fontSize: 34,
   fontWeight: FontWeight.bold,
-  height: 1,
-  letterSpacing: 1,
+  height: 1
 );
 
 var welcomeButtonStyle = GoogleFonts.openSans(
   fontSize: 18,
-  fontWeight: FontWeight.bold,
-  height: 1,
+  fontWeight: FontWeight.w600,
+  height: 1
 );
 
 var onboardingTitleStyle = GoogleFonts.openSans(
-  fontSize: 28,
+  fontSize: 26,
   fontWeight: FontWeight.bold,
-  height: 1.3,
-  letterSpacing: 1,
+  height: 1.2,
 );
 
 var onboardingSubtitleStyle = GoogleFonts.openSans(
-  fontSize: 14,
+  fontSize: 13,
   fontWeight: FontWeight.w400,
-  height: 1.3,
-  letterSpacing: 0.5,
+  height: 1.2,
 );
 
 var onboardGenderButStyle = GoogleFonts.openSans(
-  fontSize: 16,
+  fontSize: 15,
   fontWeight: FontWeight.w400,
   height: 1,
   letterSpacing: 0.8,
@@ -75,5 +71,10 @@ var registerSwitchStyle = GoogleFonts.openSans(
   fontSize: 15,
   fontWeight: FontWeight.w500,
   height: 1,
-  letterSpacing: 0.5,
+);
+
+var registerMaybeStyle = GoogleFonts.openSans(
+  fontSize: 17,
+  fontWeight: FontWeight.w500,
+  height: 1
 );
