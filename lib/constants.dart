@@ -7,6 +7,7 @@ const kTextColor = Color(0xFFFFFFFF);
 const kSecTextColor = Color(0xFF000000);
 const kBackgroundColor = Color(0xFF1c1c1e);
 const kSecBackgroundColor = Color(0xFF2C2C2E);
+const kThirdBackgroundColor = Color(0xFF505050);
 const kTimerColor = Color(0xFFFF2424);
 
 const double kDefaulfPadding = 20.0;

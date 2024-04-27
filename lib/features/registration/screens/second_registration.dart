@@ -1,34 +1,29 @@
-import 'package:fithub/features/registration/screens/second_registration.dart';
 import 'package:fithub/features/registration/widgets/registration_page.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
 
-class FirstRegistrationScreen extends StatefulWidget {
-  const FirstRegistrationScreen({super.key});
+class SecondRegistrationScreen extends StatefulWidget {
+  const SecondRegistrationScreen({super.key});
 
   @override
-  State<FirstRegistrationScreen> createState() => _FirstRegistrationScreenState();
+  State<SecondRegistrationScreen> createState() => _SecondRegistrationScreenState();
 }
 
-class _FirstRegistrationScreenState extends State<FirstRegistrationScreen> {
+class _SecondRegistrationScreenState extends State<SecondRegistrationScreen> {
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         RegistrationPage(
           urlImage: 'assets/images/registration/registration.png',
-          title: 'Hello ',
-          secTitle: 'rookies,',
-          subTitle: 'Enter your informations below or\nlogin with a other account',
-          buttonText: 'Next',
+          title: 'That\'s ',
+          secTitle: 'almost all,',
+          subTitle: 'It remains to enter only your full name\nand a unique user tag',
+          buttonText: 'Sign up',
           isButton: true,
           isLogin: false,
           imageHeight: 0.55,
-          onPressed: () {
-            Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (BuildContext context) => const SecondRegistrationScreen())
-            );
-          },
+          onPressed: () {},
           child: const Center()
         ),
         Positioned(
