@@ -1,10 +1,14 @@
+import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
 import 'package:fithub/features/registration/widgets/elements/login_button.dart';
-import 'package:flutter/material.dart';
+import 'package:fithub/features/registration/screens/authorization.dart';
+import 'package:fithub/features/registration/screens/first_registration.dart';
 
 class RegistrationPage extends StatelessWidget {
   final String urlImage;
   final String title;
+  final String secTitle;
+  final String subTitle;
   final String buttonText;
   final bool isButton;
   final bool isLogin;
@@ -16,6 +20,8 @@ class RegistrationPage extends StatelessWidget {
     super.key,
     required this.urlImage,
     required this.title,
+    required this.secTitle,
+    required this.subTitle,
     required this.buttonText,
     required this.isButton,
     required this.isLogin,
@@ -37,17 +43,11 @@ class RegistrationPage extends StatelessWidget {
           children: [
             Column(
               children: [
-                ColorFiltered(
-                  colorFilter: ColorFilter.mode(
-                    Colors.black.withOpacity(0.35),
-                    BlendMode.darken,
-                  ),
-                  child: Image.asset(
-                    urlImage,
-                    height: MediaQuery.of(context).size.height * imageHeight,
-                    width: MediaQuery.of(context).size.width,
-                    fit: BoxFit.cover,
-                  ),
+                Image.asset(
+                  urlImage,
+                  height: MediaQuery.of(context).size.height * imageHeight,
+                  width: MediaQuery.of(context).size.width,
+                  fit: BoxFit.cover,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 50),
@@ -69,6 +69,9 @@ class RegistrationPage extends StatelessWidget {
                       isSelected: isLogin,
                       onTap: () {
                         // AutoRouter.of(context).replace(AuthorizationRoute());
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(builder: (BuildContext context) => const AuthorizationScreen())
+                        );
                       }
                     ),
                     const SizedBox(width: 30),
@@ -76,12 +79,47 @@ class RegistrationPage extends StatelessWidget {
                       text: 'Sing up',
                       isSelected: !isLogin,
                       onTap: () {
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(builder: (BuildContext context) => const FirstRegistrationScreen())
+                        );
                         // AutoRouter.of(context).replace(RegistrationRoute());
                       }
                     ),
                   ],
                 ),
               ),
+            ),
+            Positioned(
+              top: MediaQuery.of(context).size.height * imageHeight - 200,
+              right: 0,
+              bottom: 0, 
+              left: 30,
+              child: Align(
+                alignment: Alignment.topLeft,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: title,
+                            style: welcomeUpStyle
+                          ),
+                          TextSpan(
+                            text: secTitle,
+                            style: welcomeDownStyle
+                          )
+                        ]
+                      )
+                    ),
+                    const SizedBox(height: 20),
+                    Text(subTitle, style: registerSubtitleStyle),
+                  ],
+                ),
+              )
+
             ),
             Padding(
               padding: const EdgeInsets.only(left: 25, bottom: 37),
@@ -91,7 +129,6 @@ class RegistrationPage extends StatelessWidget {
                   style: TextButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                     foregroundColor: kSecBackgroundColor,
-                    //splashFactory: NoSplash.splashFactory,
                     elevation: 0
                   ),
                   onPressed: () {

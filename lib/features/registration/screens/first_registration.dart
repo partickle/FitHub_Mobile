@@ -2,27 +2,27 @@ import 'package:fithub/features/registration/widgets/registration_page.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
 
-class AuthorizationScreen extends StatefulWidget {
-  const AuthorizationScreen({super.key});
+class FirstRegistrationScreen extends StatefulWidget {
+  const FirstRegistrationScreen({super.key});
 
   @override
-  State<AuthorizationScreen> createState() => _AuthorizationScreenState();
+  State<FirstRegistrationScreen> createState() => _FirstRegistrationScreenState();
 }
 
-class _AuthorizationScreenState extends State<AuthorizationScreen> {
+class _FirstRegistrationScreenState extends State<FirstRegistrationScreen> {
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         RegistrationPage(
-          urlImage: 'assets/images/registration/authorization.png',
-          title: 'Welcome ',
-          secTitle: 'friend,',
-          subTitle: 'Enter your account details or create\na new one and join us',
-          buttonText: 'Login',
+          urlImage: 'assets/images/registration/registration.png',
+          title: 'Hello ',
+          secTitle: 'rookies,',
+          subTitle: 'Enter your informations below or\nlogin with a other account',
+          buttonText: 'Next',
           isButton: true,
-          isLogin: true,
-          imageHeight: 0.65,
+          isLogin: false,
+          imageHeight: 0.55,
           onPressed: () {},
           child: const Center()
         ),
@@ -30,7 +30,7 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
           bottom: 0,
           left: 0,
           right: 0,
-          height: MediaQuery.of(context).size.height * 6.5 / 13,
+          height: MediaQuery.of(context).size.height * 8 / 13,
           child: ClipPath(
             clipper: TrapezoidClipper(),
             child: Container(
