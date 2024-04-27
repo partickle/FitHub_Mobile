@@ -27,7 +27,7 @@ class OnboardingWheelScroll extends StatelessWidget {
         Center(
           child: Container(
             width: widthBorder,
-            height: MediaQuery.of(context).size.height * 2 * itemExtent / 1000,
+            height: MediaQuery.of(context).size.height * 1.95 * itemExtent / 1000,
             decoration: const BoxDecoration(
               border: Border(
                 top: BorderSide(width: 4.0, color: kPrimaryColor),
