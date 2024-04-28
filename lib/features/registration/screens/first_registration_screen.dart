@@ -20,6 +20,15 @@ class _FirstRegistrationScreenState extends State<FirstRegistrationScreen> {
   final TextEditingController _passwordAgainController = TextEditingController();
 
   @override
+  void dispose() {
+    _scrollController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    _passwordAgainController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,

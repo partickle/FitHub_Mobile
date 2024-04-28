@@ -37,19 +37,20 @@ class _InputFieldState extends State<InputField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 40, right: 40, bottom: 5),
+      padding: const EdgeInsets.only(left: 30, right: 30, bottom: 5),
       child: TextFormField(
         controller: widget.controller,
         obscureText: !_passwordVisible,
         style: registerInputStyle,
         decoration: InputDecoration(
+          contentPadding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
           labelText: widget.labelText,
           errorStyle: registerInputStyle,
           floatingLabelStyle: registerInputStyle.copyWith(color: kPrimaryColor),
           focusedBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: kThirdBackgroundColor),
           ),
-          suffixIcon: (widget.isObscure) ? _buildSuffixIcon() : null,
+          suffixIcon:_buildSuffixIcon(),
         ),
         validator: (value) {
           if (value!.isEmpty) {
@@ -71,15 +72,12 @@ class _InputFieldState extends State<InputField> {
           }
           return null;
         },
-        // onSaved: (value) {
-        //   widget.controller.text = value!;
-        // },
       ),
     );
   }
 
   Widget? _buildSuffixIcon() {
-    if (widget.controller.text.isNotEmpty) {
+    if (widget.isObscure && widget.controller.text.isNotEmpty) {
       return IconButton(
         icon: Icon(
           _passwordVisible ? Icons.visibility : Icons.visibility_off,

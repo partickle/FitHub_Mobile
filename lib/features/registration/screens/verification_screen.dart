@@ -1,0 +1,71 @@
+import 'package:fithub/features/registration/screens/new_password_screen.dart';
+import 'package:fithub/features/registration/widgets/elements/verification_field.dart';
+import 'package:fithub/features/registration/widgets/forgot_password_page.dart';
+import 'package:flutter/material.dart';
+
+class VerificationScreen extends StatefulWidget {
+  const VerificationScreen({super.key});
+
+  @override
+  State<VerificationScreen> createState() => _VerificationScreenState();
+}
+
+class _VerificationScreenState extends State<VerificationScreen> {
+  final _formKey = GlobalKey<FormState>();
+
+  final ScrollController _scrollController = ScrollController();
+  final List<TextEditingController> _controllers = List.generate(6, (_) => TextEditingController());
+
+  late bool isSendCode = false;
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    for (var controller in _controllers) {
+      controller.dispose();
+    }
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      body: Form(
+        key: _formKey,
+        child: SingleChildScrollView(
+          controller: _scrollController,
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: ForgotPasswordPage(
+              title: 'Verification',
+              subTitle: 'Check your email. We\'ve sent you the PIN\nat your email.',
+              buttonText: 'Verify',
+              isSendCode: isSendCode,
+              onPressed: () {
+                String fullCode = _controllers.map((controller) => controller.text).join();
+
+                if (int.tryParse(fullCode) == 111111) {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => const NewPasswordScreen()
+                    )
+                  );
+                } else {
+                  setState(() {
+                    isSendCode = true;
+                  });
+                }
+              },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: VerificationField(controllers: _controllers),
+              )
+            ),
+          ),
+        )
+      )
+    );
+  }
+}

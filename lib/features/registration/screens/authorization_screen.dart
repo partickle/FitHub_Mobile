@@ -1,9 +1,9 @@
+import 'package:fithub/features/registration/screens/forgot_password_screen.dart';
 import 'package:fithub/features/registration/widgets/elements/input_field.dart';
 import 'package:fithub/features/registration/widgets/elements/usual_text_button.dart';
 import 'package:fithub/features/registration/widgets/registration_page.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
-import 'package:flutter/widgets.dart';
 
 class AuthorizationScreen extends StatefulWidget {
   const AuthorizationScreen({super.key});
@@ -18,6 +18,14 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
   final ScrollController _scrollController = ScrollController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,9 +50,7 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
                   isLoginPage: true,
                   imageHeight: 0.55,
                   onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-
-                    }
+                    if (_formKey.currentState!.validate()) {}
                   },
                   child: Column(
                     children: [
@@ -76,7 +82,13 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
                             isActive: true,
                             mainColor: kPrimaryColor,
                             tapColor: kPressedColor,
-                            onTap: () {}
+                            onTap: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (BuildContext context) => const ForgotPasswordScreen()
+                                )
+                              );
+                            }
                           ),
                         ),
                       )

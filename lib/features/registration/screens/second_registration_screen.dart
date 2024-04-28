@@ -19,6 +19,15 @@ class _SecondRegistrationScreenState extends State<SecondRegistrationScreen> {
   final TextEditingController _userTagController = TextEditingController();
 
   @override
+  void dispose() {
+    _scrollController.dispose();
+    _firstNameController.dispose();
+    _lastNameController.dispose();
+    _userTagController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
@@ -39,7 +48,7 @@ class _SecondRegistrationScreenState extends State<SecondRegistrationScreen> {
                   buttonText: 'Sing up',
                   isMaybeBtn: false,
                   isLoginPage: false,
-                  imageHeight: 0.55,
+                  imageHeight: 0.5,
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
 
@@ -67,7 +76,7 @@ class _SecondRegistrationScreenState extends State<SecondRegistrationScreen> {
                       ),
                       InputField(
                         labelText: 'User tag',
-                        isObscure: true,
+                        isObscure: false,
                         isEmail: false,
                         isPassword: false,
                         isTag: true,
@@ -82,7 +91,7 @@ class _SecondRegistrationScreenState extends State<SecondRegistrationScreen> {
                 bottom: 0,
                 left: 0,
                 right: 0,
-                height: MediaQuery.of(context).size.height * 8 / 13,
+                height: MediaQuery.of(context).size.height * 9 / 13,
                 child: ClipPath(
                   clipper: TrapezoidClipper(),
                   child: Container(

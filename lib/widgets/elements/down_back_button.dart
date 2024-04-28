@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
 
-class GoBackButton extends StatelessWidget {
-  const GoBackButton({super.key});
+class DownBackButton extends StatelessWidget {
+ const DownBackButton({super.key});
 
   @override
   Widget build(BuildContext context) {

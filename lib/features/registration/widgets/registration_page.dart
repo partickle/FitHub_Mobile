@@ -1,4 +1,4 @@
-import 'package:fithub/widgets/elements/go_back_button.dart';
+import 'package:fithub/widgets/elements/down_back_button.dart';
 import 'package:fithub/features/registration/widgets/elements/maybe_later_button.dart';
 import 'package:fithub/widgets/elements/next_button.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +67,7 @@ class RegistrationPage extends StatelessWidget {
                     UsualTextButton(
                       text: 'Login',
                       isSelected: isLoginPage,
-                      isActive: isLoginPage,
+                      isActive: !isLoginPage,
                       mainColor: kTextColor,
                       tapColor: kPrimaryColor,
                       onTap: () {
@@ -81,7 +81,7 @@ class RegistrationPage extends StatelessWidget {
                     UsualTextButton(
                       text: 'Sing up',
                       isSelected: !isLoginPage,
-                      isActive: !isLoginPage,
+                      isActive: isLoginPage,
                       mainColor: kTextColor,
                       tapColor: kPrimaryColor,
                       onTap: () {
@@ -126,7 +126,7 @@ class RegistrationPage extends StatelessWidget {
                 ),
               )
             ),
-            isMaybeBtn ? const MaybeLaterButton() : const GoBackButton()
+            isMaybeBtn ? const MaybeLaterButton() : const DownBackButton()
           ],
         ),
       ),

@@ -61,7 +61,7 @@ class _UsualTextButtonState extends State<UsualTextButton> {
             _color = widget.mainColor;
           });
         },
-        onTap: widget.isActive ? null : widget.onTap,
+        onTap: widget.isActive ? widget.onTap : null,
         child: Text(
           widget.text,
           style: registerSwitchStyle.copyWith(color: _color),
