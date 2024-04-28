@@ -1,3 +1,4 @@
+import 'package:fithub/features/registration/widgets/elements/input_field.dart';
 import 'package:fithub/features/registration/widgets/registration_page.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
@@ -10,35 +11,89 @@ class SecondRegistrationScreen extends StatefulWidget {
 }
 
 class _SecondRegistrationScreenState extends State<SecondRegistrationScreen> {
+  final _formKey = GlobalKey<FormState>();
+
+  final ScrollController _scrollController = ScrollController();
+  final TextEditingController _firstNameController = TextEditingController();
+  final TextEditingController _lastNameController = TextEditingController();
+  final TextEditingController _userTagController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        RegistrationPage(
-          urlImage: 'assets/images/registration/registration.png',
-          title: 'That\'s ',
-          secTitle: 'almost all,',
-          subTitle: 'It remains to enter only your full name\nand a unique user tag',
-          buttonText: 'Sign up',
-          isButton: true,
-          isLogin: false,
-          imageHeight: 0.55,
-          onPressed: () {},
-          child: const Center()
-        ),
-        Positioned(
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: MediaQuery.of(context).size.height * 8 / 13,
-          child: ClipPath(
-            clipper: TrapezoidClipper(),
-            child: Container(
-              color: kBackgroundColor,
-            ),
+    return Scaffold(
+      resizeToAvoidBottomInset: true,
+      body: Form(
+        key: _formKey,
+        child: SingleChildScrollView(
+          controller: _scrollController,
+          child: Stack(
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                child: RegistrationPage(
+                  urlImage: 'assets/images/registration/registration.png',
+                  title: 'That\'s ',
+                  secTitle: 'almost all,',
+                  subTitle: 'It remains to enter only your full name\nand a unique user tag',
+                  buttonText: 'Sing up',
+                  isMaybeBtn: false,
+                  isLoginPage: false,
+                  imageHeight: 0.55,
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+
+                    }
+                  },
+                  child: Column(
+                    children: [
+                      InputField(
+                        labelText: 'First name',
+                        isObscure: false,
+                        isEmail: false,
+                        isPassword: false,
+                        isTag: false,
+                        controller: _firstNameController,
+                        passwordController: null
+                      ),
+                      InputField(
+                        labelText: 'Last name',
+                        isObscure: false,
+                        isEmail: false,
+                        isPassword: false,
+                        isTag: false,
+                        controller: _lastNameController,
+                        passwordController: null
+                      ),
+                      InputField(
+                        labelText: 'User tag',
+                        isObscure: true,
+                        isEmail: false,
+                        isPassword: false,
+                        isTag: true,
+                        controller: _userTagController,
+                        passwordController: null
+                      )
+                    ],
+                  )
+                ),
+              ),
+              Positioned(
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: MediaQuery.of(context).size.height * 8 / 13,
+                child: ClipPath(
+                  clipper: TrapezoidClipper(),
+                  child: Container(
+                    color: kBackgroundColor,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
-      ],
+      ),
     );
   }
 }

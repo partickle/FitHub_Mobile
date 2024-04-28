@@ -1,6 +1,9 @@
+import 'package:fithub/widgets/elements/go_back_button.dart';
+import 'package:fithub/features/registration/widgets/elements/maybe_later_button.dart';
+import 'package:fithub/widgets/elements/next_button.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
-import 'package:fithub/features/registration/widgets/elements/login_button.dart';
+import 'package:fithub/features/registration/widgets/elements/usual_text_button.dart';
 import 'package:fithub/features/registration/screens/authorization_screen.dart';
 import 'package:fithub/features/registration/screens/first_registration_screen.dart';
 
@@ -10,8 +13,8 @@ class RegistrationPage extends StatelessWidget {
   final String secTitle;
   final String subTitle;
   final String buttonText;
-  final bool isButton;
-  final bool isLogin;
+  final bool isMaybeBtn;
+  final bool isLoginPage;
   final double imageHeight;
   final VoidCallback onPressed;
   final Widget child;
@@ -23,8 +26,8 @@ class RegistrationPage extends StatelessWidget {
     required this.secTitle,
     required this.subTitle,
     required this.buttonText,
-    required this.isButton,
-    required this.isLogin,
+    required this.isMaybeBtn,
+    required this.isLoginPage,
     required this.imageHeight,
     required this.onPressed,
     required this.child
@@ -61,9 +64,12 @@ class RegistrationPage extends StatelessWidget {
                 alignment: Alignment.topLeft,
                 child: Row(
                   children: [
-                    LoginButton(
+                    UsualTextButton(
                       text: 'Login',
-                      isSelected: isLogin,
+                      isSelected: isLoginPage,
+                      isActive: isLoginPage,
+                      mainColor: kTextColor,
+                      tapColor: kPrimaryColor,
                       onTap: () {
                         // AutoRouter.of(context).replace(AuthorizationRoute());
                         Navigator.of(context).pushReplacement(
@@ -72,9 +78,12 @@ class RegistrationPage extends StatelessWidget {
                       }
                     ),
                     const SizedBox(width: 30),
-                    LoginButton(
+                    UsualTextButton(
                       text: 'Sing up',
-                      isSelected: !isLogin,
+                      isSelected: !isLoginPage,
+                      isActive: !isLoginPage,
+                      mainColor: kTextColor,
+                      tapColor: kPrimaryColor,
                       onTap: () {
                         Navigator.of(context).pushReplacement(
                           MaterialPageRoute(builder: (BuildContext context) => const FirstRegistrationScreen())
@@ -116,53 +125,15 @@ class RegistrationPage extends StatelessWidget {
                   ],
                 ),
               )
-
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 25, bottom: 37),
-              child: Align(
-                alignment: Alignment.bottomLeft,
-                child: TextButton(
-                  style: TextButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                    foregroundColor: kSecBackgroundColor,
-                    elevation: 0
-                  ),
-                  onPressed: () {
-                    // AutoRouter.of(context).replace(HomeRoute());
-                  },
-                  child: Text(
-                    'Maybe later',
-                    style: registerMaybeStyle.copyWith(color: kTextColor),
-                  ),
-                ),
-              ),
-            )
+            isMaybeBtn ? const MaybeLaterButton() : const GoBackButton()
           ],
         ),
       ),
-      floatingActionButton: !(isButton)? null: Padding(
-        padding: const EdgeInsets.only(bottom: 20, right: 10),
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-            foregroundColor: kSecTextColor,
-            backgroundColor: kPrimaryColor,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(28),
-            ),
-          ),
-          onPressed: onPressed,
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Padding(padding: EdgeInsets.only(left: 12)),
-              Text(buttonText, style: onboardNextButStyle),
-              const Icon(Icons.arrow_right, size: 33)
-            ],
-          ),
-        ),
-      ),
+      floatingActionButton: NextButton(
+        buttonText: buttonText,
+        onPressed: onPressed
+      )
     );
   }
 }

@@ -8,6 +8,7 @@ class InputField extends StatefulWidget {
   final bool isPassword;
   final bool isTag;
   final TextEditingController controller;
+  final TextEditingController? passwordController;
 
   const InputField({
     super.key,
@@ -17,6 +18,7 @@ class InputField extends StatefulWidget {
     required this.isPassword,
     required this.isTag,
     required this.controller,
+    required this.passwordController
   });
 
   @override
@@ -25,13 +27,11 @@ class InputField extends StatefulWidget {
 
 class _InputFieldState extends State<InputField> {
   late bool _passwordVisible;
-  late String? _errorText;
 
   @override
   void initState() {
     super.initState();
     _passwordVisible = !widget.isObscure;
-    _errorText = null;
   }
 
   @override
@@ -44,7 +44,7 @@ class _InputFieldState extends State<InputField> {
         style: registerInputStyle,
         decoration: InputDecoration(
           labelText: widget.labelText,
-          errorText: _errorText,
+          errorStyle: registerInputStyle,
           floatingLabelStyle: registerInputStyle.copyWith(color: kPrimaryColor),
           focusedBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: kThirdBackgroundColor),
@@ -55,12 +55,16 @@ class _InputFieldState extends State<InputField> {
           if (value!.isEmpty) {
             return ('Please Enter Your ${widget.labelText}');
           }
-          if (widget.isEmail && !RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+          if (widget.isEmail && !RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+\\.[a-z]+")
               .hasMatch(value)) {
-            return ("Please Enter a valid email");
+            return ("Please enter a valid email");
           }
           if (widget.isPassword && !RegExp(r'^.{6,}$').hasMatch(value)) {
-            return ("Enter Valid Password(Min. 6 Character)");
+            return ("Enter valid password (min. 6 character)");
+          }
+          if (widget.passwordController != null && 
+              widget.passwordController?.text != value) {
+            return ("Passwords don't match");
           }
           if (widget.isTag) {
             return null;
