@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
+import 'package:auto_route/auto_route.dart';
 
 class UpBackButton extends StatelessWidget {
   final bool isLeft;
@@ -28,8 +29,7 @@ class UpBackButton extends StatelessWidget {
             shape: const CircleBorder()
           ),
           onPressed: () {
-            Navigator.of(context).pop();
-            //AutoRouter.of(context).maybePop();
+            AutoRouter.of(context).maybePop();
           },
           child: const Icon(Icons.arrow_back_ios, size: 25),
         ),

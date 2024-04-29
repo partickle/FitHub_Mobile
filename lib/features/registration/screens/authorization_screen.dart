@@ -1,10 +1,12 @@
-import 'package:fithub/features/registration/screens/forgot_password_screen.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:fithub/router/app_router.dart';
 import 'package:fithub/features/registration/widgets/elements/input_field.dart';
 import 'package:fithub/features/registration/widgets/elements/usual_text_button.dart';
 import 'package:fithub/features/registration/widgets/registration_page.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
 
+@RoutePage()
 class AuthorizationScreen extends StatefulWidget {
   const AuthorizationScreen({super.key});
 
@@ -83,11 +85,7 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
                             mainColor: kPrimaryColor,
                             tapColor: kPressedColor,
                             onTap: () {
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (BuildContext context) => const ForgotPasswordScreen()
-                                )
-                              );
+                              AutoRouter.of(context).push(const ForgotPasswordRoute());
                             }
                           ),
                         ),

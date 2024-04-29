@@ -1,8 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:fithub/features/registration/widgets/elements/input_field.dart';
 import 'package:fithub/features/registration/widgets/registration_page.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
 
+@RoutePage()
 class SecondRegistrationScreen extends StatefulWidget {
   const SecondRegistrationScreen({super.key});
 
@@ -50,9 +52,7 @@ class _SecondRegistrationScreenState extends State<SecondRegistrationScreen> {
                   isLoginPage: false,
                   imageHeight: 0.5,
                   onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-
-                    }
+                    if (_formKey.currentState!.validate()) {}
                   },
                   child: Column(
                     children: [

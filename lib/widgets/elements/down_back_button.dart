@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
+import 'package:auto_route/auto_route.dart';
 
 class DownBackButton extends StatelessWidget {
  const DownBackButton({super.key});
@@ -22,8 +23,7 @@ class DownBackButton extends StatelessWidget {
             ),
           ),
           onPressed: () {
-            Navigator.of(context).pop();
-            //AutoRouter.of(context).maybePop();
+            AutoRouter.of(context).maybePop();
           },
           child: const Icon(Icons.arrow_back, size: 25),
         ),

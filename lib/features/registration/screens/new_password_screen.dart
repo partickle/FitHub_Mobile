@@ -1,7 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:fithub/features/registration/widgets/elements/input_field.dart';
 import 'package:fithub/features/registration/widgets/forgot_password_page.dart';
 import 'package:flutter/material.dart';
 
+@RoutePage()
 class NewPasswordScreen extends StatefulWidget {
   const NewPasswordScreen({super.key});
 

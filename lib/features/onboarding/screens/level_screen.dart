@@ -1,8 +1,9 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
 import 'package:fithub/features/onboarding/widgets/onboarding_page.dart';
 import 'package:fithub/features/onboarding/widgets/elements/wheel_scroll.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:fithub/router/app_router.dart';
 
 @RoutePage()
 class LevelScreen extends StatefulWidget {
@@ -32,7 +33,7 @@ class _LevelScreenState extends State<LevelScreen> {
       isBackBtn: true,
       isNextBtn: true,
       onPressed: () { 
-        // AutoRouter.of(context).popAndPushAll(const HomeRoute());
+        AutoRouter.of(context).replace(const AuthorizationRoute());
       }, 
       child: OnboardingWheelScroll(
         initialItem: selectedGoal,

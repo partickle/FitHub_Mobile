@@ -21,6 +21,24 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const AgeScreen(),
       );
     },
+    AuthorizationRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AuthorizationScreen(),
+      );
+    },
+    FirstRegistrationRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const FirstRegistrationScreen(),
+      );
+    },
+    ForgotPasswordRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ForgotPasswordScreen(),
+      );
+    },
     GenderRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -37,6 +55,24 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const LevelScreen(),
+      );
+    },
+    NewPasswordRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const NewPasswordScreen(),
+      );
+    },
+    SecondRegistrationRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SecondRegistrationScreen(),
+      );
+    },
+    VerificationRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const VerificationScreen(),
       );
     },
     WelcomeRoute.name: (routeData) {
@@ -58,6 +94,48 @@ class AgeRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'AgeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [AuthorizationScreen]
+class AuthorizationRoute extends PageRouteInfo<void> {
+  const AuthorizationRoute({List<PageRouteInfo>? children})
+      : super(
+          AuthorizationRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AuthorizationRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [FirstRegistrationScreen]
+class FirstRegistrationRoute extends PageRouteInfo<void> {
+  const FirstRegistrationRoute({List<PageRouteInfo>? children})
+      : super(
+          FirstRegistrationRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'FirstRegistrationRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ForgotPasswordScreen]
+class ForgotPasswordRoute extends PageRouteInfo<void> {
+  const ForgotPasswordRoute({List<PageRouteInfo>? children})
+      : super(
+          ForgotPasswordRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ForgotPasswordRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -100,6 +178,48 @@ class LevelRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'LevelRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [NewPasswordScreen]
+class NewPasswordRoute extends PageRouteInfo<void> {
+  const NewPasswordRoute({List<PageRouteInfo>? children})
+      : super(
+          NewPasswordRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'NewPasswordRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SecondRegistrationScreen]
+class SecondRegistrationRoute extends PageRouteInfo<void> {
+  const SecondRegistrationRoute({List<PageRouteInfo>? children})
+      : super(
+          SecondRegistrationRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SecondRegistrationRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [VerificationScreen]
+class VerificationRoute extends PageRouteInfo<void> {
+  const VerificationRoute({List<PageRouteInfo>? children})
+      : super(
+          VerificationRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'VerificationRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

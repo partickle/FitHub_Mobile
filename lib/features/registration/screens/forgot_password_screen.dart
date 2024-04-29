@@ -1,8 +1,10 @@
-import 'package:fithub/features/registration/screens/verification_screen.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:fithub/router/app_router.dart';
 import 'package:fithub/features/registration/widgets/elements/input_field.dart';
 import 'package:fithub/features/registration/widgets/forgot_password_page.dart';
 import 'package:flutter/material.dart';
 
+@RoutePage()
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});
 
@@ -41,11 +43,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               isSendCode: false,
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (BuildContext context) => const VerificationScreen()
-                    )
-                  );
+                  AutoRouter.of(context).push(const VerificationRoute());
                 }
               },
               child: InputField(

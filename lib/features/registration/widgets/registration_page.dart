@@ -1,11 +1,12 @@
+import 'package:flutter/material.dart';
+import 'package:fithub/constants.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:fithub/router/app_router.dart';
+import 'package:fithub/features/registration/widgets/elements/usual_text_button.dart';
+import 'package:fithub/features/registration/screens/first_registration_screen.dart';
 import 'package:fithub/widgets/elements/down_back_button.dart';
 import 'package:fithub/features/registration/widgets/elements/maybe_later_button.dart';
 import 'package:fithub/widgets/elements/next_button.dart';
-import 'package:flutter/material.dart';
-import 'package:fithub/constants.dart';
-import 'package:fithub/features/registration/widgets/elements/usual_text_button.dart';
-import 'package:fithub/features/registration/screens/authorization_screen.dart';
-import 'package:fithub/features/registration/screens/first_registration_screen.dart';
 
 class RegistrationPage extends StatelessWidget {
   final String urlImage;
@@ -71,10 +72,7 @@ class RegistrationPage extends StatelessWidget {
                       mainColor: kTextColor,
                       tapColor: kPrimaryColor,
                       onTap: () {
-                        // AutoRouter.of(context).replace(AuthorizationRoute());
-                        Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (BuildContext context) => const AuthorizationScreen())
-                        );
+                        AutoRouter.of(context).replace(const AuthorizationRoute());
                       }
                     ),
                     const SizedBox(width: 30),
@@ -85,10 +83,7 @@ class RegistrationPage extends StatelessWidget {
                       mainColor: kTextColor,
                       tapColor: kPrimaryColor,
                       onTap: () {
-                        Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (BuildContext context) => const FirstRegistrationScreen())
-                        );
-                        // AutoRouter.of(context).replace(RegistrationRoute());
+                        AutoRouter.of(context).replace(const FirstRegistrationRoute());
                       }
                     ),
                   ],

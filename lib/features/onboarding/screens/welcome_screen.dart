@@ -36,21 +36,21 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               controller: _controller,
               children: [
                 WelcomePage(
-                  urlImage: 'assets/images/welcome1.jpg',
+                  urlImage: 'assets/images/onboarding/welcome1.jpg',
                   upText: 'Meet with sport,',
                   downText: 'start your journey',
                   isLast: false,
                   onPressed:() {},
                 ),
                 WelcomePage(
-                  urlImage: 'assets/images/welcome2.png',
+                  urlImage: 'assets/images/onboarding/welcome2.png',
                   upText: 'Create a workout plan',
                   downText: 'to stay fit',
                   isLast: false,
                   onPressed: () {},
                 ),
                 WelcomePage(
-                  urlImage: 'assets/images/welcome3.jpg',
+                  urlImage: 'assets/images/onboarding/welcome3.jpg',
                   upText: 'Action is the',
                   downText: 'key to all success',
                   isLast: true,

@@ -1,9 +1,11 @@
-import 'package:fithub/features/registration/screens/second_registration_screen.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:fithub/router/app_router.dart';
 import 'package:fithub/features/registration/widgets/elements/input_field.dart';
 import 'package:fithub/features/registration/widgets/registration_page.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
 
+@RoutePage()
 class FirstRegistrationScreen extends StatefulWidget {
   const FirstRegistrationScreen({super.key});
 
@@ -52,9 +54,7 @@ class _FirstRegistrationScreenState extends State<FirstRegistrationScreen> {
                   imageHeight: 0.5,
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(builder: (BuildContext context) => const SecondRegistrationScreen())
-                      );
+                      AutoRouter.of(context).push(const SecondRegistrationRoute());
                     }
                   },
                   child: Column(

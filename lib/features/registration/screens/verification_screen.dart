@@ -1,8 +1,10 @@
-import 'package:fithub/features/registration/screens/new_password_screen.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:fithub/router/app_router.dart';
 import 'package:fithub/features/registration/widgets/elements/verification_field.dart';
 import 'package:fithub/features/registration/widgets/forgot_password_page.dart';
 import 'package:flutter/material.dart';
 
+@RoutePage()
 class VerificationScreen extends StatefulWidget {
   const VerificationScreen({super.key});
 
@@ -47,11 +49,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                 String fullCode = _controllers.map((controller) => controller.text).join();
 
                 if (int.tryParse(fullCode) == 111111) {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (BuildContext context) => const NewPasswordScreen()
-                    )
-                  );
+                  AutoRouter.of(context).push(const NewPasswordRoute());
                 } else {
                   setState(() {
                     isSendCode = true;
