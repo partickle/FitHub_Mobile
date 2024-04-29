@@ -1,30 +1,17 @@
 import 'package:fithub/constants.dart';
 import 'package:fithub/features/registration/screens/authorization_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import 'package:fithub/fithub_app.dart';
 
 void main() {
-  runApp(const MyApp());
-}
+  WidgetsFlutterBinding.ensureInitialized();
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'FitHub',
-      theme: ThemeData(
-        textSelectionTheme: const TextSelectionThemeData(
-          cursorColor: kPrimaryColor,
-          selectionColor: kPrimaryColor,
-          selectionHandleColor: kPrimaryColor
-        ),
-        scaffoldBackgroundColor: kBackgroundColor,
-        primaryColor: kPrimaryColor,
-        textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
-      ),
-      home: const AuthorizationScreen(),
-    );
-  }
+  runApp(const FitHubApp());
 }
