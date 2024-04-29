@@ -40,7 +40,8 @@ class AppRouter extends _$AppRouter {
     ),
     AutoRoute(
       path: '/registration/authorization',
-      page: AuthorizationRoute.page
+      page: AuthorizationRoute.page,
+      // initial: true
     ),
     AutoRoute(
       path: '/registration/first-registration',

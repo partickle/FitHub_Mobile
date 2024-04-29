@@ -98,7 +98,7 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
                 bottom: 0,
                 left: 0,
                 right: 0,
-                height: MediaQuery.of(context).size.height * 8 / 13,
+                height: MediaQuery.of(context).size.height * 8.1 / 13,
                 child: ClipPath(
                   clipper: TrapezoidClipper(),
                   child: Container(

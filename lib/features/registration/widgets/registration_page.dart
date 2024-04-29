@@ -3,7 +3,6 @@ import 'package:fithub/constants.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:fithub/router/app_router.dart';
 import 'package:fithub/features/registration/widgets/elements/usual_text_button.dart';
-import 'package:fithub/features/registration/screens/first_registration_screen.dart';
 import 'package:fithub/widgets/elements/down_back_button.dart';
 import 'package:fithub/features/registration/widgets/elements/maybe_later_button.dart';
 import 'package:fithub/widgets/elements/next_button.dart';
