@@ -7,7 +7,9 @@ const kTextColor = Color(0xFFFFFFFF);
 const kSecTextColor = Color(0xFF000000);
 const kBackgroundColor = Color(0xFF1c1c1e);
 const kSecBackgroundColor = Color(0xFF2C2C2E);
-const kTimerColor = Color(0xFFFF2424);
+const kThirdBackgroundColor = Color(0xFF505050);
+const kBackButtonColor = Color(0xFF3A3A3C);
+const kErrorColor = Color(0xFFFF2424);
 
 const double kDefaulfPadding = 20.0;
 
@@ -71,5 +73,23 @@ var registerSwitchStyle = GoogleFonts.openSans(
   fontSize: 15,
   fontWeight: FontWeight.w500,
   height: 1,
-  letterSpacing: 0.5,
+);
+
+var registerMaybeStyle = GoogleFonts.openSans(
+  fontSize: 16,
+  fontWeight: FontWeight.w500,
+  height: 1
+);
+
+var registerSubtitleStyle = GoogleFonts.openSans(
+  fontSize: 13,
+  fontWeight: FontWeight.w400,
+  height: 1.4
+);
+
+var registerInputStyle = GoogleFonts.openSans();
+
+var verificationStyle = GoogleFonts.openSans(
+  fontSize: 30,
+  fontWeight: FontWeight.w500
 );

@@ -1,3 +1,5 @@
+import 'package:fithub/constants.dart';
+import 'package:fithub/features/registration/screens/authorization_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
