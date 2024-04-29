@@ -50,6 +50,9 @@ class _VerificationScreenState extends State<VerificationScreen> {
 
                 if (int.tryParse(fullCode) == 111111) {
                   AutoRouter.of(context).push(const NewPasswordRoute());
+                  setState(() {
+                    isSendCode = false;
+                  });
                 } else {
                   setState(() {
                     isSendCode = true;

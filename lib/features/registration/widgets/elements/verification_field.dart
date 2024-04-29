@@ -45,7 +45,7 @@ class VerificationField extends StatelessWidget {
             ),
           ),
         ),
-        style: verificationStyle,
+        style: verificationStyle.copyWith(color: kTextColor),
         onSaved: (pin) {},
         keyboardType: TextInputType.number,
         textAlign: TextAlign.center,

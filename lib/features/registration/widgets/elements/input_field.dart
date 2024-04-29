@@ -41,7 +41,7 @@ class _InputFieldState extends State<InputField> {
       child: TextFormField(
         controller: widget.controller,
         obscureText: !_passwordVisible,
-        style: registerInputStyle.copyWith(color: Colors.white),
+        style: registerInputStyle.copyWith(color: kTextColor),
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
           labelText: widget.labelText,

@@ -1,4 +1,5 @@
-import 'package:auto_route/auto_route.dart';
+import 'package:fithub/widgets/elements/down_back_button.dart';
+import 'package:fithub/widgets/elements/next_button.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
 
@@ -64,53 +65,14 @@ class OnboardingPage extends StatelessWidget {
                 ],
               ),
             ),
-            if (isBackBtn) Positioned(
-              bottom: 35,
-              left: 25,
-              child: SizedBox(
-                width: 55,
-                height: 55,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.all(10),
-                    foregroundColor: kTextColor,
-                    backgroundColor: kSecBackgroundColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(28),
-                    ),
-                  ),
-                  onPressed: () {
-                    AutoRouter.of(context).maybePop();
-                  },
-                  child: const Icon(Icons.arrow_back, size: 25),
-                ),
-              )
-            )
+            if (isBackBtn) const DownBackButton()
           ],
         ),
       ),
-      floatingActionButton: !(isNextBtn)? null: Padding(
-        padding: const EdgeInsets.only(bottom: 20, right: 10),
-        child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-              foregroundColor: kSecTextColor,
-              backgroundColor: kPrimaryColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(28),
-              ),
-            ),
-            onPressed: onPressed,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Padding(padding: EdgeInsets.only(left: 12)),
-                Text(nextBtnText, style: onboardNextButStyle),
-                const Icon(Icons.arrow_right, size: 33)
-              ],
-            ),
-          ),
-        ),
+      floatingActionButton: !(isNextBtn)? null: NextButton(
+        buttonText: nextBtnText,
+        onPressed: onPressed
+      )
     );
   }
 }
