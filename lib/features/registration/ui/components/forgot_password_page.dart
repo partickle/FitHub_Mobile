@@ -1,7 +1,7 @@
 import 'package:fithub/constants.dart';
-import 'package:fithub/features/registration/widgets/elements/usual_text_button.dart';
-import 'package:fithub/widgets/elements/center_elevated_button.dart';
-import 'package:fithub/widgets/elements/up_back_button.dart';
+import 'package:fithub/features/registration/ui/widgets/usual_text_button.dart';
+import 'package:fithub/ui/widgets/center_elevated_button.dart';
+import 'package:fithub/ui/widgets/up_back_button.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPasswordPage extends StatelessWidget {

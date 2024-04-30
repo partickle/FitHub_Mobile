@@ -1,32 +1,38 @@
+import 'package:appmetrica_plugin/appmetrica_plugin.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:fithub/router/app_router.dart';
-import 'package:fithub/features/registration/widgets/elements/input_field.dart';
-import 'package:fithub/features/registration/widgets/registration_page.dart';
+import 'package:fithub/features/registration/ui/widgets/input_field.dart';
+import 'package:fithub/features/registration/ui/components/registration_page.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
 
 @RoutePage()
-class FirstRegistrationScreen extends StatefulWidget {
-  const FirstRegistrationScreen({super.key});
+class SecondRegistrationScreen extends StatefulWidget {
+  const SecondRegistrationScreen({super.key});
 
   @override
-  State<FirstRegistrationScreen> createState() => _FirstRegistrationScreenState();
+  State<SecondRegistrationScreen> createState() => _SecondRegistrationScreenState();
 }
 
-class _FirstRegistrationScreenState extends State<FirstRegistrationScreen> {
+class _SecondRegistrationScreenState extends State<SecondRegistrationScreen> {
   final _formKey = GlobalKey<FormState>();
 
   final ScrollController _scrollController = ScrollController();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _passwordAgainController = TextEditingController();
+  final TextEditingController _firstNameController = TextEditingController();
+  final TextEditingController _lastNameController = TextEditingController();
+  final TextEditingController _userTagController = TextEditingController();
+
+  @override
+  void initState() {
+    AppMetrica.reportEvent('Open second registration screen');
+    super.initState();
+  }
 
   @override
   void dispose() {
     _scrollController.dispose();
-    _emailController.dispose();
-    _passwordController.dispose();
-    _passwordAgainController.dispose();
+    _firstNameController.dispose();
+    _lastNameController.dispose();
+    _userTagController.dispose();
     super.dispose();
   }
 
@@ -45,46 +51,46 @@ class _FirstRegistrationScreenState extends State<FirstRegistrationScreen> {
                 width: MediaQuery.of(context).size.width,
                 child: RegistrationPage(
                   urlImage: 'assets/images/registration/registration.png',
-                  title: 'Hello ',
-                  secTitle: 'rookies,',
-                  subTitle: 'Enter your informations below or\nlogin with a other account',
-                  buttonText: 'Next',
-                  isMaybeBtn: true,
+                  title: 'That\'s ',
+                  secTitle: 'almost all,',
+                  subTitle: 'It remains to enter only your full name\nand a unique user tag',
+                  buttonText: 'Sing up',
+                  isMaybeBtn: false,
                   isLoginPage: false,
                   imageHeight: 0.5,
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      AutoRouter.of(context).push(const SecondRegistrationRoute());
+                      AppMetrica.reportEvent('Registration complete');
                     }
                   },
                   child: Column(
                     children: [
                       InputField(
-                        labelText: 'Email',
+                        labelText: 'First name',
                         isObscure: false,
-                        isEmail: true,
+                        isEmail: false,
                         isPassword: false,
                         isTag: false,
-                        controller: _emailController,
+                        controller: _firstNameController,
                         passwordController: null
                       ),
                       InputField(
-                        labelText: 'Password',
-                        isObscure: true,
+                        labelText: 'Last name',
+                        isObscure: false,
                         isEmail: false,
-                        isPassword: true,
+                        isPassword: false,
                         isTag: false,
-                        controller: _passwordController,
+                        controller: _lastNameController,
                         passwordController: null
                       ),
                       InputField(
-                        labelText: 'Password again',
-                        isObscure: true,
+                        labelText: 'User tag',
+                        isObscure: false,
                         isEmail: false,
-                        isPassword: true,
-                        isTag: false,
-                        controller: _passwordAgainController,
-                        passwordController: _passwordController
+                        isPassword: false,
+                        isTag: true,
+                        controller: _userTagController,
+                        passwordController: null
                       )
                     ],
                   )

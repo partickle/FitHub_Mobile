@@ -1,6 +1,8 @@
+import 'package:appmetrica_plugin/appmetrica_plugin.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:fithub/features/registration/widgets/elements/input_field.dart';
-import 'package:fithub/features/registration/widgets/forgot_password_page.dart';
+import 'package:fithub/features/registration/ui/widgets/input_field.dart';
+import 'package:fithub/features/registration/ui/components/forgot_password_page.dart';
+import 'package:fithub/router/app_router.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
@@ -17,6 +19,12 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
   final ScrollController _scrollController = ScrollController();
   final TextEditingController _newPasswordController = TextEditingController();
   final TextEditingController _confirmPasswordController = TextEditingController();
+
+  @override
+  void initState() {
+    AppMetrica.reportEvent('Open new password screen');
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -43,7 +51,10 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
               buttonText: 'Accept',
               isSendCode: false,
               onPressed: () {
-                if (_formKey.currentState!.validate()) {}
+                if (_formKey.currentState!.validate()) {
+                  AppMetrica.reportEvent('Change password complete');
+                  AutoRouter.of(context).push(const AuthorizationRoute());
+                }
               },
               child: Column(
                 children: [

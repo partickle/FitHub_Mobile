@@ -1,8 +1,9 @@
+import 'package:appmetrica_plugin/appmetrica_plugin.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:fithub/router/app_router.dart';
-import 'package:fithub/features/registration/widgets/elements/input_field.dart';
-import 'package:fithub/features/registration/widgets/elements/usual_text_button.dart';
-import 'package:fithub/features/registration/widgets/registration_page.dart';
+import 'package:fithub/features/registration/ui/widgets/input_field.dart';
+import 'package:fithub/features/registration/ui/widgets/usual_text_button.dart';
+import 'package:fithub/features/registration/ui/components/registration_page.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
 
@@ -20,6 +21,12 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
   final ScrollController _scrollController = ScrollController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+  @override
+  void initState() {
+    AppMetrica.reportEvent('Open authorization screen');
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -52,7 +59,9 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
                   isLoginPage: true,
                   imageHeight: 0.55,
                   onPressed: () {
-                    if (_formKey.currentState!.validate()) {}
+                    if (_formKey.currentState!.validate()) {
+                      AppMetrica.reportEvent('Log in complete');
+                    }
                   },
                   child: Column(
                     children: [

@@ -1,5 +1,5 @@
-import 'package:fithub/widgets/elements/down_back_button.dart';
-import 'package:fithub/widgets/elements/next_button.dart';
+import 'package:fithub/ui/widgets/down_back_button.dart';
+import 'package:fithub/ui/widgets/next_button.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
 

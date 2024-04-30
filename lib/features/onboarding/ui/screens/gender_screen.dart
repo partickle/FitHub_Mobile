@@ -1,8 +1,9 @@
+import 'package:appmetrica_plugin/appmetrica_plugin.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:fithub/router/app_router.dart';
 import 'package:flutter/material.dart';
-import 'package:fithub/features/onboarding/widgets/onboarding_page.dart';
-import 'package:fithub/features/onboarding/widgets/elements/gender_button.dart';
+import 'package:fithub/features/onboarding/ui/components/onboarding_page.dart';
+import 'package:fithub/features/onboarding/ui/widgets/gender_button.dart';
 
 @RoutePage()
 class GenderScreen extends StatefulWidget {
@@ -15,6 +16,12 @@ class GenderScreen extends StatefulWidget {
 class _GenderScreenState extends State<GenderScreen> {
   bool isMaleSelected = false;
   bool isFemaleSelected = false;
+
+  @override
+  void initState() {
+    AppMetrica.reportEvent('Open gender screen');
+    super.initState();
+  }
   
   @override
   Widget build(BuildContext context) {

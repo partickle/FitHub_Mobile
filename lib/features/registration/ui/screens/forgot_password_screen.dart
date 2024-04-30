@@ -1,7 +1,8 @@
+import 'package:appmetrica_plugin/appmetrica_plugin.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:fithub/router/app_router.dart';
-import 'package:fithub/features/registration/widgets/elements/input_field.dart';
-import 'package:fithub/features/registration/widgets/forgot_password_page.dart';
+import 'package:fithub/features/registration/ui/widgets/input_field.dart';
+import 'package:fithub/features/registration/ui/components/forgot_password_page.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
@@ -17,6 +18,12 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
 
   final ScrollController _scrollController = ScrollController();
   final TextEditingController _emailController = TextEditingController();
+
+  @override
+  void initState() {
+    AppMetrica.reportEvent('Open forgot password screen');
+    super.initState();
+  }
 
   @override
   void dispose() {

@@ -1,7 +1,8 @@
+import 'package:appmetrica_plugin/appmetrica_plugin.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:fithub/router/app_router.dart';
-import 'package:fithub/features/registration/widgets/elements/verification_field.dart';
-import 'package:fithub/features/registration/widgets/forgot_password_page.dart';
+import 'package:fithub/features/registration/ui/widgets/verification_field.dart';
+import 'package:fithub/features/registration/ui/components/forgot_password_page.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
@@ -19,6 +20,12 @@ class _VerificationScreenState extends State<VerificationScreen> {
   final List<TextEditingController> _controllers = List.generate(6, (_) => TextEditingController());
 
   late bool isSendCode = false;
+
+  @override
+  void initState() {
+    AppMetrica.reportEvent('Open verification screen');
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -49,6 +56,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                 String fullCode = _controllers.map((controller) => controller.text).join();
 
                 if (int.tryParse(fullCode) == 111111) {
+                  AppMetrica.reportEvent('Verification complete');
                   AutoRouter.of(context).push(const NewPasswordRoute());
                   setState(() {
                     isSendCode = false;

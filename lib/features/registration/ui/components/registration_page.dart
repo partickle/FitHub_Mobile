@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:fithub/router/app_router.dart';
-import 'package:fithub/features/registration/widgets/elements/usual_text_button.dart';
-import 'package:fithub/widgets/elements/down_back_button.dart';
-import 'package:fithub/features/registration/widgets/elements/maybe_later_button.dart';
-import 'package:fithub/widgets/elements/next_button.dart';
+import 'package:fithub/features/registration/ui/widgets/usual_text_button.dart';
+import 'package:fithub/ui/widgets/down_back_button.dart';
+import 'package:fithub/features/registration/ui/widgets/maybe_later_button.dart';
+import 'package:fithub/ui/widgets/next_button.dart';
 
 class RegistrationPage extends StatelessWidget {
   final String urlImage;
