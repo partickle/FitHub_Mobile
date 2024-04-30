@@ -61,7 +61,7 @@ class _FirstRegistrationScreenState extends State<FirstRegistrationScreen> {
                   imageHeight: 0.5,
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      AutoRouter.of(context).push(const SecondRegistrationRoute());
+                      AutoRouter.of(context).push(const VerificationRoute());
                     }
                   },
                   child: Column(

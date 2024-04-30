@@ -55,9 +55,19 @@ class _VerificationScreenState extends State<VerificationScreen> {
               onPressed: () {
                 String fullCode = _controllers.map((controller) => controller.text).join();
 
+                final router = AutoRouter.of(context).stack;
+                final name = router[router.length - 2].name;
+
                 if (int.tryParse(fullCode) == 111111) {
-                  AppMetrica.reportEvent('Verification complete');
-                  AutoRouter.of(context).push(const NewPasswordRoute());
+
+                  if (name == 'ForgotPasswordRoute') {
+                    AppMetrica.reportEvent('Verification for password complete');
+                    AutoRouter.of(context).push(const NewPasswordRoute());
+                  } else {
+                    AppMetrica.reportEvent('Verification for registration complete');
+                    AutoRouter.of(context).replace(const SecondRegistrationRoute());
+                  }
+                  
                   setState(() {
                     isSendCode = false;
                   });

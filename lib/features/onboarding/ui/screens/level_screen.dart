@@ -40,6 +40,7 @@ class _LevelScreenState extends State<LevelScreen> {
       isBackBtn: true,
       isNextBtn: true,
       onPressed: () {
+        AutoRouter.of(context).popUntilRoot();
         AutoRouter.of(context).replace(const AuthorizationRoute());
       }, 
       child: OnboardingWheelScroll(

@@ -2,6 +2,7 @@ import 'package:appmetrica_plugin/appmetrica_plugin.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:fithub/features/registration/ui/widgets/input_field.dart';
 import 'package:fithub/features/registration/ui/components/registration_page.dart';
+import 'package:fithub/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
 
@@ -61,6 +62,9 @@ class _SecondRegistrationScreenState extends State<SecondRegistrationScreen> {
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       AppMetrica.reportEvent('Registration complete');
+                      
+                      AutoRouter.of(context).popUntilRoot();
+                      AutoRouter.of(context).replace(const AuthorizationRoute());
                     }
                   },
                   child: Column(
