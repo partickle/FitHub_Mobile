@@ -9,6 +9,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.6
+  equatable: ^2.0.3
   flutter_svg: ^2.0.0
   bloc: ^8.1.4
   google_fonts: ^6.2.1
