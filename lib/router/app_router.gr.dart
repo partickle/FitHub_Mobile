@@ -27,6 +27,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const AuthorizationScreen(),
       );
     },
+    CourseRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CourseScreen(),
+      );
+    },
     FirstRegistrationRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -49,6 +55,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const GoalScreen(),
+      );
+    },
+    HomeRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const HomeScreen(),
       );
     },
     LevelRoute.name: (routeData) {
@@ -113,6 +125,20 @@ class AuthorizationRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [CourseScreen]
+class CourseRoute extends PageRouteInfo<void> {
+  const CourseRoute({List<PageRouteInfo>? children})
+      : super(
+          CourseRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CourseRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [FirstRegistrationScreen]
 class FirstRegistrationRoute extends PageRouteInfo<void> {
   const FirstRegistrationRoute({List<PageRouteInfo>? children})
@@ -164,6 +190,20 @@ class GoalRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'GoalRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [HomeScreen]
+class HomeRoute extends PageRouteInfo<void> {
+  const HomeRoute({List<PageRouteInfo>? children})
+      : super(
+          HomeRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HomeRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
