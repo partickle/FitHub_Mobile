@@ -13,10 +13,10 @@ class RepeatedSectionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> items = [
       buildMenuItem("Edit Profile", () {
-        print("Edit Profile pressed!");
+       AutoRouter.of(context).push(const EditProfileRoute());
       }),
       buildMenuItem("Privacy Policy", () {
-        print("Privacy Policy pressed!");
+        AutoRouter.of(context).push(const PrivacyRoute());
       }),
       buildMenuItem("Settings", () {
         AutoRouter.of(context).push(const SettingsRoute());
@@ -24,12 +24,12 @@ class RepeatedSectionWidget extends StatelessWidget {
       buildMenuItem("My courses", () {
         print("My courses pressed!");
       }),
-      if (!isProProfile) // Отобразить только если не профиль Pro
+      if (!isProProfile)
         buildPremiumUpgradeSection(() {
           AutoRouter.of(context).push(const PremiumRoute());
         }),
       buildMenuItem("Sign out", () {
-        print("Sign out pressed!");
+       AutoRouter.of(context).push(const AuthorizationRoute());
       }),
     ];
 

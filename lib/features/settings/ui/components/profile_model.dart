@@ -12,7 +12,6 @@ class Profile extends Equatable {
   final String monthSubscription;
   final String userProfileImage;
   final String imageProfileUrl;
-  //final String secondImageProfileUrl;
   final String proImageProfileUrl;
   final bool isPremiumProfile;
   final String urlProfileImage;
@@ -28,7 +27,6 @@ class Profile extends Equatable {
     required this.monthSubscription,
     required this.userProfileImage,
     required this.imageProfileUrl,
-    //required this.secondImageProfileUrl,
     required this.proImageProfileUrl,
     this.isPremiumProfile = false,
     required this.urlProfileImage,

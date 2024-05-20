@@ -1,16 +1,14 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:fithub/constants.dart';
-import 'package:fithub/router/app_router.dart';
 import 'package:flutter/material.dart';
 
-class MyWidget extends StatefulWidget {
-  const MyWidget({Key? key}) : super(key: key);
+class SendButton extends StatefulWidget {
+  const SendButton({Key? key}) : super(key: key);
 
   @override
-  State<MyWidget> createState() => _MyWidgetState();
+  State<SendButton> createState() => _SendButtonState();
 }
 
-class _MyWidgetState extends State<MyWidget> with SingleTickerProviderStateMixin {
+class _SendButtonState extends State<SendButton>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
   @override
@@ -33,17 +31,14 @@ class _MyWidgetState extends State<MyWidget> with SingleTickerProviderStateMixin
         children: <Widget>[
           const SizedBox(height: 50),
           ElevatedButton(
-            onPressed: () {
-              AutoRouter.of(context).push(const ProProfileRoute());
-            },
+            onPressed: () {},
             style: ElevatedButton.styleFrom(
               fixedSize: const Size(263, 50),
-              backgroundColor: kPrimaryColor,
+              backgroundColor: const Color(0xFFD0FD3E),
             ), 
-            child: Text(
-              'Subscribe Now',
-              style: subscribeButtonTextStyle,
-            ),
+            child: const Text('Send',
+            style: TextStyle(color: Colors.black,
+            fontSize: 19, fontWeight: FontWeight.w400),),
           ),
         ],
       ),

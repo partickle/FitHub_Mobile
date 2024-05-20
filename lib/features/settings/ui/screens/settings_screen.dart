@@ -1,10 +1,10 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:fithub/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
-
-  static const routeName = '/settings';
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
@@ -17,7 +17,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
       Center(
         child: Padding(
           padding: const EdgeInsets.only(left: 16),
-          child: buildMenuItem("Notifications"),
+          child: buildMenuItem(
+            "Notifications",
+            () {
+              AutoRouter.of(context).push(const NotificationRoute());
+            },
+          ),
         ),
       ),
       const SizedBox(height: 10),
@@ -25,7 +30,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
       Center(
         child: Padding(
           padding: const EdgeInsets.only(left: 16),
-          child: buildMenuItem("Language"),
+          child: buildMenuItem(
+            "Language",
+            () {
+              AutoRouter.of(context).push(const LanguageRoute());
+            },
+          ),
         ),
       ),
       const SizedBox(height: 10),
@@ -33,7 +43,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
       Center(
         child: Padding(
           padding: const EdgeInsets.only(left: 16),
-          child: buildMenuItem("Contact Us"),
+          child: buildMenuItem(
+            "Contact Us",
+            () {
+              AutoRouter.of(context).push(const ContactUsRoute());
+            },
+          ),
         ),
       ),
       const SizedBox(height: 10),
@@ -41,7 +56,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     ];
   }
 
-  Widget buildMenuItem(String title) {
+  Widget buildMenuItem(String title, VoidCallback onTap) {
     return ListTile(
       title: Text(
         title,
@@ -57,9 +72,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         Icons.keyboard_arrow_right,
         color: Colors.white,
       ),
-      onTap: () {
-        print("Tapped on $title");
-      },
+      onTap: onTap,
     );
   }
 

@@ -11,9 +11,15 @@ import 'package:fithub/features/registration/ui/screens/new_password_screen.dart
 import 'package:fithub/features/registration/ui/screens/second_registration_screen.dart';
 import 'package:fithub/features/registration/ui/screens/verification_screen.dart';
 import 'package:fithub/features/settings/ui/screens/be_premium.dart';
+import 'package:fithub/features/settings/ui/screens/contact_screen.dart';
+import 'package:fithub/features/settings/ui/screens/edit_profile.dart';
+import 'package:fithub/features/settings/ui/screens/language_screen.dart';
+import 'package:fithub/features/settings/ui/screens/notifications_screen.dart';
+import 'package:fithub/features/settings/ui/screens/privacy_screen.dart';
 import 'package:fithub/features/settings/ui/screens/profile_pro_screen.dart';
 import 'package:fithub/features/settings/ui/screens/profile_screen.dart';
 import 'package:fithub/features/settings/ui/screens/settings_screen.dart';
+import 'package:flutter/material.dart';
 
 part 'app_router.gr.dart';
 
@@ -82,6 +88,26 @@ class AppRouter extends _$AppRouter {
      AutoRoute(
       path: '/settings/be-premium',
       page: PremiumRoute.page
+    ),
+    AutoRoute(
+      path: '/settings/edit-profile',
+      page: EditProfileRoute.page
+    ),
+     AutoRoute(
+      path: '/settings/privacy-screen',
+      page: PrivacyRoute.page
+    ),
+    AutoRoute(
+      path: '/settings/notification-screen',
+      page: NotificationRoute.page
+    ),
+    AutoRoute(
+      path: '/settings/language-screen',
+      page: LanguageRoute.page
+    ),
+    AutoRoute(
+      path: '/settings/contact-us',
+      page: ContactUsRoute.page
     ),
   ];
 }

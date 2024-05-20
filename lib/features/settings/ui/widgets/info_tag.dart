@@ -53,7 +53,7 @@ class InfoTag extends StatelessWidget {
             const SizedBox(height: 18),
             RepeatedSectionWidget(
               isProProfile: selectedProfile.isPremiumProfile,
-            ), // Передача isProProfile
+            ),
             const Divider(
               height: 1,
               thickness: 0.1,

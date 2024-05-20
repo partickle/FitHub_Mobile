@@ -30,7 +30,7 @@ class _ProfileScreenState extends State<ProfileScreen>
   @override
   Widget build(BuildContext context) {
     Profile selectedProfile =
-        Profile.profiles.first; // Выбор первого профиля из списка `profiles`
+        Profile.profiles.first;
 
     return Scaffold(
       appBar: AppBar(

@@ -105,6 +105,36 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const BePremium(),
       );
     },
+    EditProfileRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const EditProfile(),
+      );
+    },
+    PrivacyRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PrivacyScreen(),
+      );
+    },
+    NotificationRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const NotificationsScreen(),
+      );
+    },
+    LanguageRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const LanguageScreen(),
+      );
+    },
+    ContactUsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ContactScreen(),
+      );
+    },
   };
 }
 
@@ -318,4 +348,73 @@ class PremiumRoute extends PageRouteInfo<void> {
   static const PageInfo<void> page = PageInfo<void>(name);
 }
 
+// generated route for
+/// [EditProfile]
+class EditProfileRoute extends PageRouteInfo<void> {
+  const EditProfileRoute({List<PageRouteInfo>? children})
+      : super(
+          EditProfileRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'EditRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+// generated route for
+/// [PrivacyScreen]
+class PrivacyRoute extends PageRouteInfo<void> {
+  const PrivacyRoute({List<PageRouteInfo>? children})
+      : super(
+          PrivacyRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PrivacyRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+// generated route for
+/// [NotificationsScreen]
+class NotificationRoute extends PageRouteInfo<void> {
+  const NotificationRoute({List<PageRouteInfo>? children})
+      : super(
+          NotificationRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'NotificationRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+// generated route for
+/// [LanguageScreen]
+class LanguageRoute extends PageRouteInfo<void> {
+  const LanguageRoute({List<PageRouteInfo>? children})
+      : super(
+          LanguageRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'LanguageRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+// generated route for
+/// [ContactScreen]
+class ContactUsRoute extends PageRouteInfo<void> {
+  const ContactUsRoute({List<PageRouteInfo>? children})
+      : super(
+          ContactUsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ContactUsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
 
