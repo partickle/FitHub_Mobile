@@ -6,7 +6,7 @@ Widget buildMenuItem(String text, VoidCallback onTap) {
   return GestureDetector(
     onTap: onTap,
     child: Container(
-      padding: EdgeInsets.symmetric(vertical: 10.0), // добавленный padding
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: Text(
         text,
         style: TextStyle(

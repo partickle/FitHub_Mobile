@@ -1,14 +1,12 @@
-import 'package:fithub/features/settings/components/profile_model.dart';
-import 'package:fithub/features/settings/widgets/profile_picture.dart';
-import 'package:fithub/features/settings/widgets/repeated_section_widget.dart';
+import 'package:fithub/features/settings/ui/components/profile_model.dart';
+import 'package:fithub/features/settings/ui/widgets/profile_picture.dart';
+import 'package:fithub/features/settings/ui/widgets/repeated_section_widget.dart';
 import 'package:flutter/material.dart';
 
-
-
-class SettingsScreen extends StatelessWidget {
+class InfoTag extends StatelessWidget {
   final Profile selectedProfile;
 
-  const SettingsScreen({Key? key, required this.selectedProfile}) : super(key: key);
+  const InfoTag({Key? key, required this.selectedProfile}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,15 +46,17 @@ class SettingsScreen extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 15.0,
                   fontWeight: FontWeight.w400,
-                  color: Colors.grey,
+                  color: Color(0xFFFFFFFF),
                 ),
               ),
             ),
             const SizedBox(height: 18),
-            RepeatedSectionWidget(), 
+            RepeatedSectionWidget(
+              isProProfile: selectedProfile.isPremiumProfile,
+            ), // Передача isProProfile
             const Divider(
               height: 1,
-              thickness: 1,
+              thickness: 0.1,
               color: Color.fromRGBO(158, 158, 158, 1),
               indent: 20,
               endIndent: 20,
@@ -65,7 +65,7 @@ class SettingsScreen extends StatelessWidget {
           ],
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 100.0),
+          padding: const EdgeInsets.only(top: 50.0),
           child: Positioned(
             child: Align(
               alignment: Alignment.center,
@@ -73,7 +73,7 @@ class SettingsScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Container(
                   width: 2,
-                  height: 100,
+                  height: 150,
                   color: const Color.fromRGBO(158, 158, 158, 1),
                 ),
               ),
@@ -81,7 +81,7 @@ class SettingsScreen extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 100,
+          top: 50,
           right: 50,
           child: Align(
             alignment: Alignment.center,
@@ -95,7 +95,7 @@ class SettingsScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 14.0,
                       fontWeight: FontWeight.w400,
-                      color: Colors.grey,
+                      color: Color(0xFFFFFFFF),
                     ),
                   ),
                   const SizedBox(height: 10),
@@ -106,10 +106,42 @@ class SettingsScreen extends StatelessWidget {
                       style: const TextStyle(
                         fontSize: 15.0,
                         fontWeight: FontWeight.w400,
-                        color: Colors.grey,
+                        color: Color(0xFFFFFFFF),
                       ),
                     ),
                   ),
+                  if (selectedProfile.isPremiumProfile)
+                    Column(
+                      children: [
+                        const SizedBox(height: 10),
+                        Text(
+                          selectedProfile.proMember,
+                          style: const TextStyle(
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xFFFF2424),
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        Text(
+                          selectedProfile.untilDate,
+                          style: const TextStyle(
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xFFFFFFFF),
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        Text(
+                          selectedProfile.monthSubscription,
+                          style: const TextStyle(
+                            fontSize: 13.0,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xFFFFFFFF),
+                          ),
+                        ),
+                      ],
+                    ),
                 ],
               ),
             ),

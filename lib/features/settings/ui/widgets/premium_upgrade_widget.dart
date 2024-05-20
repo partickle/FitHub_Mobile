@@ -19,7 +19,7 @@ Widget buildPremiumUpgradeSection(VoidCallback onTap) {
             height: 16,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/icons/pro.png'),
+                image: AssetImage('assets/images/settings/pro_image.png'),
                 fit: BoxFit.contain,
               ),
             ),

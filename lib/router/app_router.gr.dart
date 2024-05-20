@@ -81,6 +81,30 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const WelcomeScreen(),
       );
     },
+    ProfileRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ProfileScreen(),
+      );
+    },
+    ProProfileRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ProfileProScreen(),
+      );
+    },
+    SettingsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SettingsScreen(),
+      );
+    },
+    PremiumRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const BePremium(),
+      );
+    },
   };
 }
 
@@ -237,3 +261,61 @@ class WelcomeRoute extends PageRouteInfo<void> {
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
+
+// generated route for
+/// [ProfileScreen]
+class ProfileRoute extends PageRouteInfo<void> {
+  const ProfileRoute({List<PageRouteInfo>? children})
+      : super(
+          ProfileRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ProfileRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+// generated route for
+/// [ProfileProScreen]
+class ProProfileRoute extends PageRouteInfo<void> {
+  const ProProfileRoute({List<PageRouteInfo>? children})
+      : super(
+          ProProfileRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ProProfileRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+// generated route for
+/// [SettingsScreen]
+class SettingsRoute extends PageRouteInfo<void> {
+  const SettingsRoute({List<PageRouteInfo>? children})
+      : super(
+          SettingsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SettingsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+// generated route for
+/// [BePremium]
+class PremiumRoute extends PageRouteInfo<void> {
+  const PremiumRoute({List<PageRouteInfo>? children})
+      : super(
+          PremiumRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PremiumRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+

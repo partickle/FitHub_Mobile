@@ -10,6 +10,10 @@ import 'package:fithub/features/registration/ui/screens/forgot_password_screen.d
 import 'package:fithub/features/registration/ui/screens/new_password_screen.dart';
 import 'package:fithub/features/registration/ui/screens/second_registration_screen.dart';
 import 'package:fithub/features/registration/ui/screens/verification_screen.dart';
+import 'package:fithub/features/settings/ui/screens/be_premium.dart';
+import 'package:fithub/features/settings/ui/screens/profile_pro_screen.dart';
+import 'package:fithub/features/settings/ui/screens/profile_screen.dart';
+import 'package:fithub/features/settings/ui/screens/settings_screen.dart';
 
 part 'app_router.gr.dart';
 
@@ -20,7 +24,7 @@ class AppRouter extends _$AppRouter {
     AutoRoute(
       path: '/onboarding',
       page: WelcomeRoute.page,
-      initial: true,
+      //initial: true,
     ),
     AutoRoute(
       path: '/onboarding/gender',
@@ -61,6 +65,23 @@ class AppRouter extends _$AppRouter {
     AutoRoute(
       path: '/registration/new-password',
       page: NewPasswordRoute.page
+    ),
+    AutoRoute(
+      path: '/settings/profile',
+      page: ProfileRoute.page,
+      initial: true,
+    ),
+     AutoRoute(
+      path: '/settings/pro-profile',
+      page: ProProfileRoute.page
+    ),
+     AutoRoute(
+      path: '/settings/settings-screen',
+      page: SettingsRoute.page
+    ),
+     AutoRoute(
+      path: '/settings/be-premium',
+      page: PremiumRoute.page
     ),
   ];
 }

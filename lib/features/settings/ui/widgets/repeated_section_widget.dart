@@ -1,33 +1,34 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:fithub/features/settings/ui/widgets/menu_item_widget.dart';
+import 'package:fithub/features/settings/ui/widgets/premium_upgrade_widget.dart';
+import 'package:fithub/router/app_router.dart';
 import 'package:flutter/material.dart';
-import 'package:fithub_app/pages/main_page/widgets/profile/menu_item_widget.dart';
-import 'package:fithub_app/pages/main_page/widgets/profile/premium_upgrade_widget.dart';
 
 class RepeatedSectionWidget extends StatelessWidget {
+  final bool isProProfile;
+
+  RepeatedSectionWidget({required this.isProProfile});
+
   @override
   Widget build(BuildContext context) {
     List<Widget> items = [
       buildMenuItem("Edit Profile", () {
-        // Action on Edit Profile tap
         print("Edit Profile pressed!");
       }),
       buildMenuItem("Privacy Policy", () {
-        // Action on Privacy Policy tap
         print("Privacy Policy pressed!");
       }),
       buildMenuItem("Settings", () {
-        // Action on Settings tap
-        print("Settings pressed!");
+        AutoRouter.of(context).push(const SettingsRoute());
       }),
       buildMenuItem("My courses", () {
-        // Action on My courses tap
         print("My courses pressed!");
       }),
-      buildPremiumUpgradeSection(() {
-        // Action on Premium Upgrade tap
-        print("Upgrade button pressed!");
-      }),
+      if (!isProProfile) // Отобразить только если не профиль Pro
+        buildPremiumUpgradeSection(() {
+          AutoRouter.of(context).push(const PremiumRoute());
+        }),
       buildMenuItem("Sign out", () {
-        // Action on Sign out tap
         print("Sign out pressed!");
       }),
     ];
@@ -35,8 +36,7 @@ class RepeatedSectionWidget extends StatelessWidget {
     return Column(
       children: List.generate(items.length, (index) {
         Widget item = items[index];
-        bool isPremiumUpgradeSection =
-            item is GestureDetector &&
+        bool isPremiumUpgradeSection = item is GestureDetector &&
             item.child != null &&
             item.child is Container &&
             (item.child as Container).child != null &&
@@ -47,13 +47,14 @@ class RepeatedSectionWidget extends StatelessWidget {
             const SizedBox(height: 9),
             const Divider(
               height: 1,
-              thickness: 1,
-              color: Color.fromRGBO(158, 158, 158, 1),
+              thickness: 0.1,
+              color: Color(0xFFFFFFFF),
               indent: 20,
               endIndent: 20,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -61,12 +62,13 @@ class RepeatedSectionWidget extends StatelessWidget {
                   Expanded(
                     child: item,
                   ),
-                  if (!isPremiumUpgradeSection)
+                  if (!isPremiumUpgradeSection || !isProProfile)
                     InkWell(
                       onTap: () {
                         print("Icon tapped! Index: $index");
                       },
-                      child: const Icon(Icons.forward, color: Colors.white),
+                      child: const Icon(Icons.keyboard_arrow_right,
+                          color: Colors.white),
                     ),
                   const SizedBox(width: 5),
                 ],

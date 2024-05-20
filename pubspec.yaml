@@ -17,6 +17,7 @@ dependencies:
   shared_preferences: ^2.2.3
   auto_route: ^8.1.2
   get_it: ^7.7.0
+  line_awesome_flutter: ^2.0.0
   flutter_bloc: ^8.1.5
   email_validator: ^2.1.17
   appmetrica_plugin: ^2.0.0
@@ -51,3 +52,4 @@ flutter:
     - assets/icons/logo.svg
     - assets/images/registration/
     - assets/images/onboarding/
+    - assets/images/settings/
