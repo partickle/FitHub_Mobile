@@ -13,6 +13,24 @@ const kErrorColor = Color(0xFFFF2424);
 
 const double kDefaulfPadding = 20.0;
 
+const String baseUrl = 'https://40a0-83-139-159-199.ngrok-free.app';
+
+final List<String> goals = [
+  'Gain Weight',
+  'Lose weight',
+  'Get fitter',
+  'Gain more flexible',
+  'Learn the basics'
+];
+
+final List<String> levels = [
+  'Rookie',
+  'Beginner',
+  'Intermediate',
+  'Advance',
+  'True Beast'
+];
+
 var welcomeUpStyle = GoogleFonts.openSans(
   fontSize: 34,
   fontWeight: FontWeight.w300,

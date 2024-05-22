@@ -19,6 +19,8 @@ dependencies:
   flutter_bloc: ^8.1.5
   email_validator: ^2.1.17
   appmetrica_plugin: ^2.0.0
+  http: ^1.2.1
+  flutter_secure_storage: ^4.2.1
 
 flutter_icons:
   image_path: "assets/icons/app_icon.png"

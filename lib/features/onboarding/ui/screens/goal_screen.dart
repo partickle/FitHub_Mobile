@@ -25,14 +25,6 @@ class _GoalScreenState extends State<GoalScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> goals = [
-      'Gain Weight',
-      'Lose weight',
-      'Get fitter',
-      'Gain more flexible',
-      'Learn the basics'
-    ];
-
     return OnboardingPage(
       title: 'What\'s your goal?',
       subtitle: 'This helps us create your personalized plan',
