@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:fithub/features/course/screens/warm_up_screen.dart';
 import 'package:fithub/features/onboarding/ui/screens/age_screen.dart';
 import 'package:fithub/features/onboarding/ui/screens/gender_screen.dart';
 import 'package:fithub/features/onboarding/ui/screens/goal_screen.dart';
@@ -20,7 +21,7 @@ class AppRouter extends _$AppRouter {
     AutoRoute(
       path: '/onboarding',
       page: WelcomeRoute.page,
-      initial: true,
+      //initial: true,
     ),
     AutoRoute(
       path: '/onboarding/gender',
@@ -61,6 +62,11 @@ class AppRouter extends _$AppRouter {
     AutoRoute(
       path: '/registration/new-password',
       page: NewPasswordRoute.page
+    ),
+    AutoRoute(
+      path: '/course/warm-up',
+      page: WorkoutViewRoute.page,
+      initial: true
     ),
   ];
 }

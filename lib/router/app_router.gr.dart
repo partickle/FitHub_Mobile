@@ -81,6 +81,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const WelcomeScreen(),
       );
     },
+     WorkoutViewRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: WarmUpScreen(),
+      );
+    },
   };
 }
 
@@ -234,6 +240,20 @@ class WelcomeRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'WelcomeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [WarmUpScreen]
+class WorkoutViewRoute extends PageRouteInfo<void> {
+  const WorkoutViewRoute({List<PageRouteInfo>? children})
+      : super(
+          WorkoutViewRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'WorkoutViewRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
