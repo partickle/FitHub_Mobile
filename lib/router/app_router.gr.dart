@@ -87,6 +87,13 @@ abstract class _$AppRouter extends RootStackRouter {
         child: WarmUpScreen(),
       );
     },
+      BreakScreenRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: BreakScreen(),
+      );
+    },
+
   };
 }
 
@@ -254,6 +261,20 @@ class WorkoutViewRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'WorkoutViewRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [BreakScreen]
+class BreakScreenRoute extends PageRouteInfo<void> {
+  const BreakScreenRoute({List<PageRouteInfo>? children})
+      : super(
+          BreakScreenRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'BreakScreenRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
