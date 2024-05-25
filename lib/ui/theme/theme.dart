@@ -2,6 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
 
 final mainTheme = ThemeData(
+  textButtonTheme: TextButtonThemeData(
+    
+    style: TextButton.styleFrom(
+      foregroundColor: Colors.white,
+      disabledForegroundColor: kBackgroundColor.withAlpha(140),
+      disabledBackgroundColor: kBackgroundColor.withAlpha(140),
+    ),
+  ),
   textSelectionTheme: const TextSelectionThemeData(
     cursorColor: kPrimaryColor,
     selectionColor: kPrimaryColor,
