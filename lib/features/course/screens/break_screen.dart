@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:auto_route/auto_route.dart';
+import 'package:fithub/router/app_router.dart';
 import 'package:flutter/material.dart';
 
 class BreakScreen extends StatefulWidget {
@@ -23,7 +25,7 @@ class _BreakScreenState extends State<BreakScreen> {
   }
 
   void _startTimer() {
-    const totalDuration = 60;
+    const totalDuration = 10;
     const interval = 1;
 
     _timer = Timer.periodic(const Duration(seconds: interval), (timer) {
@@ -32,6 +34,7 @@ class _BreakScreenState extends State<BreakScreen> {
         if (_progress <= 0) {
           _progress = 0;
           _timer?.cancel();
+          AutoRouter.of(context).push(const SecondExerciseRoute());
         }
       });
     });

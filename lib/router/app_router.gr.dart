@@ -93,7 +93,18 @@ abstract class _$AppRouter extends RootStackRouter {
         child: BreakScreen(),
       );
     },
-
+      FirstExerciseRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: FirstExercise(),
+      );
+    },
+    SecondExerciseRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: SecondExercise(),
+      );
+    },
   };
 }
 
@@ -278,3 +289,32 @@ class BreakScreenRoute extends PageRouteInfo<void> {
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
+
+/// generated route for
+/// [FirstExercise]
+class FirstExerciseRoute extends PageRouteInfo<void> {
+  const FirstExerciseRoute({List<PageRouteInfo>? children})
+      : super(
+          FirstExerciseRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'FirstExerciseRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SecondExercise]
+class SecondExerciseRoute extends PageRouteInfo<void> {
+  const SecondExerciseRoute({List<PageRouteInfo>? children})
+      : super(
+          SecondExerciseRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SecondExerciseRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
