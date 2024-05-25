@@ -8,7 +8,6 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
   UserBloc({required this.userRepository}) : super(UserInitial());
 
-  @override
   Stream<UserState> mapEventToState(UserEvent event) async* {
     if (event is FetchUser) {
       yield UserLoading();
