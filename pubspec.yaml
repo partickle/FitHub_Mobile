@@ -48,6 +48,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/icons/logo.svg
+    - assets/icons/
     - assets/images/registration/
     - assets/images/onboarding/
+    - assets/images/courses/

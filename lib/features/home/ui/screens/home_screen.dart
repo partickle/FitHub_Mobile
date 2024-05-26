@@ -1,5 +1,6 @@
 
 import 'package:auto_route/auto_route.dart';
+import 'package:fithub/features/home/ui/widgets/course_card.dart';
 import 'package:fithub/features/home/ui/widgets/course_splash.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
@@ -37,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen>{
                     style: homeSubtitleStyle, 
                   ),
                   const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 60),
+                    padding: EdgeInsets.symmetric(vertical: 50),
                     child: CourseSplash()
                   ),
                   Text(
@@ -45,8 +46,19 @@ class _HomeScreenState extends State<HomeScreen>{
                     style: homeSubtitleStyle, 
                   ),
                   const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 60),
-                    child: CourseSplash()
+                    padding: EdgeInsets.symmetric(vertical: 20),
+                    child: ListView.builder(
+                      itemCount: ,
+                      itemBuilder: (context, index) {
+                        CourseCard(
+                          title: ,
+                          level: ,
+                          imageUrl: ,
+                          isPremium: ,
+                          onTap: () {},
+                        )
+                      },
+                    )
                   ),
                   Column(
                     children: [
@@ -67,10 +79,6 @@ class _HomeScreenState extends State<HomeScreen>{
                         ],
                       ),
                     ],
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 60),
-                    child: CourseSplash()
                   ),
                 ],
               )

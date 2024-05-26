@@ -11,6 +11,7 @@ const kThirdBackgroundColor = Color(0xFF505050);
 const kSubTextColor = Color(0xFF7D7D7D);
 const kBackButtonColor = Color(0xFF3A3A3C);
 const kErrorColor = Color(0xFFFF2424);
+const kPremiumColor = Color(0xFFFF2424);
 
 const double kDefaulfPadding = 20.0;
 
@@ -109,4 +110,15 @@ var homeSubtitleStyle = GoogleFonts.openSans(
 var homeSeeAllStyle = GoogleFonts.openSans(
   fontSize: 14,
   fontWeight: FontWeight.w400
+);
+
+var courseTitleStyle = GoogleFonts.openSans(
+  fontSize: 18,
+  fontWeight: FontWeight.w600
+);
+
+var courseSubtitleStyle = GoogleFonts.openSans(
+  fontSize: 14,
+  fontWeight: FontWeight.w400,
+  color: kPrimaryColor
 );
