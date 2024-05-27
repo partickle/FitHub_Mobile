@@ -4,8 +4,8 @@ class Exercise extends Equatable {
   final String title;
   final String subtitle;
   final String backgroundImage;
-  final int? duration; // Таймер на время
-  final int? reps; // Количество повторений
+  final int? duration;
+  final int? reps;
 
   const Exercise({
     required this.title,

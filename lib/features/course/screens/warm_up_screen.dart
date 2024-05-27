@@ -1,3 +1,5 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:fithub/router/app_router.dart';
 import 'package:fithub/ui/widgets/center_elevated_button.dart';
 import 'package:flutter/material.dart';
 
@@ -28,9 +30,10 @@ class WarmUpScreen extends StatelessWidget {
                 ),
               ],
             ),
-            const Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Column(
+            // ignore: prefer_const_constructors
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -87,38 +90,58 @@ class WarmUpScreen extends StatelessWidget {
                       title: 'Lunges with foot pull-up',
                       duration: '30 sec',
                       image: 'assets/images/course/lunges.png',
+                      onTap: () {
+                        AutoRouter.of(context).push(const ExerciseViewRoute());
+                      },
                     ),
                     WorkoutItem(
                       title: 'Stretching of the hip joint',
                       duration: '25 reps',
                       image: 'assets/images/course/hip_stretch.png',
+                      onTap: () {
+                        AutoRouter.of(context).push(const ExerciseViewRoute());
+                      },
                     ),
                     WorkoutItem(
                       title: 'Lunges with foot pull-up',
                       duration: '30 sec',
                       image: 'assets/images/course/lunges.png',
+                      onTap: () {
+                        AutoRouter.of(context).push(const ExerciseViewRoute());
+                      },
                     ),
                     WorkoutItem(
                       title: 'Stretching of the hip joint',
                       duration: '25 reps',
                       image: 'assets/images/course/hip_stretch.png',
+                      onTap: () {
+                        AutoRouter.of(context).push(const ExerciseViewRoute());
+                      },
                     ),
                     WorkoutItem(
                       title: 'Lunges with foot pull-up',
                       duration: '30 sec',
                       image: 'assets/images/course/lunges.png',
+                      onTap: () {
+                        AutoRouter.of(context).push(const ExerciseViewRoute());
+                      },
                     ),
                     WorkoutItem(
                       title: 'Stretching of the hip joint',
                       duration: '25 reps',
                       image: 'assets/images/course/hip_stretch.png',
+                      onTap: () {
+                        AutoRouter.of(context).push(const ExerciseViewRoute());
+                      },
                     ),
                     const SizedBox(height: 80),
                   ],
                 ),
               ),
             ),
-            CenterElevatedButton(buttonText: 'Start Workout', onPressed: () {}),
+            CenterElevatedButton(buttonText: 'Start Workout', onPressed: () {
+               AutoRouter.of(context).push(const BreakScreenRoute());
+            }),
           ],
         ),
       ),
@@ -127,54 +150,50 @@ class WarmUpScreen extends StatelessWidget {
   }
 }
 
+
 class WorkoutItem extends StatelessWidget {
   final String title;
   final String duration;
   final String image;
+  final VoidCallback onTap;
 
   WorkoutItem({
     required this.title,
     required this.duration,
     required this.image,
+    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        
-      },
+      onTap: onTap,
       child: Card(
         color: Colors.grey[800],
-        child: InkWell(
-          onTap: () {
-          
-          },
-          child: ListTile(
-            leading: Image.asset(
-              image,
-              width: 60,
-              height: 60,
-              fit: BoxFit.cover,
-            ),
-            title: Text(
-              title,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-              ),
-            ),
-            subtitle: Text(
-              duration,
-              style: const TextStyle(
-                color: Color(0xFFD0FD3E),
-                fontSize: 14,
-              ),
-            ),
-            trailing: const Icon(
-              Icons.arrow_forward,
+        child: ListTile(
+          leading: Image.asset(
+            image,
+            width: 60,
+            height: 60,
+            fit: BoxFit.cover,
+          ),
+          title: Text(
+            title,
+            style: const TextStyle(
               color: Colors.white,
+              fontSize: 16,
             ),
+          ),
+          subtitle: Text(
+            duration,
+            style: const TextStyle(
+              color: Color(0xFFD0FD3E),
+              fontSize: 14,
+            ),
+          ),
+          trailing: const Icon(
+            Icons.arrow_forward,
+            color: Colors.white,
           ),
         ),
       ),

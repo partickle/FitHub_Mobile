@@ -105,6 +105,24 @@ abstract class _$AppRouter extends RootStackRouter {
         child: SecondExercise(),
       );
     },
+     ExerciseViewRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ExerciseView(),
+      );
+    },
+    CongratulationsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: CongratulationsScreen(),
+      );
+    },
+    CourseViewRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: CourseViewScreen(),
+      );
+    },
   };
 }
 
@@ -317,4 +335,48 @@ class SecondExerciseRoute extends PageRouteInfo<void> {
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
+
+/// generated route for
+/// [ExerciseView]
+class ExerciseViewRoute extends PageRouteInfo<void> {
+  const ExerciseViewRoute({List<PageRouteInfo>? children})
+      : super(
+          ExerciseViewRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ExerciseViewRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [CongratulationsScreen]
+class CongratulationsRoute extends PageRouteInfo<void> {
+  const CongratulationsRoute({List<PageRouteInfo>? children})
+      : super(
+          CongratulationsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CongratulationsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [CourseViewScreen]
+class CourseViewRoute extends PageRouteInfo<void> {
+  const CourseViewRoute({List<PageRouteInfo>? children})
+      : super(
+          CourseViewRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CourseViewRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+
 
