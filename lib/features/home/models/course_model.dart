@@ -1,61 +1,24 @@
-import 'package:equatable/equatable.dart';
+import 'package:fithub/features/home/models/workout_model.dart';
 
-class Course extends Equatable {
-  final String id;
-  final String title;
-  final String subtitle;
-  final String cardImageUrl;
+class Course{
+  final int id;
+  final String name;
+  final String level;
   final String imageUrl;
-  final bool isPremium; 
-  final String urlImage; 
+  final bool isPremium;
+  final bool isActive;
+  final bool isComplete;
+  final List<Workout> workouts;
 
-  const Course({
+  Course({
     required this.id,
-    required this.title,
-    required this.subtitle,
-    required this.cardImageUrl,
+    required this.name,
+    required this.level,
     required this.imageUrl,
-    this.isPremium = false, 
-    required this.urlImage,
+    required this.isPremium,
+    required this.isActive,
+    required this.isComplete,
+    required this.workouts
   });
 
-  static List<Course> courses = [
-    const Course(
-      id: '1',
-      title: 'Learn the Basics of Training',
-      subtitle: 'Workouts for Beginners',
-      cardImageUrl: 'assets/icons/first_card.png',
-      imageUrl: 'assets/icons/1.jpg',
-      isPremium: true,
-      urlImage: 'assets/icons/pro.png',
-    ),
-    const Course(
-      id: '2',
-      title: 'Learn the Basics of Training',
-      subtitle: 'Workouts for Beginners',
-      cardImageUrl: 'assets/icons/second_card.png',
-      imageUrl: 'assets/icons/first_card.png',
-      isPremium: false,
-      urlImage: 'assets/icons/pro.png',
-    ),
-    const Course(
-      id: '3',
-      title: 'Learn the Basics of Training',
-      subtitle: 'Workouts for Beginners',
-      cardImageUrl: 'assets/icons/third_card.jpg',
-      imageUrl: 'assets/icons/first_card.jpg',
-      isPremium: true,
-      urlImage: 'assets/icons/pro.png',
-    ),
-  ];
-
-  @override
-  List<Object?> get props => [
-        id,
-        title,
-        subtitle,
-        cardImageUrl,
-        isPremium,
-        urlImage,
-      ];
 }
