@@ -47,18 +47,18 @@ class _HomeScreenState extends State<HomeScreen>{
                   ),
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 20),
-                    child: ListView.builder(
-                      itemCount: ,
-                      itemBuilder: (context, index) {
-                        CourseCard(
-                          title: ,
-                          level: ,
-                          imageUrl: ,
-                          isPremium: ,
-                          onTap: () {},
-                        )
-                      },
-                    )
+                    // child: ListView.builder(
+                    //   itemCount: ,
+                    //   itemBuilder: (context, index) {
+                    //     CourseCard(
+                    //       title: ,
+                    //       level: ,
+                    //       imageUrl: ,
+                    //       isPremium: ,
+                    //       onTap: () {},
+                    //     )
+                    //   },
+                    // )
                   ),
                   Column(
                     children: [
