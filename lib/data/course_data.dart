@@ -58,5 +58,33 @@ List<Course> courses = [
       workouts[0].copyWith(courseId: 3),
       workouts[1].copyWith(courseId: 3)
     ]
-  )
+  ),
+  Course(
+    id: 4,
+    title: 'Wake Up Call',
+    subtitle: 'Workouts for Beginners',
+    level: levels[0],
+    imageUrl: 'assets/images/courses/2.jpg',
+    isPremium: false,
+    isActive: false,
+    isComplete: false,
+    workouts: [
+      workouts[0].copyWith(courseId: 1),
+      workouts[1].copyWith(courseId: 1)
+    ]
+  ),
+  Course(
+    id: 5,
+    title: 'Wake Up Call',
+    subtitle: 'Workouts for Beginners',
+    level: levels[0],
+    imageUrl: 'assets/images/courses/2.jpg',
+    isPremium: false,
+    isActive: false,
+    isComplete: false,
+    workouts: [
+      workouts[0].copyWith(courseId: 1),
+      workouts[1].copyWith(courseId: 1)
+    ]
+  ),
 ];

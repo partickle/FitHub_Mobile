@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:fithub/features/home/ui/screens/course_screen.dart';
+import 'package:fithub/features/home/ui/screens/course_list_screen.dart';
 import 'package:fithub/features/home/ui/screens/home_screen.dart';
 import 'package:fithub/features/onboarding/ui/screens/age_screen.dart';
 import 'package:fithub/features/onboarding/ui/screens/gender_screen.dart';
@@ -23,7 +23,6 @@ class AppRouter extends _$AppRouter {
       path: '/onboarding',
       page: WelcomeRoute.page,
       initial: true,
-      
     ),
     AutoRoute(
       path: '/onboarding/gender',
@@ -66,9 +65,8 @@ class AppRouter extends _$AppRouter {
       page: NewPasswordRoute.page
     ),
     AutoRoute(
-      path: '/',
-      page: HomeRoute.page,
-      // initial: true,
+      path: '/home',
+      page: HomeRoute.page
     ),
     AutoRoute(
       path: '/courses',

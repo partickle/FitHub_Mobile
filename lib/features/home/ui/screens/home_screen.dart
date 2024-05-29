@@ -1,4 +1,5 @@
-import 'package:auto_route/auto_route.dart'; 
+import 'package:auto_route/auto_route.dart';
+import 'package:fithub/features/home/ui/widgets/card_horizontal_scroll.dart'; 
 import 'package:fithub/features/home/ui/widgets/course_card.dart';
 import 'package:fithub/features/home/ui/widgets/course_splash.dart';
 import 'package:fithub/ui/widgets/custom_toggle_switch.dart';
@@ -23,16 +24,19 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final courseProvider = Provider.of<CourseProvider>(context);
 
+    final recommendedCourses = courseProvider.getRecommendedCourses();
+    final activeCourses = courseProvider.getActiveCourses();
+
     return Scaffold(
       body: SafeArea(
-        top: true,
+        top: false,
         bottom: true,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Padding(
-                padding: const EdgeInsets.all(25),
+                padding: const EdgeInsets.only(top: 60, left: 25, right: 25, bottom: 25),
                 child: Text(
                   'Home',
                   style: homeTitleStyle, 
@@ -48,10 +52,17 @@ class _HomeScreenState extends State<HomeScreen> {
                       style: homeSubtitleStyle, 
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 50),
-                    child: CourseSplash()
-                  ),
+
+                  (activeCourses.isNotEmpty) ?
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 20),
+                      child: CardHorizontalScroll(courseList: activeCourses)
+                    ) :
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 50),
+                      child: CourseSplash()
+                    ),
+
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25),
                     child: Text(
@@ -61,30 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 20),
-                    child: SizedBox(
-                      height: 172,
-                      child: ListView.builder(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: courseProvider.courses.length,
-                        itemBuilder: (context, index) {
-                          final course = courseProvider.courses[index];
-                          return Padding(
-                            padding: EdgeInsets.only(
-                              left: (index == 0) ? 25 : 10,
-                              right: (index == courseProvider.courses.length - 1) ? 25 : 10,
-                            ),
-                            child: CourseCard(
-                              title: course.title,
-                              subtitle: course.subtitle,
-                              imageUrl: course.imageUrl,
-                              isPremium: course.isPremium,
-                              onTap: () {},
-                            ),
-                          );
-                        },
-                      ),
-                    ),
+                    child: CardHorizontalScroll(courseList: recommendedCourses)
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -111,10 +99,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                   ),
-                  CustomToggleSwitch(
-                    initialLabelIndex: 0,
-                    labels: levels,
-                    levelNotifier: _selectedLevelNotifier,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    child: CustomToggleSwitch(
+                      initialLabelIndex: 0,
+                      labels: levels,
+                      levelNotifier: _selectedLevelNotifier,
+                    ),
                   ),
                   ValueListenableBuilder<int>(
                     valueListenable: _selectedLevelNotifier,
@@ -122,7 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       return Padding(
                         padding: const EdgeInsets.only(left: 25, right: 25, top: 20),
                         child: Column(
-                          children: courseProvider.getCoursesByLevel(levels[value]).map((course) {
+                          children: courseProvider.getCoursesByLevel(levels[value]).take(3).map((course) {
                             return Padding(
                               padding: const EdgeInsets.only(bottom: 10),
                               child: CourseCard(

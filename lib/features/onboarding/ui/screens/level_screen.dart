@@ -15,7 +15,7 @@ class LevelScreen extends StatefulWidget {
 }
 
 class _LevelScreenState extends State<LevelScreen> {
-  int selectedLevel = 2;
+  int selectedLevel = 0;
 
   @override
   void initState() {

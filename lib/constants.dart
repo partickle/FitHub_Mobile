@@ -52,7 +52,7 @@ var onboardingTitleStyle = GoogleFonts.openSans(
 );
 
 var onboardingSubtitleStyle = GoogleFonts.openSans(
-  fontSize: 13,
+  fontSize: 14,
   fontWeight: FontWeight.w400,
   height: 1.2,
 );
@@ -133,4 +133,9 @@ var courseSubtitleStyle = GoogleFonts.openSans(
   fontSize: 14,
   fontWeight: FontWeight.w400,
   color: kPrimaryColor
+);
+
+var globalTitleStyle = GoogleFonts.openSans(
+  fontSize: 28,
+  fontWeight: FontWeight.w500,
 );

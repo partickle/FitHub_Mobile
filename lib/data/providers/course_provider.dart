@@ -7,7 +7,6 @@ class CourseProvider with ChangeNotifier {
   List<Course> _courses = [];
 
   List<Course> get courses => _courses;
-  List<Course> get activeCourses => _courses.where((course) => course.isActive).toList();
 
   CourseProvider(this._repository) {
     _loadCourses();
@@ -22,6 +21,16 @@ class CourseProvider with ChangeNotifier {
     final updatedCourse = course.copyWith(isActive: false);
     _updateCourseInList(updatedCourse);
   }
+
+  List<Course> getActiveCourses() {
+    return _courses.where((course) => course.isActive).toList();
+  }
+
+  List<Course> getRecommendedCourses() {
+    String level = 'Beginner';
+    return _courses.where((course) => course.level == level).take(3).toList();
+  }
+
 
   List<Course> getCoursesByLevel(String level) {
     return _courses.where((course) => course.level == level).toList();

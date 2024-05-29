@@ -15,7 +15,7 @@ class CourseCard extends StatelessWidget {
     required this.subtitle,
     required this.imageUrl,
     required this.isPremium,
-    required this.onTap
+    required this.onTap,
   });
 
   @override
@@ -31,20 +31,20 @@ class CourseCard extends StatelessWidget {
         image: DecorationImage(
           image: AssetImage(imageUrl),
           fit: BoxFit.cover,
-          colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.2), BlendMode.darken)
+          colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.2), BlendMode.darken),
         ),
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(17),
-        child: Stack(
-          children: [
-            Column(
+      child: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(17),
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   title,
-                  style: courseTitleStyle
+                  style: courseTitleStyle,
                 ),
                 const SizedBox(height: 5),
                 Row(
@@ -56,7 +56,7 @@ class CourseCard extends StatelessWidget {
                         border: Border(
                           left: BorderSide(
                             width: 3.0,
-                            color: iconColor
+                            color: iconColor,
                           ),
                         ),
                       ),
@@ -72,11 +72,22 @@ class CourseCard extends StatelessWidget {
                         height: 20,
                       ),
                   ],
-                )
+                ),
               ],
             ),
-          ],
-        ),
+          ),
+          Positioned.fill(
+            child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                onTap: onTap,
+                borderRadius: BorderRadius.circular(20),
+                splashColor: Colors.white.withOpacity(0.2),
+                highlightColor: Colors.white.withOpacity(0.1),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
