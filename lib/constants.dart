@@ -13,7 +13,19 @@ const kBackButtonColor = Color(0xFF3A3A3C);
 const kErrorColor = Color(0xFFFF2424);
 const kPremiumColor = Color(0xFFFF2424);
 
-const double kDefaulfPadding = 20.0;
+const List<String> levels = [
+  'Beginner',
+  'Intermediate',
+  'Advance'
+];
+
+const List<String> goals = [
+  'Gain Weight',
+  'Lose weight',
+  'Get fitter',
+  'Gain more flexible',
+  'Learn the basics'
+];
 
 var welcomeUpStyle = GoogleFonts.openSans(
   fontSize: 34,

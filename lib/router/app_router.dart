@@ -72,7 +72,7 @@ class AppRouter extends _$AppRouter {
     ),
     AutoRoute(
       path: '/courses',
-      page: CourseRoute.page
+      page: CoursesRoute.page
     )
   ];
 }

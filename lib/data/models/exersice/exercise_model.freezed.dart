@@ -23,7 +23,7 @@ mixin _$Exercise {
   int get id => throw _privateConstructorUsedError;
   int? get workoutId => throw _privateConstructorUsedError;
   int get count => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
   String get imageUrl => throw _privateConstructorUsedError;
   String get gifUrl => throw _privateConstructorUsedError;
   bool get isTime => throw _privateConstructorUsedError;
@@ -45,7 +45,7 @@ abstract class $ExerciseCopyWith<$Res> {
       {int id,
       int? workoutId,
       int count,
-      String name,
+      String title,
       String imageUrl,
       String gifUrl,
       bool isTime,
@@ -69,7 +69,7 @@ class _$ExerciseCopyWithImpl<$Res, $Val extends Exercise>
     Object? id = null,
     Object? workoutId = freezed,
     Object? count = null,
-    Object? name = null,
+    Object? title = null,
     Object? imageUrl = null,
     Object? gifUrl = null,
     Object? isTime = null,
@@ -89,9 +89,9 @@ class _$ExerciseCopyWithImpl<$Res, $Val extends Exercise>
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
               as int,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
       imageUrl: null == imageUrl
           ? _value.imageUrl
@@ -129,7 +129,7 @@ abstract class _$$ExerciseImplCopyWith<$Res>
       {int id,
       int? workoutId,
       int count,
-      String name,
+      String title,
       String imageUrl,
       String gifUrl,
       bool isTime,
@@ -151,7 +151,7 @@ class __$$ExerciseImplCopyWithImpl<$Res>
     Object? id = null,
     Object? workoutId = freezed,
     Object? count = null,
-    Object? name = null,
+    Object? title = null,
     Object? imageUrl = null,
     Object? gifUrl = null,
     Object? isTime = null,
@@ -171,9 +171,9 @@ class __$$ExerciseImplCopyWithImpl<$Res>
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
               as int,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
       imageUrl: null == imageUrl
           ? _value.imageUrl
@@ -206,7 +206,7 @@ class _$ExerciseImpl implements _Exercise {
       {required this.id,
       required this.workoutId,
       required this.count,
-      required this.name,
+      required this.title,
       required this.imageUrl,
       required this.gifUrl,
       required this.isTime,
@@ -223,7 +223,7 @@ class _$ExerciseImpl implements _Exercise {
   @override
   final int count;
   @override
-  final String name;
+  final String title;
   @override
   final String imageUrl;
   @override
@@ -237,7 +237,7 @@ class _$ExerciseImpl implements _Exercise {
 
   @override
   String toString() {
-    return 'Exercise(id: $id, workoutId: $workoutId, count: $count, name: $name, imageUrl: $imageUrl, gifUrl: $gifUrl, isTime: $isTime, isComplete: $isComplete, description: $description)';
+    return 'Exercise(id: $id, workoutId: $workoutId, count: $count, title: $title, imageUrl: $imageUrl, gifUrl: $gifUrl, isTime: $isTime, isComplete: $isComplete, description: $description)';
   }
 
   @override
@@ -249,7 +249,7 @@ class _$ExerciseImpl implements _Exercise {
             (identical(other.workoutId, workoutId) ||
                 other.workoutId == workoutId) &&
             (identical(other.count, count) || other.count == count) &&
-            (identical(other.name, name) || other.name == name) &&
+            (identical(other.title, title) || other.title == title) &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
             (identical(other.gifUrl, gifUrl) || other.gifUrl == gifUrl) &&
@@ -262,7 +262,7 @@ class _$ExerciseImpl implements _Exercise {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, workoutId, count, name,
+  int get hashCode => Object.hash(runtimeType, id, workoutId, count, title,
       imageUrl, gifUrl, isTime, isComplete, description);
 
   @JsonKey(ignore: true)
@@ -284,7 +284,7 @@ abstract class _Exercise implements Exercise {
       {required final int id,
       required final int? workoutId,
       required final int count,
-      required final String name,
+      required final String title,
       required final String imageUrl,
       required final String gifUrl,
       required final bool isTime,
@@ -301,7 +301,7 @@ abstract class _Exercise implements Exercise {
   @override
   int get count;
   @override
-  String get name;
+  String get title;
   @override
   String get imageUrl;
   @override

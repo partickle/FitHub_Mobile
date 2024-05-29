@@ -1,5 +1,5 @@
-import 'package:fithub/models/course/course_model.dart';
-import 'package:fithub/repository/course_repository.dart';
+import 'package:fithub/data/models/course/course_model.dart';
+import 'package:fithub/data/repository/course_repository.dart';
 import 'package:flutter/material.dart';
 
 class CourseProvider with ChangeNotifier {
@@ -14,19 +14,25 @@ class CourseProvider with ChangeNotifier {
   }
 
   void startCourse(Course course) {
-    course.isActive = true;
-    _saveCourses();
-    notifyListeners();
+    final updatedCourse = course.copyWith(isActive: true);
+    _updateCourseInList(updatedCourse);
   }
 
   void completeCourse(Course course) {
-    course.isActive = false;
-    _saveCourses();
-    notifyListeners();
+    final updatedCourse = course.copyWith(isActive: false);
+    _updateCourseInList(updatedCourse);
   }
 
   List<Course> getCoursesByLevel(String level) {
     return _courses.where((course) => course.level == level).toList();
+  }
+
+  void _updateCourseInList(Course updatedCourse) {
+    _courses = _courses.map((course) {
+      return course.id == updatedCourse.id ? updatedCourse : course;
+    }).toList();
+    _saveCourses();
+    notifyListeners();
   }
 
   void _saveCourses() async {

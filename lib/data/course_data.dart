@@ -1,13 +1,15 @@
-import 'package:fithub/models/course/course_model.dart';
+import 'package:fithub/data/models/course/course_model.dart';
 import 'package:fithub/data/workout_data.dart';
+import 'package:fithub/constants.dart';
 
 List<Course> courses = [
   Course(
     id: 0,
-    name: 'Learn the Basics of Training',
-    level: 'Workouts for Beginners',
-    imageUrl: 'assets/icons/courses/1.jpg',
-    isPremium: false,
+    title: 'Learn the Basics of Training',
+    subtitle: 'Workouts for Beginners',
+    level: levels[0],
+    imageUrl: 'assets/images/courses/1.jpg',
+    isPremium: true,
     isActive: false,
     isComplete: false,
     workouts: [
@@ -17,9 +19,10 @@ List<Course> courses = [
   ),
   Course(
     id: 1,
-    name: 'Wake Up Call',
-    level: 'Workouts for Beginners',
-    imageUrl: 'assets/icons/courses/2.jpg',
+    title: 'Wake Up Call',
+    subtitle: 'Workouts for Beginners',
+    level: levels[0],
+    imageUrl: 'assets/images/courses/2.jpg',
     isPremium: false,
     isActive: false,
     isComplete: false,
@@ -30,9 +33,10 @@ List<Course> courses = [
   ),
   Course(
     id: 2,
-    name: 'Full Body Goal Crusher',
-    level: 'Workouts for Intermediate',
-    imageUrl: 'assets/icons/courses/3.jpg',
+    title: 'Full Body Goal Crusher',
+    subtitle: 'Workouts for Intermediate',
+    level: levels[1],
+    imageUrl: 'assets/images/courses/3.jpg',
     isPremium: false,
     isActive: false,
     isComplete: false,
@@ -43,9 +47,10 @@ List<Course> courses = [
   ),
   Course(
     id: 3,
-    name: 'Lower Body Streng',
-    level: 'Workouts for Advaced',
-    imageUrl: 'assets/icons/courses/4.jpg',
+    title: 'Lower Body Strength',
+    subtitle: 'Workouts for Advace',
+    level: levels[2],
+    imageUrl: 'assets/images/courses/4.jpg',
     isPremium: false,
     isActive: false,
     isComplete: false,

@@ -27,10 +27,10 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const AuthorizationScreen(),
       );
     },
-    CourseRoute.name: (routeData) {
+    CoursesRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const CourseScreen(),
+        child: const CoursesScreen(),
       );
     },
     FirstRegistrationRoute.name: (routeData) {
@@ -125,15 +125,15 @@ class AuthorizationRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [CourseScreen]
-class CourseRoute extends PageRouteInfo<void> {
-  const CourseRoute({List<PageRouteInfo>? children})
+/// [CoursesScreen]
+class CoursesRoute extends PageRouteInfo<void> {
+  const CoursesRoute({List<PageRouteInfo>? children})
       : super(
-          CourseRoute.name,
+          CoursesRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'CourseRoute';
+  static const String name = 'CoursesRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

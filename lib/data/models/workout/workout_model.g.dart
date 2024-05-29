@@ -10,7 +10,7 @@ _$WorkoutImpl _$$WorkoutImplFromJson(Map<String, dynamic> json) =>
     _$WorkoutImpl(
       id: (json['id'] as num).toInt(),
       courseId: (json['courseId'] as num?)?.toInt(),
-      name: json['name'] as String,
+      title: json['title'] as String,
       description: json['description'] as String,
       imageUrl: json['imageUrl'] as String,
       isComplete: json['isComplete'] as bool,
@@ -23,7 +23,7 @@ Map<String, dynamic> _$$WorkoutImplToJson(_$WorkoutImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'courseId': instance.courseId,
-      'name': instance.name,
+      'title': instance.title,
       'description': instance.description,
       'imageUrl': instance.imageUrl,
       'isComplete': instance.isComplete,

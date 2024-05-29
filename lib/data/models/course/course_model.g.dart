@@ -8,7 +8,8 @@ part of 'course_model.dart';
 
 _$CourseImpl _$$CourseImplFromJson(Map<String, dynamic> json) => _$CourseImpl(
       id: (json['id'] as num).toInt(),
-      name: json['name'] as String,
+      title: json['title'] as String,
+      subtitle: json['subtitle'] as String,
       level: json['level'] as String,
       imageUrl: json['imageUrl'] as String,
       isPremium: json['isPremium'] as bool,
@@ -22,7 +23,8 @@ _$CourseImpl _$$CourseImplFromJson(Map<String, dynamic> json) => _$CourseImpl(
 Map<String, dynamic> _$$CourseImplToJson(_$CourseImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'name': instance.name,
+      'title': instance.title,
+      'subtitle': instance.subtitle,
       'level': instance.level,
       'imageUrl': instance.imageUrl,
       'isPremium': instance.isPremium,

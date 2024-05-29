@@ -10,7 +10,7 @@ class Exercise with _$Exercise {
     required int id,
     required int? workoutId,
     required int count,
-    required String name,
+    required String title,
     required String imageUrl,
     required String gifUrl,
     required bool isTime,

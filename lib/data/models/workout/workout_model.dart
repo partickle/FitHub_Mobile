@@ -1,4 +1,4 @@
-import 'package:fithub/models/exersice/exercise_model.dart';
+import 'package:fithub/data/models/exersice/exercise_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'workout_model.freezed.dart';
@@ -10,7 +10,7 @@ class Workout with _$Workout {
   factory Workout({
     required int id,
     required int? courseId,
-    required String name,
+    required String title,
     required String description,
     required String imageUrl,
     required bool isComplete,

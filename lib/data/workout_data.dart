@@ -1,11 +1,11 @@
-import 'package:fithub/models/workout/workout_model.dart';
+import 'package:fithub/data/models/workout/workout_model.dart';
 import 'package:fithub/data/exercise_data.dart';
 
 List<Workout> workouts = [
   Workout(
     id: 0,
     courseId: null,
-    name: 'Simple Warm Up',
+    title: 'Simple Warm Up',
     description: 'A basic and necessary full-body stretching workout. Many people ignore such workouts, not realizing their importance, however, to avoid injury and muscle growth, they are simply necessary.',
     imageUrl: '',
     isComplete: false,
@@ -17,7 +17,7 @@ List<Workout> workouts = [
   Workout(
     id: 1,
     courseId: null,
-    name: 'Stability Training Basics',
+    title: 'Stability Training Basics',
     description: 'A basic and necessary full-body stretching workout. Many people ignore such workouts, not realizing their importance, however, to avoid injury and muscle growth, they are simply necessary.',
     imageUrl: '',
     isComplete: false,

@@ -1,11 +1,11 @@
-import 'package:fithub/models/exersice/exercise_model.dart';
+import 'package:fithub/data/models/exersice/exercise_model.dart';
 
 List<Exercise> exercises = [
   Exercise(
     id: 0,
     workoutId: null,
     count: 20,
-    name: 'Lunges with foot pull-up',
+    title: 'Lunges with foot pull-up',
     imageUrl: '',
     gifUrl: '',
     isTime: true,
@@ -16,7 +16,7 @@ List<Exercise> exercises = [
     id: 1,
     workoutId: null,
     count: 20,
-    name: 'Stretching of the hip joint',
+    title: 'Stretching of the hip joint',
     imageUrl: '',
     gifUrl: '',
     isTime: false,

@@ -11,19 +11,19 @@ class CourseSplash extends StatelessWidget {
         textAlign: TextAlign.center,
         text: TextSpan(
           text: 'You don\'t have any active courses\n\n',
-          style: homeSubtitleStyle.copyWith(fontSize: 15, fontWeight: FontWeight.w200),
-          children: const <TextSpan>[
+          style: homeSubtitleStyle.copyWith(fontSize: 14, fontWeight: FontWeight.w200),
+          children: <TextSpan>[
             TextSpan(
               text: 'Start taking the course ',
-              style: TextStyle(color: kPrimaryColor),
+              style: homeSubtitleStyle.copyWith(fontSize: 14, fontWeight: FontWeight.w200, color: kPrimaryColor),
             ),
             TextSpan(
               text: 'to view the active\n',
-              style: TextStyle(color: kSubTextColor),
+              style: homeSubtitleStyle.copyWith(fontSize: 14, fontWeight: FontWeight.w200, color: kSubTextColor),
             ),
             TextSpan(
               text: 'courses',
-              style: TextStyle(color: kSubTextColor),
+              style: homeSubtitleStyle.copyWith(fontSize: 14, fontWeight: FontWeight.w200, color: kSubTextColor),
             )
           ],
         ),

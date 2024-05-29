@@ -21,7 +21,8 @@ Course _$CourseFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Course {
   int get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  String get subtitle => throw _privateConstructorUsedError;
   String get level => throw _privateConstructorUsedError;
   String get imageUrl => throw _privateConstructorUsedError;
   bool get isPremium => throw _privateConstructorUsedError;
@@ -41,7 +42,8 @@ abstract class $CourseCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
-      String name,
+      String title,
+      String subtitle,
       String level,
       String imageUrl,
       bool isPremium,
@@ -64,7 +66,8 @@ class _$CourseCopyWithImpl<$Res, $Val extends Course>
   @override
   $Res call({
     Object? id = null,
-    Object? name = null,
+    Object? title = null,
+    Object? subtitle = null,
     Object? level = null,
     Object? imageUrl = null,
     Object? isPremium = null,
@@ -77,9 +80,13 @@ class _$CourseCopyWithImpl<$Res, $Val extends Course>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      subtitle: null == subtitle
+          ? _value.subtitle
+          : subtitle // ignore: cast_nullable_to_non_nullable
               as String,
       level: null == level
           ? _value.level
@@ -118,7 +125,8 @@ abstract class _$$CourseImplCopyWith<$Res> implements $CourseCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
-      String name,
+      String title,
+      String subtitle,
       String level,
       String imageUrl,
       bool isPremium,
@@ -139,7 +147,8 @@ class __$$CourseImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? name = null,
+    Object? title = null,
+    Object? subtitle = null,
     Object? level = null,
     Object? imageUrl = null,
     Object? isPremium = null,
@@ -152,9 +161,13 @@ class __$$CourseImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      subtitle: null == subtitle
+          ? _value.subtitle
+          : subtitle // ignore: cast_nullable_to_non_nullable
               as String,
       level: null == level
           ? _value.level
@@ -189,7 +202,8 @@ class __$$CourseImplCopyWithImpl<$Res>
 class _$CourseImpl implements _Course {
   _$CourseImpl(
       {required this.id,
-      required this.name,
+      required this.title,
+      required this.subtitle,
       required this.level,
       required this.imageUrl,
       required this.isPremium,
@@ -204,7 +218,9 @@ class _$CourseImpl implements _Course {
   @override
   final int id;
   @override
-  final String name;
+  final String title;
+  @override
+  final String subtitle;
   @override
   final String level;
   @override
@@ -225,7 +241,7 @@ class _$CourseImpl implements _Course {
 
   @override
   String toString() {
-    return 'Course(id: $id, name: $name, level: $level, imageUrl: $imageUrl, isPremium: $isPremium, isActive: $isActive, isComplete: $isComplete, workouts: $workouts)';
+    return 'Course(id: $id, title: $title, subtitle: $subtitle, level: $level, imageUrl: $imageUrl, isPremium: $isPremium, isActive: $isActive, isComplete: $isComplete, workouts: $workouts)';
   }
 
   @override
@@ -234,7 +250,9 @@ class _$CourseImpl implements _Course {
         (other.runtimeType == runtimeType &&
             other is _$CourseImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.subtitle, subtitle) ||
+                other.subtitle == subtitle) &&
             (identical(other.level, level) || other.level == level) &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
@@ -252,7 +270,8 @@ class _$CourseImpl implements _Course {
   int get hashCode => Object.hash(
       runtimeType,
       id,
-      name,
+      title,
+      subtitle,
       level,
       imageUrl,
       isPremium,
@@ -277,7 +296,8 @@ class _$CourseImpl implements _Course {
 abstract class _Course implements Course {
   factory _Course(
       {required final int id,
-      required final String name,
+      required final String title,
+      required final String subtitle,
       required final String level,
       required final String imageUrl,
       required final bool isPremium,
@@ -290,7 +310,9 @@ abstract class _Course implements Course {
   @override
   int get id;
   @override
-  String get name;
+  String get title;
+  @override
+  String get subtitle;
   @override
   String get level;
   @override

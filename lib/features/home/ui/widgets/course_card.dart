@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 
 class CourseCard extends StatelessWidget {
   final String title;
-  final String level;
+  final String subtitle;
   final String imageUrl;
   final bool isPremium;
   final VoidCallback onTap;
@@ -12,7 +12,7 @@ class CourseCard extends StatelessWidget {
   const CourseCard({
     super.key,
     required this.title,
-    required this.level,
+    required this.subtitle,
     required this.imageUrl,
     required this.isPremium,
     required this.onTap
@@ -23,7 +23,8 @@ class CourseCard extends StatelessWidget {
     Color iconColor = isPremium ? kPremiumColor : kPrimaryColor;
 
     return Container(
-      height: 160,
+      height: 170,
+      width: 340,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: Colors.black.withOpacity(0.5),
@@ -60,7 +61,7 @@ class CourseCard extends StatelessWidget {
                         ),
                       ),
                       child: Text(
-                        level,
+                        subtitle,
                         style: courseSubtitleStyle,
                       ),
                     ),
