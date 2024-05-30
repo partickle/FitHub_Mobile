@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:fithub/constants.dart';
 import 'package:fithub/router/app_router.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:fithub/custom_icons.dart';
 
 @RoutePage()
 class NavigationBarPage extends StatelessWidget {
@@ -18,46 +18,43 @@ class NavigationBarPage extends StatelessWidget {
         ProfileRoute(),
       ],
       bottomNavigationBuilder: (_, tabsRouter) {
-        return BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          currentIndex: tabsRouter.activeIndex,
-          backgroundColor: kBackgroundColor,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          //fixedColor: kBackgroundColor,
-          // selectedItemColor: kBackgroundColor,
-          // unselectedItemColor: kBackgroundColor,
-          onTap: tabsRouter.setActiveIndex,
-          items: [
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/icons/home.svg',
-                colorFilter: ColorFilter.mode(tabsRouter.activeIndex == 0 ? Colors.blue : Colors.grey, BlendMode.) 
+        return Container(
+          decoration: const BoxDecoration(
+            border: Border(
+              top: BorderSide(
+                width: 1.0,
+                color: kSecBackgroundColor
               ),
-              label: ''
             ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/icons/progress.svg',
-                colorFilter: ColorFilter.mode(tabsRouter.activeIndex == 1 ? Colors.blue : Colors.grey, BlendMode.src) 
+          ),
+          child: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            currentIndex: tabsRouter.activeIndex,
+            backgroundColor: kBackgroundColor,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            selectedItemColor: Colors.white,
+            unselectedItemColor: kThirdBackgroundColor,
+            onTap: tabsRouter.setActiveIndex,
+            items: const [
+              BottomNavigationBarItem(
+                icon: Icon(CustomIcons.home),
+                label: ''
               ),
-              label: ''
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/icons/community.svg',
-                colorFilter: ColorFilter.mode(tabsRouter.activeIndex == 2 ? Colors.blue : Colors.grey, BlendMode.src) 
+              BottomNavigationBarItem(
+                icon: Icon(CustomIcons.equalizer, size: 30),
+                label: ''
               ),
-              label: ''
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/icons/profile.svg',
-                colorFilter: ColorFilter.mode(tabsRouter.activeIndex == 3 ? Colors.blue : Colors.grey, BlendMode.src) 
+              BottomNavigationBarItem(
+                icon: Icon(CustomIcons.group, size: 30),
+                label: ''
               ),
-              label: ''
-            ),
-          ],
+              BottomNavigationBarItem(
+                icon: Icon(CustomIcons.person, size: 30),
+                label: ''
+              ),
+            ],
+          ),
         );
       },
     );

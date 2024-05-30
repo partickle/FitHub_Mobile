@@ -76,6 +76,10 @@ flutter:
     - assets/images/registration/
     - assets/images/onboarding/
     - assets/images/courses/
+  fonts:
+  - family:  CustomIcons
+    fonts:
+      - asset: assets/fonts/CustomIcons.ttf
 
 flutter_intl:
   enabled: true
