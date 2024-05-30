@@ -4,6 +4,7 @@ import 'package:fithub/features/onboarding/ui/screens/gender_screen.dart';
 import 'package:fithub/features/onboarding/ui/screens/goal_screen.dart';
 import 'package:fithub/features/onboarding/ui/screens/level_screen.dart';
 import 'package:fithub/features/onboarding/ui/screens/welcome_screen.dart';
+import 'package:fithub/features/progress/screens/progress_screen.dart';
 import 'package:fithub/features/registration/ui/screens/authorization_screen.dart';
 import 'package:fithub/features/registration/ui/screens/first_registration_screen.dart';
 import 'package:fithub/features/registration/ui/screens/forgot_password_screen.dart';
@@ -20,7 +21,7 @@ class AppRouter extends _$AppRouter {
     AutoRoute(
       path: '/onboarding',
       page: WelcomeRoute.page,
-      initial: true,
+      //initial: true,
     ),
     AutoRoute(
       path: '/onboarding/gender',
@@ -61,6 +62,11 @@ class AppRouter extends _$AppRouter {
     AutoRoute(
       path: '/registration/new-password',
       page: NewPasswordRoute.page
+    ),
+     AutoRoute(
+      path: '/registration/progress-screen',
+      page: ProgressScreenRoute.page,
+      initial: true,
     ),
   ];
 }

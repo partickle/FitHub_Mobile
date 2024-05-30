@@ -81,6 +81,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const WelcomeScreen(),
       );
     },
+    ProgressScreenRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ProgressScreen(),
+      );
+    },
   };
 }
 
@@ -234,6 +240,20 @@ class WelcomeRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'WelcomeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ProgressScreen]
+class ProgressScreenRoute extends PageRouteInfo<void> {
+  const ProgressScreenRoute({List<PageRouteInfo>? children})
+      : super(
+          ProgressScreenRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ProgressScreenRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
