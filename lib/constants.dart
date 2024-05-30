@@ -27,6 +27,24 @@ const List<String> goals = [
   'Learn the basics'
 ];
 
+const String baseUrl = 'https://40a0-83-139-159-199.ngrok-free.app';
+
+final List<String> goals = [
+  'Gain Weight',
+  'Lose weight',
+  'Get fitter',
+  'Gain more flexible',
+  'Learn the basics'
+];
+
+final List<String> levels = [
+  'Rookie',
+  'Beginner',
+  'Intermediate',
+  'Advance',
+  'True Beast'
+];
+
 var welcomeUpStyle = GoogleFonts.openSans(
   fontSize: 34,
   fontWeight: FontWeight.w300,

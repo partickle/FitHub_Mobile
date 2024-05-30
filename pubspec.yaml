@@ -1,7 +1,9 @@
 name: fithub
 description: "FitHub mobile app."
+
 publish_to: 'none'
-version: 1.0.0+1
+
+version: 1.0.0+2
 
 environment:
   sdk: '>=3.3.3 <4.0.0'
@@ -71,6 +73,7 @@ dependency_overrides:
 
 flutter:
   uses-material-design: true
+
   assets:
     - assets/icons/
     - assets/images/registration/
