@@ -87,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             TextButton(
                               onPressed: () {
-                                AutoRouter.of(context).push(const CoursesRoute());
+                                AutoRouter.of(context).push(const CourseListRoute());
                               },
                               child: Text(
                                 'See all',

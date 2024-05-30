@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:fithub/constants.dart';
 
 final mainTheme = ThemeData(
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    backgroundColor: kBackgroundColor,
+  ),
   textButtonTheme: TextButtonThemeData(
     
     style: TextButton.styleFrom(
