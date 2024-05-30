@@ -1,4 +1,10 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:fithub/features/constructor/screens/choose_picture_screen.dart';
+import 'package:fithub/features/constructor/screens/course_edit_screen.dart';
+import 'package:fithub/features/constructor/screens/course_settings_screen.dart';
+import 'package:fithub/features/constructor/screens/exercise_edit_screen.dart';
+import 'package:fithub/features/constructor/screens/exercise_list_screen.dart';
+import 'package:fithub/features/constructor/screens/my_courses_screen.dart';
 import 'package:fithub/features/onboarding/ui/screens/age_screen.dart';
 import 'package:fithub/features/onboarding/ui/screens/gender_screen.dart';
 import 'package:fithub/features/onboarding/ui/screens/goal_screen.dart';
@@ -20,7 +26,7 @@ class AppRouter extends _$AppRouter {
     AutoRoute(
       path: '/onboarding',
       page: WelcomeRoute.page,
-      initial: true,
+      //initial: true,
     ),
     AutoRoute(
       path: '/onboarding/gender',
@@ -62,5 +68,35 @@ class AppRouter extends _$AppRouter {
       path: '/registration/new-password',
       page: NewPasswordRoute.page
     ),
+    AutoRoute(
+      path: '/constructor/choose-picture',
+      page: ChoosePictureRoute.page,
+      //initial: true
+    ),
+     AutoRoute(
+      path: '/constructor/course-settings',
+      page: CourseSettingsRoute.page,
+      //initial: true
+    ),
+      AutoRoute(
+      path: '/constructor/my-courses',
+      page: MyCoursesScreenRoute.page,
+      //initial: true
+    ),
+    AutoRoute(
+      path: '/constructor/course-edit',
+      page: CourseEditRoute.page,
+      //initial: true
+    ),
+    AutoRoute(
+      path: '/constructor/exercise-list',
+      page: ExerciseListRoute.page,
+      initial: true
+    ),
+    /*AutoRoute(
+      path: '/constructor/exercise-edit',
+      page: ExerciseEditRoute.page,
+      initial: true
+    ),*/
   ];
 }

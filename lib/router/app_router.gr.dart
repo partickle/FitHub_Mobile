@@ -81,6 +81,42 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const WelcomeScreen(),
       );
     },
+    ChoosePictureRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ChoosePictureScreen(),
+      );
+    },
+     CourseSettingsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: CourseSettingsScreen(),
+      );
+    },
+     MyCoursesScreenRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: MyCoursesScreen(),
+      );
+    },
+     CourseEditRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: CourseEditScreen(),
+      );
+    },
+     ExerciseListRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ExerciseListScreen(),
+      );
+    },
+     /*ExerciseEditRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ExerciseEditScreen(),
+      );
+    },*/
   };
 }
 
@@ -237,3 +273,90 @@ class WelcomeRoute extends PageRouteInfo<void> {
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
+
+/// generated route for
+/// [ChoosePictureScreen]
+class ChoosePictureRoute extends PageRouteInfo<void> {
+  const ChoosePictureRoute({List<PageRouteInfo>? children})
+      : super(
+          ChoosePictureRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ChoosePictureRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [CourseSettingsScreen]
+class CourseSettingsRoute extends PageRouteInfo<void> {
+  const CourseSettingsRoute({List<PageRouteInfo>? children})
+      : super(
+          CourseSettingsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CourseSettingsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MyCoursesScreen]
+class MyCoursesScreenRoute extends PageRouteInfo<void> {
+  const MyCoursesScreenRoute({List<PageRouteInfo>? children})
+      : super(
+          MyCoursesScreenRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MyCoursesScreenRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [CourseEditScreen]
+class CourseEditRoute extends PageRouteInfo<void> {
+  const CourseEditRoute({List<PageRouteInfo>? children})
+      : super(
+          CourseEditRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CourseEditRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ExerciseListScreen]
+class ExerciseListRoute extends PageRouteInfo<void> {
+  const ExerciseListRoute({List<PageRouteInfo>? children})
+      : super(
+          ExerciseListRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ExerciseListRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/*/// generated route for
+/// [ExerciseEditScreen]
+class ExerciseEditRoute extends PageRouteInfo<void> {
+  const ExerciseEditRoute({List<PageRouteInfo>? children})
+      : super(
+          ExerciseEditRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ExerciseEditRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}*/
+
+
+
