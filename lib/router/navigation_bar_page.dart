@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:fithub/constants.dart';
+import 'package:fithub/res/constants/constants.dart';
 import 'package:fithub/router/app_router.dart';
 import 'package:flutter/material.dart';
-import 'package:fithub/custom_icons.dart';
+import 'package:fithub/res/custom_icons.dart';
 
 @RoutePage()
 class NavigationBarPage extends StatelessWidget {

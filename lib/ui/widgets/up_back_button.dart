@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fithub/constants.dart';
+import 'package:fithub/res/constants/constants.dart';
 import 'package:auto_route/auto_route.dart';
 
 class UpBackButton extends StatelessWidget {

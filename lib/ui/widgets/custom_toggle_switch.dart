@@ -1,4 +1,4 @@
-import 'package:fithub/constants.dart';
+import 'package:fithub/res/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 

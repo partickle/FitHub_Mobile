@@ -1,14 +1,16 @@
 import 'package:fithub/ui/widgets/up_back_button.dart';
 import 'package:flutter/material.dart';
-import 'package:fithub/constants.dart';
+import 'package:fithub/res/constants/constants.dart';
 
 class BasePage extends StatelessWidget {
   final String title;
+  final bool isBack;
   final Widget child;
 
   const BasePage({
     super.key,
     required this.title,
+    required this.isBack,
     required this.child,
   });
 
@@ -21,7 +23,9 @@ class BasePage extends StatelessWidget {
         child: Stack(
           fit: StackFit.expand,
           children: [
-            const UpBackButton(isLeft: true, isTransparent: false),
+            if (isBack)
+              const UpBackButton(isLeft: true, isTransparent: false),
+              
             Padding(
               padding: const EdgeInsets.only(top: 30),
               child: Align(

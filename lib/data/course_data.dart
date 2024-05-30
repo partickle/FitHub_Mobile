@@ -1,6 +1,6 @@
 import 'package:fithub/data/models/course/course_model.dart';
 import 'package:fithub/data/workout_data.dart';
-import 'package:fithub/constants.dart';
+import 'package:fithub/res/constants/constants.dart';
 
 List<Course> courses = [
   Course(
