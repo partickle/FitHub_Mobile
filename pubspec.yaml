@@ -40,6 +40,23 @@ dependencies:
   flutter_bloc: ^8.1.5
   google_fonts: ^6.2.1
   equatable: ^2.0.5
+  toggle_switch: ^2.3.0
+
+flutter_icons:
+  image_path: "assets/icons/app_icon.png"
+  android: true 
+  ios: true
+  remove_alpha_ios: true
+
+flutter_native_splash:
+  android: true
+  ios: true
+  color: "#1c1c1e"
+  image: "assets/images/splash.png"
+  android_12:
+    color: "#1c1c1e"
+    image: "assets/images/splash.png"
+    icon_background_color: "1c1c1e"
 
 dev_dependencies:
   flutter_test:
@@ -58,8 +75,14 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/
     - assets/icons/
+    - assets/images/registration/
+    - assets/images/onboarding/
+    - assets/images/courses/
+  fonts:
+  - family:  CustomIcons
+    fonts:
+      - asset: assets/fonts/CustomIcons.ttf
 
 flutter_intl:
   enabled: true
