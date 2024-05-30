@@ -81,6 +81,48 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const WelcomeScreen(),
       );
     },
+     WorkoutViewRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: WarmUpScreen(),
+      );
+    },
+      BreakScreenRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: BreakScreen(),
+      );
+    },
+      FirstExerciseRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: FirstExercise(),
+      );
+    },
+    SecondExerciseRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: SecondExercise(),
+      );
+    },
+     ExerciseViewRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ExerciseView(),
+      );
+    },
+    CongratulationsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: CongratulationsScreen(),
+      );
+    },
+    CourseViewRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: CourseViewScreen(),
+      );
+    },
   };
 }
 
@@ -237,3 +279,104 @@ class WelcomeRoute extends PageRouteInfo<void> {
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
+
+/// generated route for
+/// [WarmUpScreen]
+class WorkoutViewRoute extends PageRouteInfo<void> {
+  const WorkoutViewRoute({List<PageRouteInfo>? children})
+      : super(
+          WorkoutViewRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'WorkoutViewRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [BreakScreen]
+class BreakScreenRoute extends PageRouteInfo<void> {
+  const BreakScreenRoute({List<PageRouteInfo>? children})
+      : super(
+          BreakScreenRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'BreakScreenRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [FirstExercise]
+class FirstExerciseRoute extends PageRouteInfo<void> {
+  const FirstExerciseRoute({List<PageRouteInfo>? children})
+      : super(
+          FirstExerciseRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'FirstExerciseRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SecondExercise]
+class SecondExerciseRoute extends PageRouteInfo<void> {
+  const SecondExerciseRoute({List<PageRouteInfo>? children})
+      : super(
+          SecondExerciseRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SecondExerciseRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ExerciseView]
+class ExerciseViewRoute extends PageRouteInfo<void> {
+  const ExerciseViewRoute({List<PageRouteInfo>? children})
+      : super(
+          ExerciseViewRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ExerciseViewRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [CongratulationsScreen]
+class CongratulationsRoute extends PageRouteInfo<void> {
+  const CongratulationsRoute({List<PageRouteInfo>? children})
+      : super(
+          CongratulationsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CongratulationsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [CourseViewScreen]
+class CourseViewRoute extends PageRouteInfo<void> {
+  const CourseViewRoute({List<PageRouteInfo>? children})
+      : super(
+          CourseViewRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CourseViewRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+
+
