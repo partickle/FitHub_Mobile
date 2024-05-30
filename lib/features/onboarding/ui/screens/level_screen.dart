@@ -15,7 +15,7 @@ class LevelScreen extends StatefulWidget {
 }
 
 class _LevelScreenState extends State<LevelScreen> {
-  int selectedGoal = 2;
+  int selectedLevel = 0;
 
   @override
   void initState() {
@@ -36,14 +36,14 @@ class _LevelScreenState extends State<LevelScreen> {
         AutoRouter.of(context).replace(const AuthorizationRoute());
       }, 
       child: OnboardingWheelScroll(
-        initialItem: selectedGoal,
+        initialItem: selectedLevel,
         itemExtent: 60,
         widthBorder: 300,
         textStyle: onboardStrScrollStyle,
         list: levels,
         onSelectedItemChanged: (value) => {
           setState(() {
-            selectedGoal = value + 1;
+            selectedLevel = value + 1;
           })
         },
       ),

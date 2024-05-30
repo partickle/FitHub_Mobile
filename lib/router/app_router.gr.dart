@@ -27,6 +27,24 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const AuthorizationScreen(),
       );
     },
+    CommunityRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CommunityScreen(),
+      );
+    },
+    CommunityTab.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CommunityTabPage(),
+      );
+    },
+    CourseListRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CourseListScreen(),
+      );
+    },
     FirstRegistrationRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -51,16 +69,58 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const GoalScreen(),
       );
     },
+    HomeRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const HomeScreen(),
+      );
+    },
+    HomeTab.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const HomeTabPage(),
+      );
+    },
     LevelRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const LevelScreen(),
       );
     },
+    NavigationBarRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const NavigationBarPage(),
+      );
+    },
     NewPasswordRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const NewPasswordScreen(),
+      );
+    },
+    ProfileRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ProfileScreen(),
+      );
+    },
+    ProfileTab.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ProfileTabPage(),
+      );
+    },
+    ProgressRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ProgressScreen(),
+      );
+    },
+    ProgressTab.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ProgressTabPage(),
       );
     },
     SecondRegistrationRoute.name: (routeData) {
@@ -108,6 +168,48 @@ class AuthorizationRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'AuthorizationRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [CommunityScreen]
+class CommunityRoute extends PageRouteInfo<void> {
+  const CommunityRoute({List<PageRouteInfo>? children})
+      : super(
+          CommunityRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CommunityRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [CommunityTabPage]
+class CommunityTab extends PageRouteInfo<void> {
+  const CommunityTab({List<PageRouteInfo>? children})
+      : super(
+          CommunityTab.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CommunityTab';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [CourseListScreen]
+class CourseListRoute extends PageRouteInfo<void> {
+  const CourseListRoute({List<PageRouteInfo>? children})
+      : super(
+          CourseListRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CourseListRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -169,6 +271,34 @@ class GoalRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [HomeScreen]
+class HomeRoute extends PageRouteInfo<void> {
+  const HomeRoute({List<PageRouteInfo>? children})
+      : super(
+          HomeRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HomeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [HomeTabPage]
+class HomeTab extends PageRouteInfo<void> {
+  const HomeTab({List<PageRouteInfo>? children})
+      : super(
+          HomeTab.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HomeTab';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [LevelScreen]
 class LevelRoute extends PageRouteInfo<void> {
   const LevelRoute({List<PageRouteInfo>? children})
@@ -183,6 +313,20 @@ class LevelRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [NavigationBarPage]
+class NavigationBarRoute extends PageRouteInfo<void> {
+  const NavigationBarRoute({List<PageRouteInfo>? children})
+      : super(
+          NavigationBarRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'NavigationBarRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [NewPasswordScreen]
 class NewPasswordRoute extends PageRouteInfo<void> {
   const NewPasswordRoute({List<PageRouteInfo>? children})
@@ -192,6 +336,62 @@ class NewPasswordRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'NewPasswordRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ProfileScreen]
+class ProfileRoute extends PageRouteInfo<void> {
+  const ProfileRoute({List<PageRouteInfo>? children})
+      : super(
+          ProfileRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ProfileRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ProfileTabPage]
+class ProfileTab extends PageRouteInfo<void> {
+  const ProfileTab({List<PageRouteInfo>? children})
+      : super(
+          ProfileTab.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ProfileTab';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ProgressScreen]
+class ProgressRoute extends PageRouteInfo<void> {
+  const ProgressRoute({List<PageRouteInfo>? children})
+      : super(
+          ProgressRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ProgressRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ProgressTabPage]
+class ProgressTab extends PageRouteInfo<void> {
+  const ProgressTab({List<PageRouteInfo>? children})
+      : super(
+          ProgressTab.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ProgressTab';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
