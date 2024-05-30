@@ -40,6 +40,9 @@ dependencies:
   flutter_bloc: ^8.1.5
   google_fonts: ^6.2.1
   equatable: ^2.0.5
+  readmore: ^2.2.0
+  carousel_slider: ^4.2.1
+  flutter_rating_bar: ^4.0.1
 
 dev_dependencies:
   flutter_test:
@@ -60,6 +63,8 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/images/community/
+    - assets/icons/community/
 
 flutter_intl:
   enabled: true

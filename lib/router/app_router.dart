@@ -1,4 +1,10 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:fithub/features/community/screens/complaint_screen.dart';
+import 'package:fithub/features/community/screens/reviews_screen.dart';
+import 'package:fithub/features/community/screens/community_screen.dart';
+import 'package:fithub/features/community/screens/search_course_screen.dart';
+import 'package:fithub/features/community/screens/user_course_view.dart';
+import 'package:fithub/features/community/screens/write_review_screen.dart';
 import 'package:fithub/features/onboarding/ui/screens/age_screen.dart';
 import 'package:fithub/features/onboarding/ui/screens/gender_screen.dart';
 import 'package:fithub/features/onboarding/ui/screens/goal_screen.dart';
@@ -20,7 +26,7 @@ class AppRouter extends _$AppRouter {
     AutoRoute(
       path: '/onboarding',
       page: WelcomeRoute.page,
-      initial: true,
+      //initial: true,
     ),
     AutoRoute(
       path: '/onboarding/gender',
@@ -61,6 +67,36 @@ class AppRouter extends _$AppRouter {
     AutoRoute(
       path: '/registration/new-password',
       page: NewPasswordRoute.page
+    ),
+    AutoRoute(
+      path: '/community/reviews',
+      page: ReviewsRoute.page,
+      //initial: true
+    ),
+    AutoRoute(
+      path: '/community/community-screen',
+      page: CommunityRoute.page,
+      initial: true
+    ),
+     AutoRoute(
+      path: '/community/write-review',
+      page: WriteReviewScreenRoute.page,
+      //initial: true
+    ),
+     AutoRoute(
+      path: '/community/write-complaint',
+      page: ComplaintRoute.page,
+      //initial: true
+    ),
+    AutoRoute(
+      path: '/community/search-course',
+      page: SearchCourseRoute.page,
+      //initial: true
+    ),
+     AutoRoute(
+      path: '/community/user-course',
+      page: UserCourseViewRoute.page,
+      //initial: true
     ),
   ];
 }

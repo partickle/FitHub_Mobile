@@ -81,6 +81,42 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const WelcomeScreen(),
       );
     },
+     ReviewsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ReviewsScreen(),
+      );
+    },
+    CommunityRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: CommunityScreen(),
+      );
+    },
+    WriteReviewScreenRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: WriteReviewScreen(),
+      );
+    },
+    ComplaintRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ComplaintScreen(),
+      );
+    },
+     SearchCourseRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: SearchCourseScreen(),
+      );
+    },
+     UserCourseViewRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: UserCourseView(),
+      );
+    },
   };
 }
 
@@ -237,3 +273,92 @@ class WelcomeRoute extends PageRouteInfo<void> {
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
+
+/// generated route for
+/// [ReviewsScreen]
+class ReviewsRoute extends PageRouteInfo<void> {
+  const ReviewsRoute({List<PageRouteInfo>? children})
+      : super(
+          ReviewsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ReviewsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [CommunityScreen]
+class CommunityRoute extends PageRouteInfo<void> {
+  const CommunityRoute({List<PageRouteInfo>? children})
+      : super(
+          CommunityRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CommunityRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [WriteReviewScreen]
+class WriteReviewScreenRoute extends PageRouteInfo<void> {
+  const WriteReviewScreenRoute({List<PageRouteInfo>? children})
+      : super(
+          WriteReviewScreenRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'WriteReviewScreenRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ComplaintScreen]
+class ComplaintRoute extends PageRouteInfo<void> {
+  const ComplaintRoute({List<PageRouteInfo>? children})
+      : super(
+          ComplaintRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ComplaintRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SearchCourseScreen]
+class SearchCourseRoute extends PageRouteInfo<void> {
+  const SearchCourseRoute({List<PageRouteInfo>? children})
+      : super(
+          SearchCourseRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SearchCourseRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [UserCourseView]
+class UserCourseViewRoute extends PageRouteInfo<void> {
+  const UserCourseViewRoute({List<PageRouteInfo>? children})
+      : super(
+          UserCourseViewRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'UserCourseViewRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+
+
+
+
