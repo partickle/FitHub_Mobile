@@ -18,7 +18,6 @@ class ExerciseListScreen extends StatelessWidget {
               duration: '30 sec',
               image: 'assets/images/constructor/workout_picture.png',
               onTap: () {
-                //AutoRouter.of(context).push(const ExerciseViewRoute());
               },
             ),
             WorkoutItem(
@@ -26,7 +25,6 @@ class ExerciseListScreen extends StatelessWidget {
               duration: '25 reps',
               image: 'assets/images/constructor/workout_picture.png',
               onTap: () {
-                //AutoRouter.of(context).push(const ExerciseViewRoute());
               },
             ),
             WorkoutItem(
@@ -34,7 +32,6 @@ class ExerciseListScreen extends StatelessWidget {
               duration: '30 sec',
               image: 'assets/images/constructor/first_courses.png',
               onTap: () {
-                //AutoRouter.of(context).push(const ExerciseViewRoute());
               },
             ),
             WorkoutItem(
@@ -42,7 +39,6 @@ class ExerciseListScreen extends StatelessWidget {
               duration: '25 reps',
               image: 'assets/images/constructor/first_picture.png',
               onTap: () {
-               // AutoRouter.of(context).push(const ExerciseViewRoute());
               },
             ),
             WorkoutItem(
@@ -50,7 +46,6 @@ class ExerciseListScreen extends StatelessWidget {
               duration: '30 sec',
               image: 'assets/images/constructor/fourth_picture.png',
               onTap: () {
-                //AutoRouter.of(context).push(const ExerciseViewRoute());
               },
             ),
             WorkoutItem(
@@ -58,7 +53,6 @@ class ExerciseListScreen extends StatelessWidget {
               duration: '25 reps',
               image: 'assets/images/constructor/second_courses.png',
               onTap: () {
-                //AutoRouter.of(context).push(const ExerciseViewRoute());
               },
             ),
             const SizedBox(height: 80),
@@ -110,7 +104,7 @@ class WorkoutItem extends StatelessWidget {
             ),
           ),
           trailing: const Icon(
-            Icons.arrow_forward,
+            Icons.arrow_forward_ios,
             color: Colors.white,
           ),
         ),

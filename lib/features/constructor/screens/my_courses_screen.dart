@@ -14,7 +14,6 @@ class MyCoursesScreen extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            // Handle back button press
           },
         ),
         title: Text('My courses'),
@@ -24,14 +23,13 @@ class MyCoursesScreen extends StatelessWidget {
           ListView(
             padding: EdgeInsets.all(16.0),
             children: [
-              SizedBox(height: 80), // Increase space for the floating button
+              SizedBox(height: 80),
               CourseCard(
                 title: 'Learn the Basic of Training',
                 subtitle: 'Workouts for Beginner',
                 imageUrl: 'assets/images/constructor/first_courses.png',
                 isPremium: false,
                 onTap: () {
-                  // Handle card tap
                 },
               ),
               SizedBox(height: 16.0),
@@ -41,7 +39,6 @@ class MyCoursesScreen extends StatelessWidget {
                 imageUrl: 'assets/images/constructor/second_courses.png',
                 isPremium: true,
                 onTap: () {
-                  // Handle card tap
                 },
               ),
             ],

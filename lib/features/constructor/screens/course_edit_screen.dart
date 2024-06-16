@@ -45,7 +45,6 @@ class CourseEditScreen extends StatelessWidget {
                       color: Colors.white,
                     ),
                     onPressed: () {
-                      // Add your settings navigation or functionality here
                     },
                   ),
                 ),
@@ -103,7 +102,6 @@ class CourseEditScreen extends StatelessWidget {
                     Center(
                       child: GestureDetector(
                         onTap: () {
-                          // Add your onPressed functionality here
                         },
                         child: const Icon(Icons.add, color: Colors.white, size: 30),
                       ),
@@ -114,7 +112,6 @@ class CourseEditScreen extends StatelessWidget {
                       duration: '60 min',
                       image: 'assets/images/constructor/workout_picture.png',
                       onTap: () {
-                        // Add your onTap functionality here
                       },
                     ),
                     const SizedBox(height: 80),
@@ -125,7 +122,6 @@ class CourseEditScreen extends StatelessWidget {
             CenterElevatedButton(
               buttonText: 'Begin course',
               onPressed: () {
-                // Add your onPressed functionality here
               },
             ),
           ],
