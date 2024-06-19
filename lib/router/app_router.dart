@@ -9,12 +9,12 @@ import 'package:fithub/features/onboarding/ui/screens/level_screen.dart';
 import 'package:fithub/features/onboarding/ui/screens/welcome_screen.dart';
 import 'package:fithub/features/profile/ui/screens/profile_screen.dart';
 import 'package:fithub/features/progress/ui/screens/progress_screen.dart';
-import 'package:fithub/features/registration/screens/authorization_screen.dart';
-import 'package:fithub/features/registration/screens/first_registration_screen.dart';
-import 'package:fithub/features/registration/screens/forgot_password_screen.dart';
-import 'package:fithub/features/registration/screens/new_password_screen.dart';
-import 'package:fithub/features/registration/screens/second_registration_screen.dart';
-import 'package:fithub/features/registration/screens/verification_screen.dart';
+import 'package:fithub/features/registration/ui/screens/authorization_screen.dart';
+import 'package:fithub/features/registration/ui/screens/first_registration_screen.dart';
+import 'package:fithub/features/registration/ui/screens/forgot_password_screen.dart';
+import 'package:fithub/features/registration/ui/screens/new_password_screen.dart';
+import 'package:fithub/features/registration/ui/screens/second_registration_screen.dart';
+import 'package:fithub/features/registration/ui/screens/verification_screen.dart';
 import 'package:fithub/ui/components/navigation_bar_page.dart';
 
 part 'app_router.gr.dart';

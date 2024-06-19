@@ -1,8 +1,8 @@
 import 'package:appmetrica_plugin/appmetrica_plugin.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:fithub/router/app_router.dart';
-import 'package:fithub/features/registration/widgets/verification_field.dart';
-import 'package:fithub/features/registration/components/forgot_password_page.dart';
+import 'package:fithub/features/registration/ui/widgets/verification_field.dart';
+import 'package:fithub/features/registration/ui/components/forgot_password_page.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()

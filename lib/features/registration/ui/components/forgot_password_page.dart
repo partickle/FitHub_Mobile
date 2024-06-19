@@ -1,5 +1,5 @@
 import 'package:fithub/res/constants/constants.dart';
-import 'package:fithub/features/registration/widgets/usual_text_button.dart';
+import 'package:fithub/features/registration/ui/widgets/usual_text_button.dart';
 import 'package:fithub/ui/widgets/center_elevated_button.dart';
 import 'package:fithub/ui/widgets/up_back_button.dart';
 import 'package:flutter/material.dart';
