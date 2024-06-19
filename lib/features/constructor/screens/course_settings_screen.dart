@@ -90,25 +90,33 @@ class _CourseSettingsScreenState extends State<CourseSettingsScreen> {
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
             decoration: BoxDecoration(
               color: Colors.grey[800],
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(50), // Закруглённые углы для овала
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                FilterButton(
-                  title: 'Beginner',
-                  isSelected: selectedCategory == 'Beginner',
-                  onTap: () => selectCategory('Beginner'),
+                Expanded(
+                  child: FilterButton(
+                    title: 'Beginner',
+                    isSelected: selectedCategory == 'Beginner',
+                    onTap: () => selectCategory('Beginner'),
+                  ),
                 ),
-                FilterButton(
-                  title: 'Intermediate',
-                  isSelected: selectedCategory == 'Intermediate',
-                  onTap: () => selectCategory('Intermediate'),
+                SizedBox(width: 8),
+                Expanded(
+                  child: FilterButton(
+                    title: 'Intermediate',
+                    isSelected: selectedCategory == 'Intermediate',
+                    onTap: () => selectCategory('Intermediate'),
+                  ),
                 ),
-                FilterButton(
-                  title: 'Advance',
-                  isSelected: selectedCategory == 'Advance',
-                  onTap: () => selectCategory('Advance'),
+                SizedBox(width: 8),
+                Expanded(
+                  child: FilterButton(
+                    title: 'Advance',
+                    isSelected: selectedCategory == 'Advance',
+                    onTap: () => selectCategory('Advance'),
+                  ),
                 ),
               ],
             ),
@@ -125,20 +133,25 @@ class _CourseSettingsScreenState extends State<CourseSettingsScreen> {
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
             decoration: BoxDecoration(
               color: Colors.grey[800],
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(50), // Закруглённые углы для овала
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                FilterButton(
-                  title: 'Private',
-                  isSelected: selectedAccess == 'Private',
-                  onTap: () => selectAccess('Private'),
+                Expanded(
+                  child: FilterButton(
+                    title: 'Private',
+                    isSelected: selectedAccess == 'Private',
+                    onTap: () => selectAccess('Private'),
+                  ),
                 ),
-                FilterButton(
-                  title: 'Public',
-                  isSelected: selectedAccess == 'Public',
-                  onTap: () => selectAccess('Public'),
+                SizedBox(width: 8),
+                Expanded(
+                  child: FilterButton(
+                    title: 'Public',
+                    isSelected: selectedAccess == 'Public',
+                    onTap: () => selectAccess('Public'),
+                  ),
                 ),
               ],
             ),

@@ -76,12 +76,12 @@ class AppRouter extends _$AppRouter {
      AutoRoute(
       path: '/constructor/course-settings',
       page: CourseSettingsRoute.page,
-      //initial: true
+      initial: true
     ),
       AutoRoute(
       path: '/constructor/my-courses',
       page: MyCoursesScreenRoute.page,
-      initial: true
+      //initial: true
     ),
     AutoRoute(
       path: '/constructor/course-edit',

@@ -18,41 +18,52 @@ class ExerciseListScreen extends StatelessWidget {
               duration: '30 sec',
               image: 'assets/images/constructor/workout_picture.png',
               onTap: () {
+                print('Lunges with foot pull-up tapped');
               },
             ),
+            const SizedBox(height: 12),
             WorkoutItem(
               title: 'Stretching of the hip joint',
               duration: '25 reps',
               image: 'assets/images/constructor/workout_picture.png',
               onTap: () {
+                print('Stretching of the hip joint tapped');
               },
             ),
+            const SizedBox(height: 12),
             WorkoutItem(
               title: 'Lunges with foot pull-up',
               duration: '30 sec',
               image: 'assets/images/constructor/first_courses.png',
               onTap: () {
+                print('Lunges with foot pull-up tapped');
               },
             ),
+            const SizedBox(height: 12),
             WorkoutItem(
               title: 'Stretching of the hip joint',
               duration: '25 reps',
               image: 'assets/images/constructor/first_picture.png',
               onTap: () {
+                print('Stretching of the hip joint tapped');
               },
             ),
+            const SizedBox(height: 12),
             WorkoutItem(
               title: 'Lunges with foot pull-up',
               duration: '30 sec',
               image: 'assets/images/constructor/fourth_picture.png',
               onTap: () {
+                print('Lunges with foot pull-up tapped');
               },
             ),
+            const SizedBox(height: 12),
             WorkoutItem(
               title: 'Stretching of the hip joint',
               duration: '25 reps',
               image: 'assets/images/constructor/second_courses.png',
               onTap: () {
+                print('Stretching of the hip joint tapped');
               },
             ),
             const SizedBox(height: 80),
@@ -81,7 +92,7 @@ class WorkoutItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Card(
-        color: Colors.grey[800],
+        color: Color(0xFF2C2C2E),
         child: ListTile(
           leading: Image.asset(
             image,
