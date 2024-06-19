@@ -1,21 +1,21 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:fithub/ui/features/community/screens/community_screen.dart';
-import 'package:fithub/ui/features/home/screens/course_list_screen.dart';
-import 'package:fithub/ui/features/home/screens/home_screen.dart';
-import 'package:fithub/ui/features/onboarding/screens/age_screen.dart';
-import 'package:fithub/ui/features/onboarding/screens/gender_screen.dart';
-import 'package:fithub/ui/features/onboarding/screens/goal_screen.dart';
-import 'package:fithub/ui/features/onboarding/screens/level_screen.dart';
-import 'package:fithub/ui/features/onboarding/screens/welcome_screen.dart';
-import 'package:fithub/ui/features/profile/screens/profile_screen.dart';
-import 'package:fithub/ui/features/progress/screens/progress_screen.dart';
-import 'package:fithub/ui/features/registration/screens/authorization_screen.dart';
-import 'package:fithub/ui/features/registration/screens/first_registration_screen.dart';
-import 'package:fithub/ui/features/registration/screens/forgot_password_screen.dart';
-import 'package:fithub/ui/features/registration/screens/new_password_screen.dart';
-import 'package:fithub/ui/features/registration/screens/second_registration_screen.dart';
-import 'package:fithub/ui/features/registration/screens/verification_screen.dart';
-import 'package:fithub/router/navigation_bar_page.dart';
+import 'package:fithub/features/community/ui/screens/community_screen.dart';
+import 'package:fithub/features/home/ui/screens/course_list_screen.dart';
+import 'package:fithub/features/home/ui/screens/home_screen.dart';
+import 'package:fithub/features/onboarding/ui/screens/age_screen.dart';
+import 'package:fithub/features/onboarding/ui/screens/gender_screen.dart';
+import 'package:fithub/features/onboarding/ui/screens/goal_screen.dart';
+import 'package:fithub/features/onboarding/ui/screens/level_screen.dart';
+import 'package:fithub/features/onboarding/ui/screens/welcome_screen.dart';
+import 'package:fithub/features/profile/ui/screens/profile_screen.dart';
+import 'package:fithub/features/progress/ui/screens/progress_screen.dart';
+import 'package:fithub/features/registration/screens/authorization_screen.dart';
+import 'package:fithub/features/registration/screens/first_registration_screen.dart';
+import 'package:fithub/features/registration/screens/forgot_password_screen.dart';
+import 'package:fithub/features/registration/screens/new_password_screen.dart';
+import 'package:fithub/features/registration/screens/second_registration_screen.dart';
+import 'package:fithub/features/registration/screens/verification_screen.dart';
+import 'package:fithub/ui/components/navigation_bar_page.dart';
 
 part 'app_router.gr.dart';
 
@@ -26,6 +26,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           path: '/onboarding',
           page: WelcomeRoute.page,
+          initial: true
         ),
         AutoRoute(
           path: '/onboarding/gender',
@@ -68,17 +69,9 @@ class AppRouter extends _$AppRouter {
           page: NewPasswordRoute.page,
         ),
         AutoRoute(
-          path: '/home',
-          page: HomeRoute.page,
-        ),
-        AutoRoute(
-          path: '/course-list',
-          page: CourseListRoute.page,
-        ),
-        AutoRoute(
-          path: '/',
+          // path: '/',
           page: NavigationBarRoute.page,
-          initial: true,
+          initial: false,
           children: [
             AutoRoute(
               path: 'home-tab',
@@ -125,6 +118,10 @@ class AppRouter extends _$AppRouter {
               ],
             ),
           ],
+        ),
+        AutoRoute(
+          path: '/home/course-list',
+          page: CourseListRoute.page,
         ),
       ];
 }

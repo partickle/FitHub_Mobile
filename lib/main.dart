@@ -1,6 +1,6 @@
 import 'package:appmetrica_plugin/appmetrica_plugin.dart';
-import 'package:fithub/data/providers/course_provider.dart';
-import 'package:fithub/data/repository/course_repository.dart';
+import 'package:fithub/features/courses/data/providers/course_provider.dart';
+import 'package:fithub/features/courses/data/repository/course_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
