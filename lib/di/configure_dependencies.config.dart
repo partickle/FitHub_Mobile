@@ -12,8 +12,10 @@ import 'package:dio/dio.dart' as _i4;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
+import '../features/registration/data/repository/auth_repository.dart' as _i6;
+import '../features/registration/data/service/auth_service.dart' as _i5;
 import '../token/repository/token_repository.dart' as _i3;
-import 'register_module.dart' as _i5;
+import 'register_module.dart' as _i7;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -33,8 +35,12 @@ extension GetItInjectableX on _i1.GetIt {
     });
     gh.singletonAsync<_i4.Dio>(() async =>
         registerModule.provideDio(await getAsync<_i3.TokenRepository>()));
+    gh.factoryAsync<_i5.AuthService>(
+        () async => _i5.AuthService(await getAsync<_i4.Dio>()));
+    gh.singletonAsync<_i6.AuthRepository>(
+        () async => _i6.AuthRepository(await getAsync<_i5.AuthService>()));
     return this;
   }
 }
 
-class _$RegisterModule extends _i5.RegisterModule {}
+class _$RegisterModule extends _i7.RegisterModule {}

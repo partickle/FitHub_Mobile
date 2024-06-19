@@ -1,7 +1,7 @@
 export 'package:fithub/res/constants/color_constants.dart';
 export 'package:fithub/res/constants/font_constants.dart';
 
-const String baseUrl = 'https://40a0-83-139-159-199.ngrok-free.app';
+const String baseUrl = 'http://158.160.80.227:8000';
 const timeout = Duration(seconds: 30);
 
 const List<String> levels = [
