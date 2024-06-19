@@ -36,8 +36,7 @@ class _SearchCourseScreenState extends State<SearchCourseScreen> {
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {},
         ),
-        title:
-            const Text('Search course', style: TextStyle(color: Colors.white)),
+        title: const Text('Search course', style: TextStyle(color: Colors.white)),
       ),
       body: ListView(
         padding: const EdgeInsets.all(16.0),
@@ -50,8 +49,7 @@ class _SearchCourseScreenState extends State<SearchCourseScreen> {
               floatingLabelBehavior: FloatingLabelBehavior.never,
               fillColor: Colors.grey[800],
               filled: true,
-              contentPadding:
-                  const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+              contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30.0),
                 borderSide: const BorderSide(width: 0.8),
@@ -72,8 +70,7 @@ class _SearchCourseScreenState extends State<SearchCourseScreen> {
               floatingLabelBehavior: FloatingLabelBehavior.never,
               fillColor: Colors.grey[800],
               filled: true,
-              contentPadding:
-                  const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+              contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30.0),
                 borderSide: const BorderSide(width: 0.8),
@@ -86,8 +83,7 @@ class _SearchCourseScreenState extends State<SearchCourseScreen> {
             height: 32,
           ),
           const SizedBox(height: 16),
-          const Text('Tags',
-              style: TextStyle(color: Colors.white, fontSize: 16)),
+          const Text('Tags', style: TextStyle(color: Colors.white, fontSize: 16)),
           const SizedBox(height: 16),
           Wrap(
             spacing: 8.0,
@@ -96,30 +92,23 @@ class _SearchCourseScreenState extends State<SearchCourseScreen> {
               return GestureDetector(
                 onTap: () {
                   setState(() {
-                    isSelected
-                        ? selectedTags.remove(tag)
-                        : selectedTags.add(tag);
+                    isSelected ? selectedTags.remove(tag) : selectedTags.add(tag);
                   });
                 },
                 child: Container(
                   margin: const EdgeInsets.only(bottom: 8.0),
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 12.0, vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
                   decoration: BoxDecoration(
-                    color:
-                        isSelected ? const Color(0xFFD0FD3E) : Colors.grey[800],
+                    color: isSelected ? const Color(0xFFD0FD3E) : Colors.grey[800],
                     borderRadius: BorderRadius.circular(30.0),
                     border: Border.all(
-                      color: isSelected
-                          ? const Color(0xFFD0FD3E)
-                          : Colors.grey[800]!,
+                      color: isSelected ? const Color(0xFFD0FD3E) : Colors.grey[800]!,
                       width: 0.8,
                     ),
                   ),
                   child: Text(
                     tag,
-                    style: TextStyle(
-                        color: isSelected ? Colors.black : Colors.white),
+                    style: TextStyle(color: isSelected ? Colors.black : Colors.white),
                   ),
                 ),
               );
@@ -131,32 +120,39 @@ class _SearchCourseScreenState extends State<SearchCourseScreen> {
             height: 32,
           ),
           const SizedBox(height: 20),
-          const Text('Category',
-              style: TextStyle(color: Colors.white, fontSize: 16)),
+          const Text('Category', style: TextStyle(color: Colors.white, fontSize: 16)),
           const SizedBox(height: 21),
           Container(
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
             decoration: BoxDecoration(
               color: Colors.grey[800],
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(50),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                FilterButton(
-                  title: 'Beginner',
-                  isSelected: selectedCategory == 'Beginner',
-                  onTap: () => selecteCategory('Beginner'),
+                Expanded(
+                  child: FilterButton(
+                    title: 'Beginner',
+                    isSelected: selectedCategory == 'Beginner',
+                    onTap: () => selecteCategory('Beginner'),
+                  ),
                 ),
-                FilterButton(
-                  title: 'Intermediate',
-                  isSelected: selectedCategory == 'Intermediate',
-                  onTap: () => selecteCategory('Intermediate'),
+                SizedBox(width: 8),
+                Expanded(
+                  child: FilterButton(
+                    title: 'Intermediate',
+                    isSelected: selectedCategory == 'Intermediate',
+                    onTap: () => selecteCategory('Intermediate'),
+                  ),
                 ),
-                FilterButton(
-                  title: 'Advance',
-                  isSelected: selectedCategory == 'Advance',
-                  onTap: () => selecteCategory('Advance'),
+                SizedBox(width: 8),
+                Expanded(
+                  child: FilterButton(
+                    title: 'Advance',
+                    isSelected: selectedCategory == 'Advance',
+                    onTap: () => selecteCategory('Advance'),
+                  ),
                 ),
               ],
             ),

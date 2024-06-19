@@ -20,6 +20,7 @@ class _WriteReviewScreenState extends State<WriteReviewScreen> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
+            Navigator.pop(context);
           },
         ),
         title: const Text('Write a Review'),

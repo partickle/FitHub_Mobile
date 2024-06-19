@@ -71,12 +71,12 @@ class AppRouter extends _$AppRouter {
     AutoRoute(
       path: '/community/reviews',
       page: ReviewsRoute.page,
-      //initial: true
+      initial: true
     ),
     AutoRoute(
       path: '/community/community-screen',
       page: CommunityRoute.page,
-      initial: true
+      //initial: true
     ),
      AutoRoute(
       path: '/community/write-review',
