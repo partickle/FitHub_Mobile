@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:fithub/features/community/ui/screens/community_screen.dart';
 import 'package:fithub/features/community/ui/screens/complaint_screen.dart';

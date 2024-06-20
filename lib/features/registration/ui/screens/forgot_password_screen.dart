@@ -1,9 +1,11 @@
 import 'package:appmetrica_plugin/appmetrica_plugin.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:fithub/features/registration/provider/forgot_password_screen_provider.dart';
 import 'package:fithub/router/app_router.dart';
 import 'package:fithub/features/registration/ui/widgets/input_field.dart';
 import 'package:fithub/features/registration/ui/components/forgot_password_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 @RoutePage()
 class ForgotPasswordScreen extends StatefulWidget {
@@ -14,8 +16,6 @@ class ForgotPasswordScreen extends StatefulWidget {
 }
 
 class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
-  final _formKey = GlobalKey<FormState>();
-
   final ScrollController _scrollController = ScrollController();
   final TextEditingController _emailController = TextEditingController();
 
@@ -34,10 +34,12 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<ForgotPasswordProvider>(context);
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Form(
-        key: _formKey,
+        key: provider.formKey,
         child: SingleChildScrollView(
           controller: _scrollController,
           child: SizedBox(
@@ -49,8 +51,12 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               buttonText: 'Send',
               isSendCode: false,
               onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  AutoRouter.of(context).push(const VerificationRoute());
+                if (provider.formKey.currentState!.validate()) {
+                  provider.sendActivationEmail(context).then((_) {
+                    AutoRouter.of(context).push(
+                      VerificationRoute(email: _emailController.text),
+                    );
+                  });
                 }
               },
               child: InputField(

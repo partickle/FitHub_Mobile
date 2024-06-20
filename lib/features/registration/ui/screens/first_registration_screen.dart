@@ -5,6 +5,9 @@ import 'package:fithub/features/registration/ui/widgets/input_field.dart';
 import 'package:fithub/features/registration/ui/components/registration_page.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/res/constants/constants.dart';
+import 'package:fithub/features/onboarding/service/preferences_service.dart';
+import 'package:fithub/features/registration/provider/forgot_password_screen_provider.dart';
+import 'package:provider/provider.dart';
 
 @RoutePage()
 class FirstRegistrationScreen extends StatefulWidget {
@@ -15,8 +18,6 @@ class FirstRegistrationScreen extends StatefulWidget {
 }
 
 class _FirstRegistrationScreenState extends State<FirstRegistrationScreen> {
-  final _formKey = GlobalKey<FormState>();
-
   final ScrollController _scrollController = ScrollController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -39,10 +40,12 @@ class _FirstRegistrationScreenState extends State<FirstRegistrationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<ForgotPasswordProvider>(context);
+
     return Scaffold(
       resizeToAvoidBottomInset: true,
       body: Form(
-        key: _formKey,
+        key: provider.formKey,
         child: SingleChildScrollView(
           controller: _scrollController,
           child: Stack(
@@ -59,9 +62,31 @@ class _FirstRegistrationScreenState extends State<FirstRegistrationScreen> {
                   isMaybeBtn: true,
                   isLoginPage: false,
                   imageHeight: 0.5,
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      AutoRouter.of(context).push(const VerificationRoute());
+                  onPressed: () async {
+                    if (provider.formKey.currentState!.validate()) {
+                        
+                        AutoRouter.of(context).push(const SecondRegistrationRoute());
+                      if (_passwordController.text == _passwordAgainController.text) {
+                        try {
+                          await PreferencesService().setRegistrationData(
+                            _emailController.text,
+                            _passwordController.text,
+                            '',
+                            '',
+                            ''
+                          );
+                          
+
+                        } catch (error) {
+                          //ScaffoldMessenger.of(context).showSnackBar(
+                           // SnackBar(content: Text("Failed to save data or send activation email: ${error.toString()}"))
+                         //);
+                        }
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text("Passwords do not match"))
+                        );
+                      }
                     }
                   },
                   child: Column(
@@ -73,7 +98,7 @@ class _FirstRegistrationScreenState extends State<FirstRegistrationScreen> {
                         isPassword: false,
                         isTag: false,
                         controller: _emailController,
-                        passwordController: null
+                        passwordController: null,
                       ),
                       InputField(
                         labelText: 'Password',
@@ -82,7 +107,7 @@ class _FirstRegistrationScreenState extends State<FirstRegistrationScreen> {
                         isPassword: true,
                         isTag: false,
                         controller: _passwordController,
-                        passwordController: null
+                        passwordController: null,
                       ),
                       InputField(
                         labelText: 'Password again',
@@ -91,10 +116,10 @@ class _FirstRegistrationScreenState extends State<FirstRegistrationScreen> {
                         isPassword: true,
                         isTag: false,
                         controller: _passwordAgainController,
-                        passwordController: _passwordController
+                        passwordController: _passwordController,
                       )
                     ],
-                  )
+                  ),
                 ),
               ),
               Positioned(

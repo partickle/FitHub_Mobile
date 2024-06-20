@@ -1,19 +1,22 @@
 import 'package:appmetrica_plugin/appmetrica_plugin.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:fithub/features/registration/provider/new_password_provider.dart';
 import 'package:fithub/features/registration/ui/widgets/input_field.dart';
 import 'package:fithub/features/registration/ui/components/forgot_password_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 @RoutePage()
 class NewPasswordScreen extends StatefulWidget {
-  const NewPasswordScreen({super.key});
+  final String email;
+
+  const NewPasswordScreen({super.key, required this.email});
 
   @override
   State<NewPasswordScreen> createState() => _NewPasswordScreenState();
 }
 
 class _NewPasswordScreenState extends State<NewPasswordScreen> {
-  final _formKey = GlobalKey<FormState>();
 
   final ScrollController _scrollController = ScrollController();
   final TextEditingController _newPasswordController = TextEditingController();
@@ -35,10 +38,13 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<NewPasswordProvider>(context, listen: false);
+    provider.emailController.text = widget.email;
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Form(
-        key: _formKey,
+        key: provider.formKey,
         child: SingleChildScrollView(
           controller: _scrollController,
           child: SizedBox(
@@ -50,9 +56,15 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
               buttonText: 'Accept',
               isSendCode: false,
               onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  AppMetrica.reportEvent('Change password complete');
-                  AutoRouter.of(context).popUntilRoot();
+                debugPrint('Button pressed');
+                provider.newPasswordController.text = _newPasswordController.text;
+                debugPrint('New password: ${provider.newPasswordController.text}');
+                debugPrint('Email: ${provider.emailController.text}');
+
+                if (provider.formKey.currentState!.validate()) {
+                  provider.resetPassword(context);
+                } else {
+                  debugPrint('Form validation failed');
                 }
               },
               child: Column(

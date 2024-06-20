@@ -118,9 +118,13 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     NewPasswordRoute.name: (routeData) {
+      final args = routeData.argsAs<NewPasswordRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const NewPasswordScreen(),
+        child: NewPasswordScreen(
+          key: args.key,
+          email: args.email,
+        ),
       );
     },
     ProfileRoute.name: (routeData) {
@@ -166,9 +170,13 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     VerificationRoute.name: (routeData) {
+      final args = routeData.argsAs<VerificationRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const VerificationScreen(),
+        child: VerificationScreen(
+          key: args.key,
+          email: args.email,
+        ),
       );
     },
     WarmUpRoute.name: (routeData) {
@@ -460,16 +468,40 @@ class NavigationBarRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [NewPasswordScreen]
-class NewPasswordRoute extends PageRouteInfo<void> {
-  const NewPasswordRoute({List<PageRouteInfo>? children})
-      : super(
+class NewPasswordRoute extends PageRouteInfo<NewPasswordRouteArgs> {
+  NewPasswordRoute({
+    Key? key,
+    required String email,
+    List<PageRouteInfo>? children,
+  }) : super(
           NewPasswordRoute.name,
+          args: NewPasswordRouteArgs(
+            key: key,
+            email: email,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'NewPasswordRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<NewPasswordRouteArgs> page =
+      PageInfo<NewPasswordRouteArgs>(name);
+}
+
+class NewPasswordRouteArgs {
+  const NewPasswordRouteArgs({
+    this.key,
+    required this.email,
+  });
+
+  final Key? key;
+
+  final String email;
+
+  @override
+  String toString() {
+    return 'NewPasswordRouteArgs{key: $key, email: $email}';
+  }
 }
 
 /// generated route for
@@ -600,16 +632,40 @@ class UserCourseView extends PageRouteInfo<void> {
 
 /// generated route for
 /// [VerificationScreen]
-class VerificationRoute extends PageRouteInfo<void> {
-  const VerificationRoute({List<PageRouteInfo>? children})
-      : super(
+class VerificationRoute extends PageRouteInfo<VerificationRouteArgs> {
+  VerificationRoute({
+    Key? key,
+    required String email,
+    List<PageRouteInfo>? children,
+  }) : super(
           VerificationRoute.name,
+          args: VerificationRouteArgs(
+            key: key,
+            email: email,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'VerificationRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<VerificationRouteArgs> page =
+      PageInfo<VerificationRouteArgs>(name);
+}
+
+class VerificationRouteArgs {
+  const VerificationRouteArgs({
+    this.key,
+    required this.email,
+  });
+
+  final Key? key;
+
+  final String email;
+
+  @override
+  String toString() {
+    return 'VerificationRouteArgs{key: $key, email: $email}';
+  }
 }
 
 /// generated route for

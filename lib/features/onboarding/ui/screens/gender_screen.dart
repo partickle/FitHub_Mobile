@@ -4,6 +4,7 @@ import 'package:fithub/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/features/onboarding/ui/components/onboarding_page.dart';
 import 'package:fithub/features/onboarding/ui/widgets/gender_button.dart';
+import 'package:fithub/features/onboarding/service/preferences_service.dart';
 
 @RoutePage()
 class GenderScreen extends StatefulWidget {
@@ -16,13 +17,31 @@ class GenderScreen extends StatefulWidget {
 class _GenderScreenState extends State<GenderScreen> {
   bool isMaleSelected = false;
   bool isFemaleSelected = false;
+  final PreferencesService _prefs = PreferencesService();
 
   @override
   void initState() {
     AppMetrica.reportEvent('Open gender screen');
     super.initState();
   }
-  
+
+  void _updateGenderSelection(bool isMale) async {
+    setState(() {
+      isMaleSelected = isMale;
+      isFemaleSelected = !isMale;
+    });
+
+    // Получение текущих данных профиля
+    var profile = await _prefs.getUserProfile();
+    // Обновление только пола
+    await _prefs.setUserProfile(
+      isMale, 
+      profile['age'], 
+      profile['goal'], 
+      profile['physical_activity_level']
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return OnboardingPage(
@@ -41,24 +60,14 @@ class _GenderScreenState extends State<GenderScreen> {
             iconData: Icons.male,
             label: 'Male',
             isSelected: isMaleSelected,
-            onPressed: () {
-              setState(() {
-                isMaleSelected = true;
-                isFemaleSelected = false;
-              });
-            }
+            onPressed: () => _updateGenderSelection(true)
           ),
           const SizedBox(height: 24),
           GenderButton(
             iconData: Icons.female,
             label: 'Female',
             isSelected: isFemaleSelected,
-            onPressed: () {
-              setState(() {
-                isMaleSelected = false;
-                isFemaleSelected = true;
-              });
-            }
+            onPressed: () => _updateGenderSelection(false)
           ),
         ],
       ),

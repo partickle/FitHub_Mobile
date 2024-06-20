@@ -5,6 +5,10 @@ import 'package:fithub/features/registration/ui/components/registration_page.dar
 import 'package:fithub/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/res/constants/constants.dart';
+import 'package:provider/provider.dart';
+import 'package:fithub/features/registration/provider/registration_screen_provider.dart';
+
+
 
 @RoutePage()
 class SecondRegistrationScreen extends StatefulWidget {
@@ -15,8 +19,6 @@ class SecondRegistrationScreen extends StatefulWidget {
 }
 
 class _SecondRegistrationScreenState extends State<SecondRegistrationScreen> {
-  final _formKey = GlobalKey<FormState>();
-
   final ScrollController _scrollController = ScrollController();
   final TextEditingController _firstNameController = TextEditingController();
   final TextEditingController _lastNameController = TextEditingController();
@@ -39,10 +41,12 @@ class _SecondRegistrationScreenState extends State<SecondRegistrationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<RegistrationScreenProvider>(context, listen: false);
+
     return Scaffold(
       resizeToAvoidBottomInset: true,
       body: Form(
-        key: _formKey,
+        key: provider.formKey,
         child: SingleChildScrollView(
           controller: _scrollController,
           child: Stack(
@@ -55,16 +59,25 @@ class _SecondRegistrationScreenState extends State<SecondRegistrationScreen> {
                   title: 'That\'s ',
                   secTitle: 'almost all,',
                   subTitle: 'It remains to enter only your full name\nand a unique user tag',
-                  buttonText: 'Sing up',
+                  buttonText: 'Sign up',
                   isMaybeBtn: false,
                   isLoginPage: false,
                   imageHeight: 0.5,
                   onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      AppMetrica.reportEvent('Registration complete');
-                      
-                      AutoRouter.of(context).popUntilRoot();
-                      AutoRouter.of(context).replace(const AuthorizationRoute());
+                    if (provider.formKey.currentState!.validate()) {
+                      provider.firstNameController.text = _firstNameController.text;
+                      provider.lastNameController.text = _lastNameController.text;
+                      provider.userTagController.text = _userTagController.text;
+
+                      provider.register(context).then((_) {
+                        AppMetrica.reportEvent('Registration complete');
+                        AutoRouter.of(context).popUntilRoot();
+                        AutoRouter.of(context).replace(const AuthorizationRoute());
+                      }).catchError((error) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text("Registration failed: ${error.toString()}"))
+                        );
+                      });
                     }
                   },
                   child: Column(

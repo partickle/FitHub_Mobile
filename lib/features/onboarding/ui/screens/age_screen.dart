@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:fithub/res/constants/constants.dart';
 import 'package:fithub/features/onboarding/ui/components/onboarding_page.dart';
 import 'package:fithub/features/onboarding/ui/widgets/wheel_scroll.dart';
+import 'package:fithub/features/onboarding/service/preferences_service.dart';
 
 @RoutePage()
 class AgeScreen extends StatefulWidget {
@@ -16,11 +17,28 @@ class AgeScreen extends StatefulWidget {
 
 class _AgeScreenState extends State<AgeScreen> {
   int selectedAge = 17;
+  final PreferencesService _prefs = PreferencesService();
 
   @override
   void initState() {
     AppMetrica.reportEvent('Open age screen');
     super.initState();
+  }
+
+  void _updateAge(int age) async {
+    setState(() {
+      selectedAge = age;
+    });
+
+    // Получение текущих данных профиля
+    var profile = await _prefs.getUserProfile();
+    // Обновление только возраста
+    await _prefs.setUserProfile(
+      profile['is_male'], 
+      age, 
+      profile['goal'], 
+      profile['physical_activity_level']
+    );
   }
 
   @override
@@ -35,15 +53,13 @@ class _AgeScreenState extends State<AgeScreen> {
         AutoRouter.of(context).push(const GoalRoute());
       }, 
       child: OnboardingWheelScroll(
-        initialItem: selectedAge,
+        initialItem: selectedAge - 1,
         itemExtent: 80,
         widthBorder: 100,
         textStyle: onboardIntScrollStyle,
         list: List.generate(100, (index) => '${index + 1}'),
-        onSelectedItemChanged: (value) => {
-          setState(() {
-            selectedAge = value + 1;
-          })
+        onSelectedItemChanged: (value) {
+          _updateAge(value + 1);
         },
       ),
     );

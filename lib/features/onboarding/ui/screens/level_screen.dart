@@ -5,6 +5,7 @@ import 'package:fithub/features/onboarding/ui/components/onboarding_page.dart';
 import 'package:fithub/features/onboarding/ui/widgets/wheel_scroll.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:fithub/router/app_router.dart';
+import 'package:fithub/features/onboarding/service/preferences_service.dart';
 
 @RoutePage()
 class LevelScreen extends StatefulWidget {
@@ -16,11 +17,29 @@ class LevelScreen extends StatefulWidget {
 
 class _LevelScreenState extends State<LevelScreen> {
   int selectedLevel = 0;
+  final PreferencesService _prefs = PreferencesService();
+  List<String> levels = ['beginner', 'intermediate', 'advanced'];
 
   @override
   void initState() {
     AppMetrica.reportEvent('Open level screen');
     super.initState();
+  }
+
+  void _updatePhysicalActivityLevel(int index) async {
+    setState(() {
+      selectedLevel = index;
+    });
+
+    // Получение текущих данных профиля
+    var profile = await _prefs.getUserProfile();
+    // Обновление только уровня физической активности
+    await _prefs.setUserProfile(
+      profile['is_male'], 
+      profile['age'], 
+      profile['goal'], 
+      levels[index]
+    );
   }
 
   @override
@@ -41,10 +60,8 @@ class _LevelScreenState extends State<LevelScreen> {
         widthBorder: 300,
         textStyle: onboardStrScrollStyle,
         list: levels,
-        onSelectedItemChanged: (value) => {
-          setState(() {
-            selectedLevel = value + 1;
-          })
+        onSelectedItemChanged: (value) {
+          _updatePhysicalActivityLevel(value);
         },
       ),
     );

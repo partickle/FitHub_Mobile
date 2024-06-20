@@ -3,6 +3,10 @@ import 'package:fithub/di/configure_dependencies.dart';
 import 'package:fithub/di/dependencies.dart';
 import 'package:fithub/features/courses/data/repository/providers/course_provider.dart';
 import 'package:fithub/features/registration/provider/authorization_screen_provider.dart';
+import 'package:fithub/features/registration/provider/new_password_provider.dart';
+import 'package:fithub/features/registration/provider/registration_screen_provider.dart';
+import 'package:fithub/features/registration/provider/forgot_password_screen_provider.dart';
+import 'package:fithub/features/registration/provider/verification_screen_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -33,6 +37,18 @@ Future<void> main() async {
           ),
           ChangeNotifierProvider(
             create: (_) => AuthorizationScreenProvider(getIt<Dependencies>().authRepository)
+          ),
+          ChangeNotifierProvider(
+            create: (_) => RegistrationScreenProvider(getIt<Dependencies>().registrationRepository)
+          ),
+          ChangeNotifierProvider(
+            create: (_) => ForgotPasswordProvider(getIt<Dependencies>().forgotPasswordRepository)
+          ),
+          ChangeNotifierProvider(
+            create: (_) => VerificationProvider(getIt<Dependencies>().verificationRepository)
+          ),
+          ChangeNotifierProvider(
+            create: (_) => NewPasswordProvider(getIt<Dependencies>().newPasswordRepository)
           ),
         ],
         child: const FitHubApp(),

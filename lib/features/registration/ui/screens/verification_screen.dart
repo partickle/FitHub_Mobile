@@ -1,25 +1,24 @@
 import 'package:appmetrica_plugin/appmetrica_plugin.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:fithub/router/app_router.dart';
+import 'package:fithub/features/registration/provider/verification_screen_provider.dart';
 import 'package:fithub/features/registration/ui/widgets/verification_field.dart';
 import 'package:fithub/features/registration/ui/components/forgot_password_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 @RoutePage()
 class VerificationScreen extends StatefulWidget {
-  const VerificationScreen({super.key});
+  final String email;
+
+  const VerificationScreen({super.key, required this.email});
 
   @override
   State<VerificationScreen> createState() => _VerificationScreenState();
 }
 
 class _VerificationScreenState extends State<VerificationScreen> {
-  final _formKey = GlobalKey<FormState>();
-
   final ScrollController _scrollController = ScrollController();
   final List<TextEditingController> _controllers = List.generate(6, (_) => TextEditingController());
-
-  late bool isSendCode = false;
 
   @override
   void initState() {
@@ -38,10 +37,14 @@ class _VerificationScreenState extends State<VerificationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<VerificationProvider>(context, listen: false);
+    provider.emailController.text = widget.email;
+    debugPrint('VerificationScreen email: ${widget.email}');
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Form(
-        key: _formKey,
+        key: provider.formKey,
         child: SingleChildScrollView(
           controller: _scrollController,
           child: SizedBox(
@@ -51,40 +54,22 @@ class _VerificationScreenState extends State<VerificationScreen> {
               title: 'Verification',
               subTitle: 'Check your email. We\'ve sent you the PIN\nat your email.',
               buttonText: 'Verify',
-              isSendCode: isSendCode,
+              isSendCode: provider.isLoading,
               onPressed: () {
-                String fullCode = _controllers.map((controller) => controller.text).join();
-
-                final router = AutoRouter.of(context).stack;
-                final name = router[router.length - 2].name;
-
-                if (int.tryParse(fullCode) == 111111) {
-
-                  if (name == 'ForgotPasswordRoute') {
-                    AppMetrica.reportEvent('Verification for password complete');
-                    AutoRouter.of(context).push(const NewPasswordRoute());
-                  } else {
-                    AppMetrica.reportEvent('Verification for registration complete');
-                    AutoRouter.of(context).replace(const SecondRegistrationRoute());
-                  }
-                  
-                  setState(() {
-                    isSendCode = false;
-                  });
-                } else {
-                  setState(() {
-                    isSendCode = true;
-                  });
+                debugPrint('Verification code: ${_controllers.map((controller) => controller.text).join()}');
+                provider.codeController.text = _controllers.map((controller) => controller.text).join();
+                if (provider.formKey.currentState!.validate()) {
+                  provider.verifyActivationCode(context);
                 }
               },
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: VerificationField(controllers: _controllers),
-              )
+              ),
             ),
           ),
-        )
-      )
+        ),
+      ),
     );
   }
 }
