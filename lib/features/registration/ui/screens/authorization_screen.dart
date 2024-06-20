@@ -1,11 +1,12 @@
 import 'package:appmetrica_plugin/appmetrica_plugin.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:fithub/router/app_router.dart';
+import 'package:fithub/features/registration/provider/authorization_screen_provider.dart';
 import 'package:fithub/features/registration/ui/widgets/input_field.dart';
 import 'package:fithub/features/registration/ui/widgets/usual_text_button.dart';
 import 'package:fithub/features/registration/ui/components/registration_page.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/res/constants/constants.dart';
+import 'package:provider/provider.dart';
 
 @RoutePage()
 class AuthorizationScreen extends StatefulWidget {
@@ -16,11 +17,7 @@ class AuthorizationScreen extends StatefulWidget {
 }
 
 class _AuthorizationScreenState extends State<AuthorizationScreen> {
-  final _formKey = GlobalKey<FormState>();
-
   final ScrollController _scrollController = ScrollController();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
 
   @override
   void initState() {
@@ -31,17 +28,17 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
   @override
   void dispose() {
     _scrollController.dispose();
-    _emailController.dispose();
-    _passwordController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<AuthorizationScreenProvider>(context);
+
     return Scaffold(
       resizeToAvoidBottomInset: true,
       body: Form(
-        key: _formKey,
+        key: provider.formKey,
         child: SingleChildScrollView(
           controller: _scrollController,
           child: Stack(
@@ -59,48 +56,56 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
                   isLoginPage: true,
                   imageHeight: 0.55,
                   onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      AppMetrica.reportEvent('Log in complete');
+                    if (provider.formKey.currentState!.validate()) {
+                      provider.login(context);
                     }
                   },
-                  child: Column(
-                    children: [
-                      InputField(
-                        labelText: 'Email',
-                        isObscure: false,
-                        isEmail: true,
-                        isPassword: false,
-                        isTag: false,
-                        controller: _emailController,
-                        passwordController: null
-                      ),
-                      InputField(
-                        labelText: 'Password',
-                        isObscure: true,
-                        isEmail: false,
-                        isPassword: true,
-                        isTag: false,
-                        controller: _passwordController,
-                        passwordController: null
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 45, top: 20),
-                        child: Align(
-                          alignment: Alignment.centerRight,
-                          child: UsualTextButton(
-                            text: 'Forgot Password',
-                            isSelected: false,
-                            isActive: true,
-                            mainColor: kPrimaryColor,
-                            tapColor: kPressedColor,
-                            onTap: () {
-                              AutoRouter.of(context).push(const ForgotPasswordRoute());
-                            }
-                          ),
+                  child: provider.isLoading
+                      ? const Align(
+                          alignment: Alignment.bottomCenter,
+                          child: SizedBox(
+                            height: 200,
+                            child: Center(child: CircularProgressIndicator())
+                          )
+                        )
+                      : Column(
+                          children: [
+                            InputField(
+                              labelText: 'Email',
+                              isObscure: false,
+                              isEmail: true,
+                              isPassword: false,
+                              isTag: false,
+                              controller: provider.emailController,
+                              passwordController: null
+                            ),
+                            InputField(
+                              labelText: 'Password',
+                              isObscure: true,
+                              isEmail: false,
+                              isPassword: true,
+                              isTag: false,
+                              controller: provider.passwordController,
+                              passwordController: null
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 45, top: 20),
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: UsualTextButton(
+                                  text: 'Forgot Password',
+                                  isSelected: false,
+                                  isActive: true,
+                                  mainColor: kPrimaryColor,
+                                  tapColor: kPressedColor,
+                                  onTap: () {
+                                    provider.navigateToForgotPassword(context);
+                                  }
+                                ),
+                              ),
+                            )
+                          ],
                         ),
-                      )
-                    ],
-                  )
                 ),
               ),
               Positioned(

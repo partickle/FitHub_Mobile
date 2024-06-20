@@ -1,8 +1,6 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter/widgets.dart';
-import 'package:injectable/injectable.dart';
 
-@singleton
 class TokenRepository extends ChangeNotifier {
   TokenRepository({
     bool useCaching = true,
@@ -22,7 +20,6 @@ class TokenRepository extends ChangeNotifier {
 
   final _secureStorage = const FlutterSecureStorage();
 
-  @postConstruct
   Future<void> initTokens() async {
     if (_useCaching) {
       _accessToken = await _secureStorage.read(key: 'accessToken');

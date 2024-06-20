@@ -1,22 +1,19 @@
+import 'package:dio/dio.dart';
 import 'package:fithub/token/domain/token_refresh_request.dart';
 import 'package:fithub/token/repository/token_repository.dart';
-import 'package:dio/dio.dart';
 
 class JWTInterceptor extends QueuedInterceptor {
   final Dio _dio;
   final TokenRepository tokenRepository;
 
-  JWTInterceptor(
-    this._dio,
-    this.tokenRepository
-  );
+  JWTInterceptor(this._dio, this.tokenRepository);
 
   String? get _accessToken => tokenRepository.accessToken;
 
   String? get _refreshToken => tokenRepository.refreshToken;
 
   @override
-  void onRequest(options, handler) {
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     if (_accessToken != null &&
         options.path != '/auth/api/token/' &&
         options.path != '/auth/api/token/refresh/' &&
@@ -28,35 +25,42 @@ class JWTInterceptor extends QueuedInterceptor {
       options.headers['Authorization'] = 'Bearer $_accessToken';
     }
 
-    return super.onRequest(options, handler);
+    super.onRequest(options, handler);
   }
 
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) async {
     if (response.requestOptions.path.contains('/auth/register/') ||
         response.requestOptions.path == '/auth/login/') {
-      tokenRepository.saveTokens(
-        accessToken: response.data['accessToken'],
-        refreshToken: response.data['refreshToken'],
-      );
+      final accessToken = response.data['access'] as String?;
+      final refreshToken = response.data['refresh'] as String?;
+
+      if (accessToken != null && refreshToken != null) {
+        tokenRepository.saveTokens(
+          accessToken: accessToken,
+          refreshToken: refreshToken,
+        );
+      }
     }
 
     super.onResponse(response, handler);
   }
 
   @override
-  Future onError(err, handler) async {
-    if ((err.response?.statusCode == 403 ||
-            err.response?.statusCode == 401) &&
+  Future<void> onError(DioException err, ErrorInterceptorHandler handler) async {
+    if ((err.response?.statusCode == 403 || err.response?.statusCode == 401) &&
         (err.requestOptions.path != '/auth/register/' &&
             err.requestOptions.path != '/auth/login/')) {
       await _refresh();
       if (tokenRepository.auth) {
         final response = await _retry(err.requestOptions);
         handler.resolve(response);
+      } else {
+        handler.next(err);
       }
+    } else {
+      handler.next(err);
     }
-    return super.onError(err, handler);
   }
 
   Future<void> _refresh() async {
@@ -73,10 +77,17 @@ class JWTInterceptor extends QueuedInterceptor {
       );
 
       if (response.statusCode == 201 || response.statusCode == 200) {
-        tokenRepository.saveTokens(
-          accessToken: response.data['accessToken'],
-          refreshToken: response.data['refreshToken'],
-        );
+        final accessToken = response.data['access'] as String?;
+        final refreshToken = response.data['refresh'] as String?;
+
+        if (accessToken != null && refreshToken != null) {
+          tokenRepository.saveTokens(
+            accessToken: accessToken,
+            refreshToken: refreshToken,
+          );
+        } else {
+          tokenRepository.deleteTokens();
+        }
       }
     } catch (e) {
       tokenRepository.deleteTokens();

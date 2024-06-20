@@ -5,27 +5,43 @@ final mainTheme = ThemeData(
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     backgroundColor: kBackgroundColor,
   ),
+
+  progressIndicatorTheme: const ProgressIndicatorThemeData(
+    color: kPrimaryColor,
+  ),
+
+  snackBarTheme: SnackBarThemeData(
+    backgroundColor: kSecBackgroundColor,
+    contentTextStyle: responseStyle,
+    shape:const RoundedRectangleBorder(
+      borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(12),
+        topRight: Radius.circular(12)
+      ),
+    ),
+  ),
+
   textButtonTheme: TextButtonThemeData(
-    
     style: TextButton.styleFrom(
       foregroundColor: Colors.white,
       disabledForegroundColor: kBackgroundColor.withAlpha(140),
       disabledBackgroundColor: kBackgroundColor.withAlpha(140),
     ),
   ),
+
   textSelectionTheme: const TextSelectionThemeData(
     cursorColor: kPrimaryColor,
     selectionColor: kPrimaryColor,
     selectionHandleColor: kPrimaryColor,
   ),
-  scaffoldBackgroundColor: kBackgroundColor,
-  primaryColor: kPrimaryColor,
-  //colorScheme: ColorScheme(),
+
   textTheme: const TextTheme(
     bodyMedium: TextStyle(
       color: kTextColor,
     ),
   ),
-  //appBarTheme: AppBarTheme(titleTextStyle: TextStyle(fontSize: 24, fontWeight: FontWeight.w500)),
+
+  scaffoldBackgroundColor: kBackgroundColor,
+  primaryColor: kPrimaryColor,
   useMaterial3: true,
 );

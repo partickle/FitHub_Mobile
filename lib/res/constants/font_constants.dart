@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:fithub/res/constants/color_constants.dart';
 
+var responseStyle = GoogleFonts.openSans(
+  fontSize: 16,
+  fontWeight: FontWeight.w400,
+);
+
 var welcomeUpStyle = GoogleFonts.openSans(
   fontSize: 34,
   fontWeight: FontWeight.w300,
