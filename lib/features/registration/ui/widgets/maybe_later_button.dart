@@ -1,4 +1,6 @@
 import 'package:appmetrica_plugin/appmetrica_plugin.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:fithub/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/res/constants/constants.dart';
 
@@ -19,7 +21,7 @@ class MaybeLaterButton extends StatelessWidget {
           ),
           onPressed: () {
             AppMetrica.reportEvent('Skip authorization/registration');
-            // AutoRouter.of(context).replace(HomeRoute());
+            AutoRouter.of(context).replace(const HomeRoute());
           },
           child: Text(
             'Maybe later',
