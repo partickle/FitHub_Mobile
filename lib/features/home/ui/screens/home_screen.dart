@@ -7,7 +7,7 @@ import 'package:fithub/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/res/constants/constants.dart';
 import 'package:provider/provider.dart';
-import 'package:fithub/features/courses/data/providers/course_provider.dart';
+import 'package:fithub/features/courses/data/repository/providers/course_provider.dart';
 
 @RoutePage()
 class HomeScreen extends StatefulWidget {

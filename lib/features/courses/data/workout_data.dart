@@ -1,4 +1,4 @@
-import 'package:fithub/features/courses/data/models/workout/workout_model.dart';
+import 'package:fithub/features/courses/data/models/workout_model.dart';
 import 'package:fithub/features/courses/data/exercise_data.dart';
 
 List<Workout> workouts = [

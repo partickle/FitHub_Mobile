@@ -1,4 +1,4 @@
-import 'package:fithub/features/courses/data/models/exersice/exercise_model.dart';
+import 'package:fithub/features/courses/data/models/exercise_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'workout_model.freezed.dart';

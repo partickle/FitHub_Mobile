@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:fithub/res/constants/constants.dart';
-import 'package:fithub/features/courses/data/providers/course_provider.dart';
+import 'package:fithub/features/courses/data/repository/providers/course_provider.dart';
 import 'package:fithub/features/home/ui/widgets/course_card.dart';
 import 'package:fithub/ui/components/base_page.dart';
 import 'package:fithub/ui/widgets/custom_toggle_switch.dart';

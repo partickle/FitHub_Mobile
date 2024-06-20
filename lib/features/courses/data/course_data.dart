@@ -1,4 +1,4 @@
-import 'package:fithub/features/courses/data/models/course/course_model.dart';
+import 'package:fithub/features/courses/data/models/course_model.dart';
 import 'package:fithub/features/courses/data/workout_data.dart';
 import 'package:fithub/res/constants/constants.dart';
 

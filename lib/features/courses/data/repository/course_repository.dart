@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:fithub/features/courses/data/models/course/course_model.dart';
+import 'package:fithub/features/courses/data/models/course_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:fithub/features/courses/data/course_data.dart';
 

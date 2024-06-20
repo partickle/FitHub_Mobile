@@ -16,5 +16,6 @@ class UserLoginRequest with _$UserLoginRequest {
     required String password,
   }) = _UserLoginRequest;
 
-  factory UserLoginRequest.fromJson(Map<String, dynamic> json) => _$UserLoginRequestFromJson(json);
+  factory UserLoginRequest.fromJson(Map<String, dynamic> json)
+     => _$UserLoginRequestFromJson(json);
 }

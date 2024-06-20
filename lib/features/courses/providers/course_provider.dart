@@ -1,4 +1,4 @@
-import 'package:fithub/features/courses/data/models/course/course_model.dart';
+import 'package:fithub/features/courses/data/models/course_model.dart';
 import 'package:fithub/features/courses/data/repository/course_repository.dart';
 import 'package:flutter/material.dart';
 
