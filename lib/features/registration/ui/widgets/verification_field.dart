@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:fithub/constants.dart';
+import 'package:fithub/res/constants/constants.dart';
 
 class VerificationField extends StatelessWidget {
   final List<TextEditingController> controllers;

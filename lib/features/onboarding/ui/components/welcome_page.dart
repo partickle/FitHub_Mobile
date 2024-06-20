@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fithub/constants.dart';
+import 'package:fithub/res/constants/constants.dart';
 
 class WelcomePage extends StatelessWidget {
   final String urlImage;
