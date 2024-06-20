@@ -1,6 +1,6 @@
 import 'package:appmetrica_plugin/appmetrica_plugin.dart';
 import 'package:flutter/material.dart';
-import 'package:fithub/constants.dart';
+import 'package:fithub/res/constants/constants.dart';
 
 class MaybeLaterButton extends StatelessWidget {
   const MaybeLaterButton({super.key});

@@ -1,9 +1,9 @@
 import 'package:appmetrica_plugin/appmetrica_plugin.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:fithub/router/app_router.dart';
-import 'package:flutter/material.dart';
-import 'package:fithub/constants.dart';
+import 'package:fithub/res/constants/constants.dart';
 import 'package:fithub/features/onboarding/ui/components/welcome_page.dart';
+import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 @RoutePage()

@@ -120,7 +120,7 @@ abstract class _$AppRouter extends RootStackRouter {
     CourseViewRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: CourseViewScreen(),
+        child: CourseScreen(),
       );
     },
   };
@@ -365,7 +365,7 @@ class CongratulationsRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [CourseViewScreen]
+/// [CourseScreen]
 class CourseViewRoute extends PageRouteInfo<void> {
   const CourseViewRoute({List<PageRouteInfo>? children})
       : super(

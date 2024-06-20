@@ -3,7 +3,9 @@ import 'package:fithub/router/app_router.dart';
 import 'package:fithub/ui/widgets/center_elevated_button.dart';
 import 'package:flutter/material.dart';
 
-class CourseViewScreen extends StatelessWidget {
+class CourseScreen extends StatelessWidget {
+  const CourseScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

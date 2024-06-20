@@ -1,6 +1,6 @@
 import 'package:appmetrica_plugin/appmetrica_plugin.dart';
 import 'package:flutter/material.dart';
-import 'package:fithub/constants.dart';
+import 'package:fithub/res/constants/constants.dart';
 import 'package:fithub/features/onboarding/ui/components/onboarding_page.dart';
 import 'package:fithub/features/onboarding/ui/widgets/wheel_scroll.dart';
 import 'package:auto_route/auto_route.dart';

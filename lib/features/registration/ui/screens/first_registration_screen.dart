@@ -4,7 +4,7 @@ import 'package:fithub/router/app_router.dart';
 import 'package:fithub/features/registration/ui/widgets/input_field.dart';
 import 'package:fithub/features/registration/ui/components/registration_page.dart';
 import 'package:flutter/material.dart';
-import 'package:fithub/constants.dart';
+import 'package:fithub/res/constants/constants.dart';
 
 @RoutePage()
 class FirstRegistrationScreen extends StatefulWidget {

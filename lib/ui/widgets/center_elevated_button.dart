@@ -1,5 +1,5 @@
+import 'package:fithub/res/constants/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:fithub/constants.dart';
 
 class CenterElevatedButton extends StatelessWidget {
   final String buttonText;

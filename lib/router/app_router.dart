@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:fithub/features/courses/ui/screens/break_screen.dart';
 import 'package:fithub/features/courses/ui/screens/congratulations_screen.dart';
-import 'package:fithub/features/courses/ui/screens/course_view.dart';
+import 'package:fithub/features/courses/ui/screens/course_screen.dart';
 import 'package:fithub/features/courses/ui/screens/exercise_first.dart';
 import 'package:fithub/features/courses/ui/screens/exercise_second.dart';
 import 'package:fithub/features/courses/ui/screens/exercise_view.dart';
