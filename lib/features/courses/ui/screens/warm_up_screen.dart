@@ -4,9 +4,7 @@ import 'package:fithub/ui/widgets/center_elevated_button.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
-class CourseScreen extends StatelessWidget {
-  const CourseScreen({super.key});
-
+class WarmUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +16,7 @@ class CourseScreen extends StatelessWidget {
             Stack(
               children: [
                 Image.asset(
-                  'assets/images/course/course_view.png',
+                  'assets/images/course/stretching.png',
                   width: double.infinity,
                   height: 250,
                   fit: BoxFit.cover,
@@ -40,7 +38,7 @@ class CourseScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Learn the Basic of Training',
+                    'Simple Warm Up',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 24,
@@ -49,7 +47,7 @@ class CourseScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 8),
                   Text(
-                    'Workouts for Beginner',
+                    'Learn the Basic of Training',
                     style: TextStyle(
                       color: Color(0xFFD0FD3E),
                       fontSize: 16,
@@ -64,7 +62,7 @@ class CourseScreen extends StatelessWidget {
                       ),
                       SizedBox(width: 8),
                       Text(
-                        '3 days',
+                        '60 min',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 16,
@@ -82,7 +80,7 @@ class CourseScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      'This course is designed for those who want to learn the basics or remember them. This complex is quite complex: there are stretches, workouts for all muscle groups, cardio workouts and much more. We recommend taking this course if you are just starting your career in sports.',
+                      'A basic and necessary full-body stretching workout. Many people ignore such workouts, not realizing their importance, however, to avoid injury and muscle growth, they are simply necessary.',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 14,
@@ -94,7 +92,47 @@ class CourseScreen extends StatelessWidget {
                       duration: '30 sec',
                       image: 'assets/images/course/lunges.png',
                       onTap: () {
-                        AutoRouter.of(context).push(const WorkoutView());
+                        AutoRouter.of(context).push(const ExerciseView());
+                      },
+                    ),
+                    WorkoutItem(
+                      title: 'Stretching of the hip joint',
+                      duration: '25 reps',
+                      image: 'assets/images/course/hip_stretch.png',
+                      onTap: () {
+                        AutoRouter.of(context).push(const ExerciseView());
+                      },
+                    ),
+                    WorkoutItem(
+                      title: 'Lunges with foot pull-up',
+                      duration: '30 sec',
+                      image: 'assets/images/course/lunges.png',
+                      onTap: () {
+                        AutoRouter.of(context).push(const ExerciseView());
+                      },
+                    ),
+                    WorkoutItem(
+                      title: 'Stretching of the hip joint',
+                      duration: '25 reps',
+                      image: 'assets/images/course/hip_stretch.png',
+                      onTap: () {
+                        AutoRouter.of(context).push(const ExerciseView());
+                      },
+                    ),
+                    WorkoutItem(
+                      title: 'Lunges with foot pull-up',
+                      duration: '30 sec',
+                      image: 'assets/images/course/lunges.png',
+                      onTap: () {
+                        AutoRouter.of(context).push(const ExerciseView());
+                      },
+                    ),
+                    WorkoutItem(
+                      title: 'Stretching of the hip joint',
+                      duration: '25 reps',
+                      image: 'assets/images/course/hip_stretch.png',
+                      onTap: () {
+                        AutoRouter.of(context).push(const ExerciseView());
                       },
                     ),
                     const SizedBox(height: 80),
@@ -103,7 +141,7 @@ class CourseScreen extends StatelessWidget {
               ),
             ),
             CenterElevatedButton(buttonText: 'Start Workout', onPressed: () {
-              AutoRouter.of(context).push(const WorkoutView());
+               AutoRouter.of(context).push(const BreakRoute());
             }),
           ],
         ),
