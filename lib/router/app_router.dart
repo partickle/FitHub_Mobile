@@ -1,5 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:fithub/features/community/ui/screens/community_screen.dart';
+import 'package:fithub/features/community/ui/screens/complaint_screen.dart';
+import 'package:fithub/features/community/ui/screens/reviews_screen.dart';
+import 'package:fithub/features/community/ui/screens/search_course_screen.dart';
+import 'package:fithub/features/community/ui/screens/write_review_screen.dart';
 import 'package:fithub/features/courses/ui/screens/break_screen.dart';
 import 'package:fithub/features/courses/ui/screens/congratulations_screen.dart';
 import 'package:fithub/features/courses/ui/screens/course_screen.dart';
@@ -72,38 +76,38 @@ class AppRouter extends _$AppRouter {
       path: '/registration/new-password',
       page: NewPasswordRoute.page,
     ),
-    // AutoRoute(
-    //   path: '/courses/break',
-    //   page: BreakRoute.page,
-    // ),
-    // AutoRoute(
-    //   path: '/courses/course',
-    //   page: CourseRoute.page,
-    // ),
-    // AutoRoute(
-    //   path: '/courses/exercise-view',
-    //   page: ExerciseView.page,
-    // ),
-    // AutoRoute(
-    //   path: '/courses/workout-view',
-    //   page: WorkoutView.page,
-    // ),
-    // AutoRoute(
-    //   path: '/courses/first-exercise',
-    //   page: FirstExercise.page,
-    // ),
-    // AutoRoute(
-    //   path: '/courses/second-exercise',
-    //   page: SecondExercise.page
-    // ),
-    // AutoRoute(
-    //   path: '/courses/congradulations',
-    //   page: CongratulationsRoute.page,
-    // ),
-    // AutoRoute(
-    //   path: '/courses/warm-up',
-    //   page: WarmUpRoute.page,
-    // ),
+    AutoRoute(
+      path: '/courses/break',
+      page: BreakRoute.page,
+    ),
+    AutoRoute(
+      path: '/courses/course',
+      page: CourseRoute.page,
+    ),
+    AutoRoute(
+      path: '/courses/exercise-view',
+      page: ExerciseView.page,
+    ),
+    AutoRoute(
+      path: '/courses/workout-view',
+      page: WorkoutView.page,
+    ),
+    AutoRoute(
+      path: '/courses/first-exercise',
+      page: FirstExercise.page,
+    ),
+    AutoRoute(
+      path: '/courses/second-exercise',
+      page: SecondExercise.page
+    ),
+    AutoRoute(
+      path: '/courses/congradulations',
+      page: CongratulationsRoute.page,
+    ),
+    AutoRoute(
+      path: '/courses/warm-up',
+      page: WarmUpRoute.page,
+    ),
     AutoRoute(
       path: '/courses/new-password',
       page: NewPasswordRoute.page,
@@ -111,6 +115,30 @@ class AppRouter extends _$AppRouter {
     AutoRoute(
       path: '/courses/new-password',
       page: NewPasswordRoute.page,
+    ),
+    AutoRoute(
+      path: '/community',
+      page: WarmUpRoute.page,
+    ),
+    AutoRoute(
+      path: '/community/complaint',
+      page: ComplaintRoute.page,
+    ),
+    AutoRoute(
+      path: '/community/reviews',
+      page: ReviewsRoute.page,
+    ),
+    AutoRoute(
+      path: '/community/searsh',
+      page: SearchCourseRoute.page,
+    ),
+    AutoRoute(
+      path: '/community/user-course',
+      page: UserCourseView.page,
+    ),
+    AutoRoute(
+      path: '/community/write-review',
+      page: WriteReviewRoute.page,
     ),
     AutoRoute(
       // path: '/',

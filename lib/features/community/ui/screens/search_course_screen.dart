@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import '../widgets/filter_button.dart';
 
+@RoutePage()
 class SearchCourseScreen extends StatefulWidget {
   @override
   _SearchCourseScreenState createState() => _SearchCourseScreenState();

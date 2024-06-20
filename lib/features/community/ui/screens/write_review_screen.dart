@@ -4,6 +4,7 @@ import 'package:fithub/router/app_router.dart';
 import '../components/rating_bar.dart';
 import '../widgets/review_text_field.dart';
 
+@RoutePage()
 class WriteReviewScreen extends StatefulWidget {
   @override
   _WriteReviewScreenState createState() => _WriteReviewScreenState();

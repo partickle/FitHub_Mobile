@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:fithub/features/community/screens/community_screen.dart';
+import 'package:fithub/features/community/ui/screens/community_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/router/app_router.dart';
 
@@ -12,7 +12,7 @@ class WorkoutCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        AutoRouter.of(context).push(const UserCourseViewRoute());
+        AutoRouter.of(context).push(const UserCourseView());
       },
       child: Card(
         margin: const EdgeInsets.only(bottom: 16.0),

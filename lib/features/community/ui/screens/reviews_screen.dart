@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:fithub/router/app_router.dart';
 import 'package:flutter/material.dart';
 
+@RoutePage()
 class ReviewsScreen extends StatefulWidget {
   @override
   _ReviewsScreenState createState() => _ReviewsScreenState();
@@ -183,7 +184,7 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
                     ),
                   ),
                   onPressed: () {
-                  AutoRouter.of(context).push(const WriteReviewScreenRoute());
+                    AutoRouter.of(context).push(const WriteReviewRoute());
                   },
                   child: const Text('Write a Review'),
                 ),

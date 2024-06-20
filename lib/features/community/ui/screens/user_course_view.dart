@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:fithub/features/community/components/custom_app_bar.dart';
+import 'package:fithub/features/community/ui/components/custom_app_bar.dart';
 import 'package:fithub/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -8,6 +8,8 @@ import '../components/review_summary.dart';
 import '../components/course_details.dart';
 import '../components/warm_up_card.dart';
 
+
+@RoutePage()
 class UserCourseView extends StatelessWidget {
   final List<ReviewCard> reviews = [
     const ReviewCard(

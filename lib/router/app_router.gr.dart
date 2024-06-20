@@ -36,13 +36,19 @@ abstract class _$AppRouter extends RootStackRouter {
     CommunityRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const CommunityScreen(),
+        child: CommunityScreen(),
       );
     },
     CommunityTab.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const CommunityTabPage(),
+      );
+    },
+    ComplaintRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ComplaintScreen(),
       );
     },
     CongratulationsRoute.name: (routeData) {
@@ -141,6 +147,18 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ProgressTabPage(),
       );
     },
+    ReviewsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ReviewsScreen(),
+      );
+    },
+    SearchCourseRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: SearchCourseScreen(),
+      );
+    },
     SecondRegistrationRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -163,6 +181,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const WelcomeScreen(),
+      );
+    },
+    WriteReviewRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: WriteReviewScreen(),
       );
     },
   };
@@ -234,6 +258,20 @@ class CommunityTab extends PageRouteInfo<void> {
         );
 
   static const String name = 'CommunityTab';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ComplaintScreen]
+class ComplaintRoute extends PageRouteInfo<void> {
+  const ComplaintRoute({List<PageRouteInfo>? children})
+      : super(
+          ComplaintRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ComplaintRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -491,6 +529,34 @@ class ProgressTab extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [ReviewsScreen]
+class ReviewsRoute extends PageRouteInfo<void> {
+  const ReviewsRoute({List<PageRouteInfo>? children})
+      : super(
+          ReviewsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ReviewsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SearchCourseScreen]
+class SearchCourseRoute extends PageRouteInfo<void> {
+  const SearchCourseRoute({List<PageRouteInfo>? children})
+      : super(
+          SearchCourseRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SearchCourseRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [SecondExercise]
 class SecondExercise extends PageRouteInfo<void> {
   const SecondExercise({List<PageRouteInfo>? children})
@@ -514,6 +580,20 @@ class SecondRegistrationRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SecondRegistrationRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [UserCourseView]
+class UserCourseView extends PageRouteInfo<void> {
+  const UserCourseView({List<PageRouteInfo>? children})
+      : super(
+          UserCourseView.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'UserCourseView';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -570,6 +650,20 @@ class WorkoutView extends PageRouteInfo<void> {
         );
 
   static const String name = 'WorkoutView';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [WriteReviewScreen]
+class WriteReviewRoute extends PageRouteInfo<void> {
+  const WriteReviewRoute({List<PageRouteInfo>? children})
+      : super(
+          WriteReviewRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'WriteReviewRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

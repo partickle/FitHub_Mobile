@@ -1,8 +1,9 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:fithub/features/community/components/workout_card.dart';
+import 'package:fithub/features/community/ui/components/workout_card.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/router/app_router.dart';
 
+@RoutePage()
 class CommunityScreen extends StatefulWidget {
   @override
   _CommunityScreenState createState() => _CommunityScreenState();
