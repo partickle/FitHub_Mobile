@@ -1,6 +1,6 @@
-import 'package:fithub/features/course/components/exercise_model.dart';
-import 'package:fithub/features/course/widgets/circular_timer.dart';
-import 'package:fithub/features/course/widgets/exercise_button.dart';
+import 'package:fithub/features/courses/ui/components/exercise_model.dart';
+import 'package:fithub/features/courses/ui/widgets/circular_timer.dart';
+import 'package:fithub/features/courses/ui/widgets/exercise_button.dart';
 import 'package:flutter/material.dart';
 
 class FirstExercise extends StatefulWidget {
