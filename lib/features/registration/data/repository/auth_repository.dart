@@ -1,5 +1,5 @@
 import 'package:fithub/features/registration/data/service/auth_service.dart';
-import 'package:fithub/features/registration/domain/user_login_request.dart';
+import 'package:fithub/features/registration/domain/user_login_request/user_login_request.dart';
 import 'package:fithub/token/domain/jwt_response.dart';
 
 class AuthRepository {

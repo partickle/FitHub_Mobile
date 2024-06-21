@@ -18,7 +18,6 @@ class VerificationScreen extends StatefulWidget {
 
 class _VerificationScreenState extends State<VerificationScreen> {
   final ScrollController _scrollController = ScrollController();
-  final List<TextEditingController> _controllers = List.generate(6, (_) => TextEditingController());
 
   @override
   void initState() {
@@ -29,17 +28,13 @@ class _VerificationScreenState extends State<VerificationScreen> {
   @override
   void dispose() {
     _scrollController.dispose();
-    for (var controller in _controllers) {
-      controller.dispose();
-    }
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<VerificationProvider>(context, listen: false);
+    final provider = Provider.of<VerificationScreenProvider>(context, listen: false);
     provider.emailController.text = widget.email;
-    debugPrint('VerificationScreen email: ${widget.email}');
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -55,16 +50,17 @@ class _VerificationScreenState extends State<VerificationScreen> {
               subTitle: 'Check your email. We\'ve sent you the PIN\nat your email.',
               buttonText: 'Verify',
               isSendCode: provider.isLoading,
-              onPressed: () {
-                debugPrint('Verification code: ${_controllers.map((controller) => controller.text).join()}');
-                provider.codeController.text = _controllers.map((controller) => controller.text).join();
-                if (provider.formKey.currentState!.validate()) {
-                  provider.verifyActivationCode(context);
-                }
-              },
+              onPressed: () => provider.verifyActivationCode(context),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
-                child: VerificationField(controllers: _controllers),
+                child: provider.isLoading
+                    ? const Center(
+                        child: SizedBox(
+                          height: 200,
+                          child: Center(child: CircularProgressIndicator())
+                        )
+                      )
+                    : VerificationField(controllers: provider.codeControllers),
               ),
             ),
           ),

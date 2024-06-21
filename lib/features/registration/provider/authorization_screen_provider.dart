@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:fithub/features/registration/data/repository/auth_repository.dart';
 import 'package:flutter/material.dart';
-import 'package:fithub/features/registration/domain/user_login_request.dart';
+import 'package:fithub/features/registration/domain/user_login_request/user_login_request.dart';
 import 'package:fithub/router/app_router.dart';
 
 class AuthorizationScreenProvider extends ChangeNotifier {

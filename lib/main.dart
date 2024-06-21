@@ -3,8 +3,9 @@ import 'package:fithub/di/configure_dependencies.dart';
 import 'package:fithub/di/dependencies.dart';
 import 'package:fithub/features/courses/data/repository/providers/course_provider.dart';
 import 'package:fithub/features/registration/provider/authorization_screen_provider.dart';
-import 'package:fithub/features/registration/provider/new_password_provider.dart';
-import 'package:fithub/features/registration/provider/registration_screen_provider.dart';
+import 'package:fithub/features/registration/provider/first_registration_screen_provider.dart';
+import 'package:fithub/features/registration/provider/new_password_screen_provider.dart';
+import 'package:fithub/features/registration/provider/second_registration_screen_provider.dart';
 import 'package:fithub/features/registration/provider/forgot_password_screen_provider.dart';
 import 'package:fithub/features/registration/provider/verification_screen_provider.dart';
 import 'package:flutter/material.dart';
@@ -39,16 +40,20 @@ Future<void> main() async {
             create: (_) => AuthorizationScreenProvider(getIt<Dependencies>().authRepository)
           ),
           ChangeNotifierProvider(
-            create: (_) => RegistrationScreenProvider(getIt<Dependencies>().registrationRepository)
+            create: (_) => FirstRegistrationScreenProvider(getIt<Dependencies>().registrationRepository)
           ),
           ChangeNotifierProvider(
-            create: (_) => ForgotPasswordProvider(getIt<Dependencies>().forgotPasswordRepository)
+            create: (_) => SecondRegistrationScreenProvider(
+              getIt<Dependencies>().registrationRepository, getIt<Dependencies>().profileRepository)
           ),
           ChangeNotifierProvider(
-            create: (_) => VerificationProvider(getIt<Dependencies>().verificationRepository)
+            create: (_) => ForgotPasswordScreenProvider(getIt<Dependencies>().forgotPasswordRepository)
           ),
           ChangeNotifierProvider(
-            create: (_) => NewPasswordProvider(getIt<Dependencies>().newPasswordRepository)
+            create: (_) => VerificationScreenProvider(getIt<Dependencies>().forgotPasswordRepository)
+          ),
+          ChangeNotifierProvider(
+            create: (_) => NewPasswordScreenProvider(getIt<Dependencies>().forgotPasswordRepository)
           ),
         ],
         child: const FitHubApp(),

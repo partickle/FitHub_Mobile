@@ -46,6 +46,62 @@ class _ForgotPasswordService implements ForgotPasswordService {
     return value;
   }
 
+  @override
+  Future<NewPasswordResponse> resetPassword(
+      {required NewPasswordRequest request}) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = request;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<NewPasswordResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/auth/reset-password/',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = NewPasswordResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<CodeVerificationResponse> verifyCode(
+      {required CodeVerificationRequest request}) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = request;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<CodeVerificationResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/auth/verify/',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = CodeVerificationResponse.fromJson(_result.data!);
+    return value;
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||

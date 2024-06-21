@@ -21,7 +21,7 @@ NewPasswordRequest _$NewPasswordRequestFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$NewPasswordRequest {
   String get email => throw _privateConstructorUsedError;
-  String get new_password => throw _privateConstructorUsedError;
+  String get newPassword => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +35,7 @@ abstract class $NewPasswordRequestCopyWith<$Res> {
           NewPasswordRequest value, $Res Function(NewPasswordRequest) then) =
       _$NewPasswordRequestCopyWithImpl<$Res, NewPasswordRequest>;
   @useResult
-  $Res call({String email, String new_password});
+  $Res call({String email, String newPassword});
 }
 
 /// @nodoc
@@ -52,16 +52,16 @@ class _$NewPasswordRequestCopyWithImpl<$Res, $Val extends NewPasswordRequest>
   @override
   $Res call({
     Object? email = null,
-    Object? new_password = null,
+    Object? newPassword = null,
   }) {
     return _then(_value.copyWith(
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      new_password: null == new_password
-          ? _value.new_password
-          : new_password // ignore: cast_nullable_to_non_nullable
+      newPassword: null == newPassword
+          ? _value.newPassword
+          : newPassword // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -75,7 +75,7 @@ abstract class _$$NewPasswordRequestImplCopyWith<$Res>
       __$$NewPasswordRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String email, String new_password});
+  $Res call({String email, String newPassword});
 }
 
 /// @nodoc
@@ -90,16 +90,16 @@ class __$$NewPasswordRequestImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? email = null,
-    Object? new_password = null,
+    Object? newPassword = null,
   }) {
     return _then(_$NewPasswordRequestImpl(
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      new_password: null == new_password
-          ? _value.new_password
-          : new_password // ignore: cast_nullable_to_non_nullable
+      newPassword: null == newPassword
+          ? _value.newPassword
+          : newPassword // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -107,10 +107,11 @@ class __$$NewPasswordRequestImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@JsonSerializable(
+    explicitToJson: true, includeIfNull: false, fieldRename: FieldRename.snake)
 class _$NewPasswordRequestImpl implements _NewPasswordRequest {
   const _$NewPasswordRequestImpl(
-      {required this.email, required this.new_password});
+      {required this.email, required this.newPassword});
 
   factory _$NewPasswordRequestImpl.fromJson(Map<String, dynamic> json) =>
       _$$NewPasswordRequestImplFromJson(json);
@@ -118,11 +119,11 @@ class _$NewPasswordRequestImpl implements _NewPasswordRequest {
   @override
   final String email;
   @override
-  final String new_password;
+  final String newPassword;
 
   @override
   String toString() {
-    return 'NewPasswordRequest(email: $email, new_password: $new_password)';
+    return 'NewPasswordRequest(email: $email, newPassword: $newPassword)';
   }
 
   @override
@@ -131,13 +132,13 @@ class _$NewPasswordRequestImpl implements _NewPasswordRequest {
         (other.runtimeType == runtimeType &&
             other is _$NewPasswordRequestImpl &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.new_password, new_password) ||
-                other.new_password == new_password));
+            (identical(other.newPassword, newPassword) ||
+                other.newPassword == newPassword));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, email, new_password);
+  int get hashCode => Object.hash(runtimeType, email, newPassword);
 
   @JsonKey(ignore: true)
   @override
@@ -157,7 +158,7 @@ class _$NewPasswordRequestImpl implements _NewPasswordRequest {
 abstract class _NewPasswordRequest implements NewPasswordRequest {
   const factory _NewPasswordRequest(
       {required final String email,
-      required final String new_password}) = _$NewPasswordRequestImpl;
+      required final String newPassword}) = _$NewPasswordRequestImpl;
 
   factory _NewPasswordRequest.fromJson(Map<String, dynamic> json) =
       _$NewPasswordRequestImpl.fromJson;
@@ -165,7 +166,7 @@ abstract class _NewPasswordRequest implements NewPasswordRequest {
   @override
   String get email;
   @override
-  String get new_password;
+  String get newPassword;
   @override
   @JsonKey(ignore: true)
   _$$NewPasswordRequestImplCopyWith<_$NewPasswordRequestImpl> get copyWith =>

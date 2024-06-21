@@ -21,12 +21,12 @@ UserRegistrationRequest _$UserRegistrationRequestFromJson(
 
 /// @nodoc
 mixin _$UserRegistrationRequest {
-  String get email => throw _privateConstructorUsedError;
-  String get password => throw _privateConstructorUsedError;
-  String get first_name => throw _privateConstructorUsedError;
-  String get last_name => throw _privateConstructorUsedError;
+  String get firstName => throw _privateConstructorUsedError;
+  String get lastName => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
-  Profile get profile => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
+  UserDataRequest get profile => throw _privateConstructorUsedError;
+  String get password => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,12 +41,14 @@ abstract class $UserRegistrationRequestCopyWith<$Res> {
       _$UserRegistrationRequestCopyWithImpl<$Res, UserRegistrationRequest>;
   @useResult
   $Res call(
-      {String email,
-      String password,
-      String first_name,
-      String last_name,
+      {String firstName,
+      String lastName,
       String username,
-      Profile profile});
+      String email,
+      UserDataRequest profile,
+      String password});
+
+  $UserDataRequestCopyWith<$Res> get profile;
 }
 
 /// @nodoc
@@ -63,39 +65,47 @@ class _$UserRegistrationRequestCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = null,
-    Object? password = null,
-    Object? first_name = null,
-    Object? last_name = null,
+    Object? firstName = null,
+    Object? lastName = null,
     Object? username = null,
+    Object? email = null,
     Object? profile = null,
+    Object? password = null,
   }) {
     return _then(_value.copyWith(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      firstName: null == firstName
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
               as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-      first_name: null == first_name
-          ? _value.first_name
-          : first_name // ignore: cast_nullable_to_non_nullable
-              as String,
-      last_name: null == last_name
-          ? _value.last_name
-          : last_name // ignore: cast_nullable_to_non_nullable
+      lastName: null == lastName
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
               as String,
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
       profile: null == profile
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
-              as Profile,
+              as UserDataRequest,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserDataRequestCopyWith<$Res> get profile {
+    return $UserDataRequestCopyWith<$Res>(_value.profile, (value) {
+      return _then(_value.copyWith(profile: value) as $Val);
+    });
   }
 }
 
@@ -109,12 +119,15 @@ abstract class _$$UserRegistrationRequestImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String email,
-      String password,
-      String first_name,
-      String last_name,
+      {String firstName,
+      String lastName,
       String username,
-      Profile profile});
+      String email,
+      UserDataRequest profile,
+      String password});
+
+  @override
+  $UserDataRequestCopyWith<$Res> get profile;
 }
 
 /// @nodoc
@@ -130,73 +143,74 @@ class __$$UserRegistrationRequestImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = null,
-    Object? password = null,
-    Object? first_name = null,
-    Object? last_name = null,
+    Object? firstName = null,
+    Object? lastName = null,
     Object? username = null,
+    Object? email = null,
     Object? profile = null,
+    Object? password = null,
   }) {
     return _then(_$UserRegistrationRequestImpl(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      firstName: null == firstName
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
               as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-      first_name: null == first_name
-          ? _value.first_name
-          : first_name // ignore: cast_nullable_to_non_nullable
-              as String,
-      last_name: null == last_name
-          ? _value.last_name
-          : last_name // ignore: cast_nullable_to_non_nullable
+      lastName: null == lastName
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
               as String,
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
       profile: null == profile
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
-              as Profile,
+              as UserDataRequest,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
 
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@JsonSerializable(
+    explicitToJson: true, includeIfNull: false, fieldRename: FieldRename.snake)
 class _$UserRegistrationRequestImpl implements _UserRegistrationRequest {
   _$UserRegistrationRequestImpl(
-      {required this.email,
-      required this.password,
-      required this.first_name,
-      required this.last_name,
+      {required this.firstName,
+      required this.lastName,
       required this.username,
-      required this.profile});
+      required this.email,
+      required this.profile,
+      required this.password});
 
   factory _$UserRegistrationRequestImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserRegistrationRequestImplFromJson(json);
 
   @override
-  final String email;
+  final String firstName;
   @override
-  final String password;
-  @override
-  final String first_name;
-  @override
-  final String last_name;
+  final String lastName;
   @override
   final String username;
   @override
-  final Profile profile;
+  final String email;
+  @override
+  final UserDataRequest profile;
+  @override
+  final String password;
 
   @override
   String toString() {
-    return 'UserRegistrationRequest(email: $email, password: $password, first_name: $first_name, last_name: $last_name, username: $username, profile: $profile)';
+    return 'UserRegistrationRequest(firstName: $firstName, lastName: $lastName, username: $username, email: $email, profile: $profile, password: $password)';
   }
 
   @override
@@ -204,22 +218,22 @@ class _$UserRegistrationRequestImpl implements _UserRegistrationRequest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UserRegistrationRequestImpl &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) ||
-                other.password == password) &&
-            (identical(other.first_name, first_name) ||
-                other.first_name == first_name) &&
-            (identical(other.last_name, last_name) ||
-                other.last_name == last_name) &&
+            (identical(other.firstName, firstName) ||
+                other.firstName == firstName) &&
+            (identical(other.lastName, lastName) ||
+                other.lastName == lastName) &&
             (identical(other.username, username) ||
                 other.username == username) &&
-            (identical(other.profile, profile) || other.profile == profile));
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.profile, profile) || other.profile == profile) &&
+            (identical(other.password, password) ||
+                other.password == password));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, email, password, first_name, last_name, username, profile);
+      runtimeType, firstName, lastName, username, email, profile, password);
 
   @JsonKey(ignore: true)
   @override
@@ -238,28 +252,28 @@ class _$UserRegistrationRequestImpl implements _UserRegistrationRequest {
 
 abstract class _UserRegistrationRequest implements UserRegistrationRequest {
   factory _UserRegistrationRequest(
-      {required final String email,
-      required final String password,
-      required final String first_name,
-      required final String last_name,
+      {required final String firstName,
+      required final String lastName,
       required final String username,
-      required final Profile profile}) = _$UserRegistrationRequestImpl;
+      required final String email,
+      required final UserDataRequest profile,
+      required final String password}) = _$UserRegistrationRequestImpl;
 
   factory _UserRegistrationRequest.fromJson(Map<String, dynamic> json) =
       _$UserRegistrationRequestImpl.fromJson;
 
   @override
-  String get email;
+  String get firstName;
   @override
-  String get password;
-  @override
-  String get first_name;
-  @override
-  String get last_name;
+  String get lastName;
   @override
   String get username;
   @override
-  Profile get profile;
+  String get email;
+  @override
+  UserDataRequest get profile;
+  @override
+  String get password;
   @override
   @JsonKey(ignore: true)
   _$$UserRegistrationRequestImplCopyWith<_$UserRegistrationRequestImpl>

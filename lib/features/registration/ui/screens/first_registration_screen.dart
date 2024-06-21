@@ -1,12 +1,10 @@
 import 'package:appmetrica_plugin/appmetrica_plugin.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:fithub/router/app_router.dart';
+import 'package:fithub/features/registration/provider/first_registration_screen_provider.dart';
 import 'package:fithub/features/registration/ui/widgets/input_field.dart';
 import 'package:fithub/features/registration/ui/components/registration_page.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/res/constants/constants.dart';
-import 'package:fithub/features/onboarding/service/preferences_service.dart';
-import 'package:fithub/features/registration/provider/forgot_password_screen_provider.dart';
 import 'package:provider/provider.dart';
 
 @RoutePage()
@@ -19,9 +17,6 @@ class FirstRegistrationScreen extends StatefulWidget {
 
 class _FirstRegistrationScreenState extends State<FirstRegistrationScreen> {
   final ScrollController _scrollController = ScrollController();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _passwordAgainController = TextEditingController();
 
   @override
   void initState() {
@@ -32,15 +27,12 @@ class _FirstRegistrationScreenState extends State<FirstRegistrationScreen> {
   @override
   void dispose() {
     _scrollController.dispose();
-    _emailController.dispose();
-    _passwordController.dispose();
-    _passwordAgainController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<ForgotPasswordProvider>(context);
+    final provider = Provider.of<FirstRegistrationScreenProvider>(context);
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
@@ -63,31 +55,7 @@ class _FirstRegistrationScreenState extends State<FirstRegistrationScreen> {
                   isLoginPage: false,
                   imageHeight: 0.5,
                   onPressed: () async {
-                    if (provider.formKey.currentState!.validate()) {
-                        
-                        AutoRouter.of(context).push(const SecondRegistrationRoute());
-                      if (_passwordController.text == _passwordAgainController.text) {
-                        try {
-                          await PreferencesService().setRegistrationData(
-                            _emailController.text,
-                            _passwordController.text,
-                            '',
-                            '',
-                            ''
-                          );
-                          
-
-                        } catch (error) {
-                          //ScaffoldMessenger.of(context).showSnackBar(
-                           // SnackBar(content: Text("Failed to save data or send activation email: ${error.toString()}"))
-                         //);
-                        }
-                      } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text("Passwords do not match"))
-                        );
-                      }
-                    }
+                    await provider.registerFirstPart(context);
                   },
                   child: Column(
                     children: [
@@ -97,7 +65,7 @@ class _FirstRegistrationScreenState extends State<FirstRegistrationScreen> {
                         isEmail: true,
                         isPassword: false,
                         isTag: false,
-                        controller: _emailController,
+                        controller: provider.emailController,
                         passwordController: null,
                       ),
                       InputField(
@@ -106,7 +74,7 @@ class _FirstRegistrationScreenState extends State<FirstRegistrationScreen> {
                         isEmail: false,
                         isPassword: true,
                         isTag: false,
-                        controller: _passwordController,
+                        controller: provider.passwordController,
                         passwordController: null,
                       ),
                       InputField(
@@ -115,8 +83,8 @@ class _FirstRegistrationScreenState extends State<FirstRegistrationScreen> {
                         isEmail: false,
                         isPassword: true,
                         isTag: false,
-                        controller: _passwordAgainController,
-                        passwordController: _passwordController,
+                        controller: provider.passwordAgainController,
+                        passwordController: provider.passwordController,
                       )
                     ],
                   ),

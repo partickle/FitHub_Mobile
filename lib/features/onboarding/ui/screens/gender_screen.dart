@@ -4,7 +4,7 @@ import 'package:fithub/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/features/onboarding/ui/components/onboarding_page.dart';
 import 'package:fithub/features/onboarding/ui/widgets/gender_button.dart';
-import 'package:fithub/features/onboarding/service/preferences_service.dart';
+import 'package:fithub/features/onboarding/data/repository/onboarding_repository.dart';
 
 @RoutePage()
 class GenderScreen extends StatefulWidget {
@@ -17,29 +17,12 @@ class GenderScreen extends StatefulWidget {
 class _GenderScreenState extends State<GenderScreen> {
   bool isMaleSelected = false;
   bool isFemaleSelected = false;
-  final PreferencesService _prefs = PreferencesService();
+  final OnboardingRepository _repository = OnboardingRepository();
 
   @override
   void initState() {
     AppMetrica.reportEvent('Open gender screen');
     super.initState();
-  }
-
-  void _updateGenderSelection(bool isMale) async {
-    setState(() {
-      isMaleSelected = isMale;
-      isFemaleSelected = !isMale;
-    });
-
-    // Получение текущих данных профиля
-    var profile = await _prefs.getUserProfile();
-    // Обновление только пола
-    await _prefs.setUserProfile(
-      isMale, 
-      profile['age'], 
-      profile['goal'], 
-      profile['physical_activity_level']
-    );
   }
 
   @override
@@ -60,14 +43,26 @@ class _GenderScreenState extends State<GenderScreen> {
             iconData: Icons.male,
             label: 'Male',
             isSelected: isMaleSelected,
-            onPressed: () => _updateGenderSelection(true)
+            onPressed: () {
+              _repository.setGender(true);
+              setState(() {
+                isMaleSelected = true;
+                isFemaleSelected = false;
+              });
+            }
           ),
           const SizedBox(height: 24),
           GenderButton(
             iconData: Icons.female,
             label: 'Female',
             isSelected: isFemaleSelected,
-            onPressed: () => _updateGenderSelection(false)
+            onPressed: () {
+              _repository.setGender(false);
+              setState(() {
+                isMaleSelected = false;
+                isFemaleSelected = true;
+              });
+            }
           ),
         ],
       ),

@@ -9,11 +9,12 @@ part 'new_password_request.freezed.dart';
 class NewPasswordRequest with _$NewPasswordRequest {
   @JsonSerializable(
     explicitToJson: true,
-    includeIfNull: false
+    includeIfNull: false,
+    fieldRename: FieldRename.snake
   )
   const factory NewPasswordRequest({
     required String email,
-    required String new_password,
+    required String newPassword,
   }) = _NewPasswordRequest;
 
   factory NewPasswordRequest.fromJson(Map<String, dynamic> json) =>

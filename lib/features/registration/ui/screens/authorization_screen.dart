@@ -55,11 +55,7 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
                   isMaybeBtn: true,
                   isLoginPage: true,
                   imageHeight: 0.55,
-                  onPressed: () {
-                    if (provider.formKey.currentState!.validate()) {
-                      provider.login(context);
-                    }
-                  },
+                  onPressed: () => provider.login(context),
                   child: provider.isLoading
                       ? const Align(
                           alignment: Alignment.bottomCenter,

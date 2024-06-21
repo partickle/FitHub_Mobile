@@ -10,12 +10,12 @@ _$NewPasswordRequestImpl _$$NewPasswordRequestImplFromJson(
         Map<String, dynamic> json) =>
     _$NewPasswordRequestImpl(
       email: json['email'] as String,
-      new_password: json['new_password'] as String,
+      newPassword: json['new_password'] as String,
     );
 
 Map<String, dynamic> _$$NewPasswordRequestImplToJson(
         _$NewPasswordRequestImpl instance) =>
     <String, dynamic>{
       'email': instance.email,
-      'new_password': instance.new_password,
+      'new_password': instance.newPassword,
     };

@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:fithub/features/registration/domain/user_login_request.dart';
+import 'package:fithub/features/registration/domain/user_login_request/user_login_request.dart';
 import 'package:fithub/token/domain/jwt_response.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';

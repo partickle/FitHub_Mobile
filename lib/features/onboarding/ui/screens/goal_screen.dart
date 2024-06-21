@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:fithub/res/constants/constants.dart';
 import 'package:fithub/features/onboarding/ui/components/onboarding_page.dart';
 import 'package:fithub/features/onboarding/ui/widgets/wheel_scroll.dart';
-import 'package:fithub/features/onboarding/service/preferences_service.dart';
+import 'package:fithub/features/onboarding/data/repository/onboarding_repository.dart';
 
 @RoutePage()
 class GoalScreen extends StatefulWidget {
@@ -16,30 +16,13 @@ class GoalScreen extends StatefulWidget {
 }
 
 class _GoalScreenState extends State<GoalScreen> {
-  int selectedGoal = 2;
-  final PreferencesService _prefs = PreferencesService();
-  List<String> goals = ['lose_weight', 'gain_weight', 'improve_fitness'];
+  final int initialItem = 2;
+  final OnboardingRepository _repository = OnboardingRepository();
 
   @override
   void initState() {
     AppMetrica.reportEvent('Open goal screen');
     super.initState();
-  }
-
-  void _updateGoal(int index) async {
-    setState(() {
-      selectedGoal = index;
-    });
-
-    // Получение текущих данных профиля
-    var profile = await _prefs.getUserProfile();
-    // Обновление только цели
-    await _prefs.setUserProfile(
-      profile['is_male'], 
-      profile['age'], 
-      goals[index], 
-      profile['physical_activity_level']
-    );
   }
 
   @override
@@ -54,14 +37,12 @@ class _GoalScreenState extends State<GoalScreen> {
         AutoRouter.of(context).push(const LevelRoute());
       }, 
       child: OnboardingWheelScroll(
-        initialItem: selectedGoal,
+        initialItem: initialItem,
         itemExtent: 60,
         widthBorder: 300,
         textStyle: onboardStrScrollStyle,
         list: goals,
-        onSelectedItemChanged: (value) {
-          _updateGoal(value);
-        },
+        onSelectedItemChanged: (value) => _repository.setGoal(goals[value])
       ),
     );
   }
