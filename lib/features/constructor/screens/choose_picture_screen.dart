@@ -1,4 +1,4 @@
-import 'package:fithub/constants.dart';
+import 'package:fithub/res/constants/color_constants.dart';
 import 'package:flutter/material.dart';
 
 class ChoosePictureScreen extends StatefulWidget {

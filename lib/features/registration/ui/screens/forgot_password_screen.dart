@@ -1,9 +1,10 @@
 import 'package:appmetrica_plugin/appmetrica_plugin.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:fithub/router/app_router.dart';
+import 'package:fithub/features/registration/provider/forgot_password_screen_provider.dart';
 import 'package:fithub/features/registration/ui/widgets/input_field.dart';
 import 'package:fithub/features/registration/ui/components/forgot_password_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 @RoutePage()
 class ForgotPasswordScreen extends StatefulWidget {
@@ -14,10 +15,7 @@ class ForgotPasswordScreen extends StatefulWidget {
 }
 
 class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
-  final _formKey = GlobalKey<FormState>();
-
   final ScrollController _scrollController = ScrollController();
-  final TextEditingController _emailController = TextEditingController();
 
   @override
   void initState() {
@@ -28,16 +26,17 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   @override
   void dispose() {
     _scrollController.dispose();
-    _emailController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<ForgotPasswordScreenProvider>(context);
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Form(
-        key: _formKey,
+        key: provider.formKey,
         child: SingleChildScrollView(
           controller: _scrollController,
           child: SizedBox(
@@ -48,10 +47,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               subTitle: 'Enter your information below or\nlogin with a other account',
               buttonText: 'Send',
               isSendCode: false,
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  AutoRouter.of(context).push(const VerificationRoute());
-                }
+              onPressed:() {
+                provider.sendActivationCode(context);
               },
               child: InputField(
                 labelText: 'Email',
@@ -59,7 +56,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 isEmail: true,
                 isPassword: false,
                 isTag: false,
-                controller: _emailController,
+                controller: provider.emailController,
                 passwordController: null
               ),
             ),

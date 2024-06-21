@@ -1,7 +1,7 @@
 import 'package:fithub/ui/widgets/down_back_button.dart';
 import 'package:fithub/ui/widgets/next_button.dart';
 import 'package:flutter/material.dart';
-import 'package:fithub/constants.dart';
+import 'package:fithub/res/constants/constants.dart';
 
 class OnboardingPage extends StatelessWidget {
   final String title;
