@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fithub/constants.dart';
+import 'package:fithub/res/constants/constants.dart';
 
 class UsualTextButton extends StatefulWidget {
   final String text;

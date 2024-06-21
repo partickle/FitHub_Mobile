@@ -2,9 +2,10 @@ import 'package:appmetrica_plugin/appmetrica_plugin.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:fithub/router/app_router.dart';
 import 'package:flutter/material.dart';
-import 'package:fithub/constants.dart';
+import 'package:fithub/res/constants/constants.dart';
 import 'package:fithub/features/onboarding/ui/components/onboarding_page.dart';
 import 'package:fithub/features/onboarding/ui/widgets/wheel_scroll.dart';
+import 'package:fithub/features/onboarding/data/repository/onboarding_repository.dart';
 
 @RoutePage()
 class GoalScreen extends StatefulWidget {
@@ -15,7 +16,8 @@ class GoalScreen extends StatefulWidget {
 }
 
 class _GoalScreenState extends State<GoalScreen> {
-  int selectedGoal = 2;
+  final int initialItem = 2;
+  final OnboardingRepository _repository = OnboardingRepository();
 
   @override
   void initState() {
@@ -35,16 +37,12 @@ class _GoalScreenState extends State<GoalScreen> {
         AutoRouter.of(context).push(const LevelRoute());
       }, 
       child: OnboardingWheelScroll(
-        initialItem: selectedGoal,
+        initialItem: initialItem,
         itemExtent: 60,
         widthBorder: 300,
         textStyle: onboardStrScrollStyle,
         list: goals,
-        onSelectedItemChanged: (value) => {
-          setState(() {
-            selectedGoal = value + 1;
-          })
-        },
+        onSelectedItemChanged: (value) => _repository.setGoal(goals[value])
       ),
     );
   }

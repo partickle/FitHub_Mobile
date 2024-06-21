@@ -1,10 +1,11 @@
 import 'package:appmetrica_plugin/appmetrica_plugin.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:fithub/router/app_router.dart';
+import 'package:fithub/features/registration/provider/first_registration_screen_provider.dart';
 import 'package:fithub/features/registration/ui/widgets/input_field.dart';
 import 'package:fithub/features/registration/ui/components/registration_page.dart';
 import 'package:flutter/material.dart';
-import 'package:fithub/constants.dart';
+import 'package:fithub/res/constants/constants.dart';
+import 'package:provider/provider.dart';
 
 @RoutePage()
 class FirstRegistrationScreen extends StatefulWidget {
@@ -15,12 +16,7 @@ class FirstRegistrationScreen extends StatefulWidget {
 }
 
 class _FirstRegistrationScreenState extends State<FirstRegistrationScreen> {
-  final _formKey = GlobalKey<FormState>();
-
   final ScrollController _scrollController = ScrollController();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _passwordAgainController = TextEditingController();
 
   @override
   void initState() {
@@ -31,18 +27,17 @@ class _FirstRegistrationScreenState extends State<FirstRegistrationScreen> {
   @override
   void dispose() {
     _scrollController.dispose();
-    _emailController.dispose();
-    _passwordController.dispose();
-    _passwordAgainController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<FirstRegistrationScreenProvider>(context);
+
     return Scaffold(
       resizeToAvoidBottomInset: true,
       body: Form(
-        key: _formKey,
+        key: provider.formKey,
         child: SingleChildScrollView(
           controller: _scrollController,
           child: Stack(
@@ -59,10 +54,8 @@ class _FirstRegistrationScreenState extends State<FirstRegistrationScreen> {
                   isMaybeBtn: true,
                   isLoginPage: false,
                   imageHeight: 0.5,
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      AutoRouter.of(context).push(const VerificationRoute());
-                    }
+                  onPressed: () async {
+                    await provider.registerFirstPart(context);
                   },
                   child: Column(
                     children: [
@@ -72,8 +65,8 @@ class _FirstRegistrationScreenState extends State<FirstRegistrationScreen> {
                         isEmail: true,
                         isPassword: false,
                         isTag: false,
-                        controller: _emailController,
-                        passwordController: null
+                        controller: provider.emailController,
+                        passwordController: null,
                       ),
                       InputField(
                         labelText: 'Password',
@@ -81,8 +74,8 @@ class _FirstRegistrationScreenState extends State<FirstRegistrationScreen> {
                         isEmail: false,
                         isPassword: true,
                         isTag: false,
-                        controller: _passwordController,
-                        passwordController: null
+                        controller: provider.passwordController,
+                        passwordController: null,
                       ),
                       InputField(
                         labelText: 'Password again',
@@ -90,11 +83,11 @@ class _FirstRegistrationScreenState extends State<FirstRegistrationScreen> {
                         isEmail: false,
                         isPassword: true,
                         isTag: false,
-                        controller: _passwordAgainController,
-                        passwordController: _passwordController
+                        controller: provider.passwordAgainController,
+                        passwordController: provider.passwordController,
                       )
                     ],
-                  )
+                  ),
                 ),
               ),
               Positioned(

@@ -1,4 +1,4 @@
-import 'package:fithub/ui/theme/theme.dart';
+import 'package:fithub/res/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/router/app_router.dart';
 
