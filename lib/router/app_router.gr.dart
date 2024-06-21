@@ -139,6 +139,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ProfileTabPage(),
       );
     },
+    ProgressRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ProgressScreen(),
+      );
+    },
     ProgressTab.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
