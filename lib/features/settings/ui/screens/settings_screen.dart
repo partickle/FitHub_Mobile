@@ -20,7 +20,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           child: buildMenuItem(
             "Notifications",
             () {
-              AutoRouter.of(context).push(const NotificationRoute());
+              // AutoRouter.of(context).push(const NotificationRoute());
             },
           ),
         ),
@@ -33,7 +33,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           child: buildMenuItem(
             "Language",
             () {
-              AutoRouter.of(context).push(const LanguageRoute());
+              // AutoRouter.of(context).push(const LanguageRoute());
             },
           ),
         ),
@@ -46,7 +46,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           child: buildMenuItem(
             "Contact Us",
             () {
-              AutoRouter.of(context).push(const ContactUsRoute());
+              // AutoRouter.of(context).push(const ContactUsRoute());
             },
           ),
         ),

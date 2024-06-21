@@ -13,23 +13,23 @@ class RepeatedSectionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> items = [
       buildMenuItem("Edit Profile", () {
-       AutoRouter.of(context).push(const EditProfileRoute());
+       // AutoRouter.of(context).push(const EditProfileRoute());
       }),
       buildMenuItem("Privacy Policy", () {
-        AutoRouter.of(context).push(const PrivacyRoute());
+        // AutoRouter.of(context).push(const PrivacyRoute());
       }),
       buildMenuItem("Settings", () {
-        AutoRouter.of(context).push(const SettingsRoute());
+        // AutoRouter.of(context).push(const SettingsRoute());
       }),
       buildMenuItem("My courses", () {
         print("My courses pressed!");
       }),
       if (!isProProfile)
         buildPremiumUpgradeSection(() {
-          AutoRouter.of(context).push(const PremiumRoute());
+          // AutoRouter.of(context).push(const PremiumRoute());
         }),
       buildMenuItem("Sign out", () {
-       AutoRouter.of(context).push(const AuthorizationRoute());
+       // AutoRouter.of(context).push(const AuthorizationRoute());
       }),
     ];
 
