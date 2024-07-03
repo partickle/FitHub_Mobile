@@ -6,8 +6,8 @@ List<Exercise> exercises = [
     workoutId: null,
     count: 20,
     title: 'Lunges with foot pull-up',
-    imageUrl: '',
-    gifUrl: '',
+    imageUrl: 'assets/images/courses/3.jpg',
+    gifUrl: 'assets/images/exercises/1.gif',
     isTime: true,
     isComplete: false,
     description: 'The exercise is complex for the lower body and balance, including performing lunges while simultaneously lifting the foot up to the buttocks at the maximum point of the lunge. This exercise develops strength, flexibility and stability of the legs, improving the functionality and aesthetics of movements.'
@@ -15,12 +15,12 @@ List<Exercise> exercises = [
   Exercise(
     id: 1,
     workoutId: null,
-    count: 20,
+    count: 30,
     title: 'Stretching of the hip joint',
-    imageUrl: '',
-    gifUrl: '',
+    imageUrl: 'assets/images/courses/4.jpg',
+    gifUrl: 'assets/images/exercises/2.gif',
     isTime: false,
     isComplete: false,
-    description: ''
+    description: 'The exercise is complex for the lower body and balance, including performing lunges while simultaneously lifting the foot up to the buttocks at the maximum point of the lunge. This exercise develops strength, flexibility and stability of the legs, improving the functionality and aesthetics of movements.'
   )
 ];

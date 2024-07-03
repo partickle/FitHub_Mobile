@@ -1,9 +1,8 @@
 import 'dart:async';
 import 'package:dio/dio.dart';
+import 'package:fithub/features/registration/domain/message_response/message_response.dart';
 import 'package:retrofit/http.dart';
 import 'package:fithub/features/registration/domain/user_registration_request/user_registration_request.dart';
-
-import 'package:fithub/token/domain/jwt_response.dart';
 
 part 'registration_service.g.dart';
 
@@ -12,7 +11,7 @@ abstract class RegistrationService {
   factory RegistrationService(Dio dio) = _RegistrationService;
 
   @POST('/auth/register/')
-  Future<JwtResponse> registerUser({
+  Future<MessageResponse> registerUser({
     @Body() required UserRegistrationRequest request,
   });
 

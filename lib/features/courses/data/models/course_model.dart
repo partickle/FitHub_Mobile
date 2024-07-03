@@ -11,6 +11,7 @@ class Course with _$Course {
     required int id,
     required String title,
     required String subtitle,
+    required String description,
     required String level,
     required String imageUrl,
     required bool isPremium,

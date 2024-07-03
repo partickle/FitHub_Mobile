@@ -4,17 +4,19 @@ import 'package:fithub/res/constants/constants.dart';
 class CenterElevatedButton extends StatelessWidget {
   final String buttonText;
   final VoidCallback onPressed;
+  final bool isSaveArea;
 
   const CenterElevatedButton({
     super.key,
     required this.buttonText,
-    required this.onPressed
+    required this.onPressed,
+    required this.isSaveArea
   });
 
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      bottom: 40,
+      bottom: (isSaveArea) ? 40 : 15 + MediaQuery.of(context).padding.bottom,
       left: 0,
       right: 0,
       child: Padding(

@@ -1,3 +1,8 @@
+import 'package:fithub/features/courses/ui/new_screens/break_screen.dart';
+import 'package:fithub/features/courses/ui/new_screens/exercise_info_screen.dart';
+import 'package:fithub/features/courses/ui/new_screens/exercise_screen.dart';
+import 'package:fithub/features/courses/ui/new_screens/workout_screen.dart';
+import 'package:fithub/features/courses/ui/new_screens/congradulation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:fithub/features/community/ui/screens/community_screen.dart';
@@ -5,10 +10,7 @@ import 'package:fithub/features/community/ui/screens/complaint_screen.dart';
 import 'package:fithub/features/community/ui/screens/reviews_screen.dart';
 import 'package:fithub/features/community/ui/screens/search_course_screen.dart';
 import 'package:fithub/features/community/ui/screens/write_review_screen.dart';
-import 'package:fithub/features/courses/ui/screens/break_screen.dart';
-import 'package:fithub/features/courses/ui/screens/congratulations_screen.dart';
-import 'package:fithub/features/courses/ui/screens/course_screen.dart';
-import 'package:fithub/features/courses/ui/screens/warm_up_screen.dart';
+import 'package:fithub/features/courses/ui/new_screens/course_screen.dart';
 import 'package:fithub/features/home/ui/screens/course_list_screen.dart';
 import 'package:fithub/features/home/ui/screens/home_screen.dart';
 import 'package:fithub/features/onboarding/ui/screens/age_screen.dart';
@@ -35,7 +37,7 @@ class AppRouter extends _$AppRouter {
     AutoRoute(
       path: '/onboarding',
       page: WelcomeRoute.page,
-      initial: true
+      //initial: true
     ),
     AutoRoute(
       path: '/onboarding/gender',
@@ -56,6 +58,7 @@ class AppRouter extends _$AppRouter {
     AutoRoute(
       path: '/registration/authorization',
       page: AuthorizationRoute.page,
+      initial: true
     ),
     AutoRoute(
       path: '/registration/first-registration',
@@ -78,48 +81,29 @@ class AppRouter extends _$AppRouter {
       page: NewPasswordRoute.page,
     ),
     AutoRoute(
-      path: '/courses/break',
-      page: BreakRoute.page,
-    ),
-    AutoRoute(
       path: '/courses/course',
       page: CourseRoute.page,
+      //initial: true
     ),
     AutoRoute(
-      path: '/courses/exercise-view',
-      page: ExerciseView.page,
+      path: '/courses/exercise-info',
+      page: ExerciseInfoRoute.page,
     ),
     AutoRoute(
-      path: '/courses/workout-view',
-      page: WorkoutView.page,
+      path: '/courses/workout',
+      page: WorkoutRoute.page,
     ),
     AutoRoute(
-      path: '/courses/first-exercise',
-      page: FirstExercise.page,
+      path: '/courses/exercise',
+      page: ExerciseRoute.page,
     ),
     AutoRoute(
-      path: '/courses/second-exercise',
-      page: SecondExercise.page
+      path: '/courses/congradulation',
+      page: CongradulationRoute.page
     ),
     AutoRoute(
-      path: '/courses/congradulations',
-      page: CongratulationsRoute.page,
-    ),
-    AutoRoute(
-      path: '/courses/warm-up',
-      page: WarmUpRoute.page,
-    ),
-    AutoRoute(
-      path: '/courses/new-password',
-      page: NewPasswordRoute.page,
-    ),
-    AutoRoute(
-      path: '/courses/new-password',
-      page: NewPasswordRoute.page,
-    ),
-    AutoRoute(
-      path: '/community',
-      page: WarmUpRoute.page,
+      path: '/courses/break',
+      page: BreakRoute.page,
     ),
     AutoRoute(
       path: '/community/complaint',
@@ -144,7 +128,7 @@ class AppRouter extends _$AppRouter {
     AutoRoute(
       // path: '/',
       page: NavigationBarRoute.page,
-      initial: false,
+      //initial: true,
       children: [
         AutoRoute(
           path: 'home-tab',

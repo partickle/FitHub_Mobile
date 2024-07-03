@@ -7,7 +7,7 @@ List<Workout> workouts = [
     courseId: null,
     title: 'Simple Warm Up',
     description: 'A basic and necessary full-body stretching workout. Many people ignore such workouts, not realizing their importance, however, to avoid injury and muscle growth, they are simply necessary.',
-    imageUrl: '',
+    imageUrl: 'assets/images/courses/2.jpg',
     isComplete: false,
     exercises: [
       exercises[0].copyWith(workoutId: 0),
@@ -19,11 +19,17 @@ List<Workout> workouts = [
     courseId: null,
     title: 'Stability Training Basics',
     description: 'A basic and necessary full-body stretching workout. Many people ignore such workouts, not realizing their importance, however, to avoid injury and muscle growth, they are simply necessary.',
-    imageUrl: '',
+    imageUrl: 'assets/images/courses/3.jpg',
     isComplete: false,
     exercises: [
-      exercises[0].copyWith(workoutId: 0),
-      exercises[1].copyWith(workoutId: 0)
+      exercises[0].copyWith(workoutId: 1),
+      exercises[1].copyWith(workoutId: 1),
+      exercises[0].copyWith(workoutId: 1),
+      exercises[1].copyWith(workoutId: 1),
+      exercises[0].copyWith(workoutId: 1),
+      exercises[1].copyWith(workoutId: 1),
+      exercises[0].copyWith(workoutId: 1),
+      exercises[1].copyWith(workoutId: 1),
     ]
   )
 ];

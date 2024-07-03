@@ -23,6 +23,7 @@ mixin _$Course {
   int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get subtitle => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
   String get level => throw _privateConstructorUsedError;
   String get imageUrl => throw _privateConstructorUsedError;
   bool get isPremium => throw _privateConstructorUsedError;
@@ -44,6 +45,7 @@ abstract class $CourseCopyWith<$Res> {
       {int id,
       String title,
       String subtitle,
+      String description,
       String level,
       String imageUrl,
       bool isPremium,
@@ -68,6 +70,7 @@ class _$CourseCopyWithImpl<$Res, $Val extends Course>
     Object? id = null,
     Object? title = null,
     Object? subtitle = null,
+    Object? description = null,
     Object? level = null,
     Object? imageUrl = null,
     Object? isPremium = null,
@@ -87,6 +90,10 @@ class _$CourseCopyWithImpl<$Res, $Val extends Course>
       subtitle: null == subtitle
           ? _value.subtitle
           : subtitle // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
       level: null == level
           ? _value.level
@@ -127,6 +134,7 @@ abstract class _$$CourseImplCopyWith<$Res> implements $CourseCopyWith<$Res> {
       {int id,
       String title,
       String subtitle,
+      String description,
       String level,
       String imageUrl,
       bool isPremium,
@@ -149,6 +157,7 @@ class __$$CourseImplCopyWithImpl<$Res>
     Object? id = null,
     Object? title = null,
     Object? subtitle = null,
+    Object? description = null,
     Object? level = null,
     Object? imageUrl = null,
     Object? isPremium = null,
@@ -168,6 +177,10 @@ class __$$CourseImplCopyWithImpl<$Res>
       subtitle: null == subtitle
           ? _value.subtitle
           : subtitle // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
       level: null == level
           ? _value.level
@@ -204,6 +217,7 @@ class _$CourseImpl implements _Course {
       {required this.id,
       required this.title,
       required this.subtitle,
+      required this.description,
       required this.level,
       required this.imageUrl,
       required this.isPremium,
@@ -221,6 +235,8 @@ class _$CourseImpl implements _Course {
   final String title;
   @override
   final String subtitle;
+  @override
+  final String description;
   @override
   final String level;
   @override
@@ -241,7 +257,7 @@ class _$CourseImpl implements _Course {
 
   @override
   String toString() {
-    return 'Course(id: $id, title: $title, subtitle: $subtitle, level: $level, imageUrl: $imageUrl, isPremium: $isPremium, isActive: $isActive, isComplete: $isComplete, workouts: $workouts)';
+    return 'Course(id: $id, title: $title, subtitle: $subtitle, description: $description, level: $level, imageUrl: $imageUrl, isPremium: $isPremium, isActive: $isActive, isComplete: $isComplete, workouts: $workouts)';
   }
 
   @override
@@ -253,6 +269,8 @@ class _$CourseImpl implements _Course {
             (identical(other.title, title) || other.title == title) &&
             (identical(other.subtitle, subtitle) ||
                 other.subtitle == subtitle) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             (identical(other.level, level) || other.level == level) &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
@@ -272,6 +290,7 @@ class _$CourseImpl implements _Course {
       id,
       title,
       subtitle,
+      description,
       level,
       imageUrl,
       isPremium,
@@ -298,6 +317,7 @@ abstract class _Course implements Course {
       {required final int id,
       required final String title,
       required final String subtitle,
+      required final String description,
       required final String level,
       required final String imageUrl,
       required final bool isPremium,
@@ -313,6 +333,8 @@ abstract class _Course implements Course {
   String get title;
   @override
   String get subtitle;
+  @override
+  String get description;
   @override
   String get level;
   @override

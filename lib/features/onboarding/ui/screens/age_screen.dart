@@ -16,8 +16,8 @@ class AgeScreen extends StatefulWidget {
 }
 
 class _AgeScreenState extends State<AgeScreen> {
-  final int initialItem = 18;
   final OnboardingRepository _repository = OnboardingRepository();
+  int initialItem = 19;
 
   @override
   void initState() {
@@ -34,16 +34,19 @@ class _AgeScreenState extends State<AgeScreen> {
       isBackBtn: true,
       isNextBtn: true,
       onPressed: () {
+        _repository.setAge(initialItem + 1);
         AutoRouter.of(context).push(const GoalRoute());
       }, 
       child: OnboardingWheelScroll(
-        initialItem: initialItem - 1,
+        initialItem: initialItem,
         itemExtent: 80,
         widthBorder: 100,
         textStyle: onboardIntScrollStyle,
         list: List.generate(100, (index) => '${index + 1}'),
-        onSelectedItemChanged: (value) async {
-          _repository.setAge(value + 1);
+        onSelectedItemChanged: (value) {
+          setState(() {
+            initialItem = value;
+          });
         },
       ),
     );

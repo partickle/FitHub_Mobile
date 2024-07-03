@@ -19,14 +19,14 @@ class _ForgotPasswordService implements ForgotPasswordService {
   String? baseUrl;
 
   @override
-  Future<ActivationResponse> sendActivation(
+  Future<MessageResponse> sendActivation(
       {required SendEmailRequest request}) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = request;
     final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<ActivationResponse>(Options(
+        .fetch<Map<String, dynamic>>(_setStreamType<MessageResponse>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -42,19 +42,19 @@ class _ForgotPasswordService implements ForgotPasswordService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ActivationResponse.fromJson(_result.data!);
+    final value = MessageResponse.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<NewPasswordResponse> resetPassword(
+  Future<MessageResponse> resetPassword(
       {required NewPasswordRequest request}) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = request;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<NewPasswordResponse>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<MessageResponse>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -70,19 +70,19 @@ class _ForgotPasswordService implements ForgotPasswordService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = NewPasswordResponse.fromJson(_result.data!);
+    final value = MessageResponse.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<CodeVerificationResponse> verifyCode(
+  Future<MessageResponse> verifyCode(
       {required CodeVerificationRequest request}) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = request;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<CodeVerificationResponse>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<MessageResponse>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -98,7 +98,7 @@ class _ForgotPasswordService implements ForgotPasswordService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = CodeVerificationResponse.fromJson(_result.data!);
+    final value = MessageResponse.fromJson(_result.data!);
     return value;
   }
 

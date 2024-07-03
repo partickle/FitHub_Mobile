@@ -16,8 +16,8 @@ class LevelScreen extends StatefulWidget {
 }
 
 class _LevelScreenState extends State<LevelScreen> {
-  final int initialItem = 0;
   final OnboardingRepository _repository = OnboardingRepository();
+  int initialItem = 1;
 
   @override
   void initState() {
@@ -34,6 +34,7 @@ class _LevelScreenState extends State<LevelScreen> {
       isBackBtn: true,
       isNextBtn: true,
       onPressed: () {
+        _repository.setLevel(_repository.toSnakeCase(levels[initialItem]));
         AutoRouter.of(context).popUntilRoot();
         AutoRouter.of(context).replace(const AuthorizationRoute());
       }, 
@@ -43,8 +44,10 @@ class _LevelScreenState extends State<LevelScreen> {
         widthBorder: 300,
         textStyle: onboardStrScrollStyle,
         list: levels,
-        onSelectedItemChanged: (value) async {
-          await _repository.setLevel(levels[value]);
+        onSelectedItemChanged: (value) {
+          setState(() {
+            initialItem = value;
+          });
         },
       ),
     );

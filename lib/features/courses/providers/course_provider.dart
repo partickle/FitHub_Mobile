@@ -1,5 +1,8 @@
 import 'package:fithub/features/courses/data/models/course_model.dart';
+import 'package:fithub/features/courses/data/models/workout_model.dart';
+import 'package:fithub/features/courses/data/models/exercise_model.dart';
 import 'package:fithub/features/courses/data/repository/course_repository.dart';
+import 'package:fithub/features/courses/data/workout_data.dart';
 import 'package:flutter/material.dart';
 
 class CourseProvider with ChangeNotifier {
@@ -51,5 +54,33 @@ class CourseProvider with ChangeNotifier {
   void _loadCourses() async {
     _courses = await _repository.loadCourses();
     notifyListeners();
+  }
+
+  double getDurationCourse(int courseId) {
+    double duration = 0;
+    for (var workout in _courses[courseId].workouts) {
+      for (var exercise in workout.exercises) {
+        duration += exercise.count.ceilToDouble();
+      }
+    }
+    duration = duration / 60 / 60;
+    return double.parse(duration.toStringAsFixed(1));
+  }
+
+  List<Workout> getWorkoutsByCourse(int courseId) {
+    return _courses[courseId].workouts;
+  }
+
+  double getDurationWorkout(int workoutId) {
+    int duration = 0;
+    for (var exercise in workouts[workoutId].exercises) {
+      duration += exercise.count;
+    }
+    double res = duration / 60;
+    return double.parse(res.toStringAsFixed(1));
+  }
+
+  List<Exercise> getExercisesByWorkout(int workoutId) {
+    return workouts[workoutId].exercises;
   }
 }

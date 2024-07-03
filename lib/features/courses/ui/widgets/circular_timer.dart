@@ -1,12 +1,14 @@
 import 'dart:async';
 import 'dart:math';
+import 'package:fithub/res/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 class CircularTimer extends StatefulWidget {
   final int? initialDurationSeconds;
   final int? reps;
+  final ValueNotifier<bool> timerNotifier;
 
-  const CircularTimer({Key? key, this.initialDurationSeconds, this.reps})
+  const CircularTimer({Key? key, this.initialDurationSeconds, this.reps, required this.timerNotifier})
       : super(key: key);
 
   @override
@@ -14,34 +16,33 @@ class CircularTimer extends StatefulWidget {
 }
 
 class _CircularTimerState extends State<CircularTimer> {
-  late Timer _timer;
+  Timer? _timer;
   late double _secondsRemaining;
-  bool _isTimerRunning = false;
+  bool _isTimerRunning = true;
 
   @override
   void initState() {
     super.initState();
-    if (widget.initialDurationSeconds != null) {
-      _secondsRemaining = widget.initialDurationSeconds!.toDouble();
-    }
+    _secondsRemaining = widget.initialDurationSeconds?.toDouble() ?? 0.0;
+    _startTimer();
   }
 
   @override
   void dispose() {
-    if (_isTimerRunning) {
-      _timer.cancel();
-    }
+    _timer?.cancel();
     super.dispose();
   }
 
   void _startTimer() {
-    const oneSec = Duration(seconds: 1);
-    _timer = Timer.periodic(oneSec, (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (_secondsRemaining <= 0) {
         timer.cancel();
         setState(() {
           _isTimerRunning = false;
         });
+        if (widget.initialDurationSeconds != null) {
+          widget.timerNotifier.value = true;
+        }
       } else {
         setState(() {
           _secondsRemaining -= 1;
@@ -50,14 +51,16 @@ class _CircularTimerState extends State<CircularTimer> {
     });
     setState(() {
       _isTimerRunning = true;
+      widget.timerNotifier.value = false;
     });
   }
 
   void _stopTimer() {
-    _timer.cancel();
+    _timer?.cancel();
     setState(() {
       _isTimerRunning = false;
     });
+    widget.timerNotifier.value = false;
   }
 
   @override
@@ -78,14 +81,27 @@ class _CircularTimerState extends State<CircularTimer> {
               width: 175,
               height: 175,
               alignment: Alignment.center,
-              child: Text(
-                widget.reps != null
-                    ? '${widget.reps} reps'
-                    : '${_secondsRemaining.toInt()}',
-                style: const TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFFFFFFFF),
+              child: RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: widget.reps != null
+                        ? '${widget.reps}'
+                        : '${_secondsRemaining.toInt()}',
+                      style: courseSubtitleStyle.copyWith(
+                        fontSize: 80, fontWeight: FontWeight.w100, color: Colors.white, height: 1
+                      ),
+                    ),
+                    TextSpan(
+                      text: widget.reps != null
+                        ? '\nrep'
+                        : '\nsec',
+                      style: courseSubtitleStyle.copyWith(
+                        fontSize: 24, fontWeight: FontWeight.w300, color: Colors.white, height: 1
+                      ),
+                    )
+                  ]
                 ),
               ),
             ),
@@ -95,13 +111,11 @@ class _CircularTimerState extends State<CircularTimer> {
           if (widget.initialDurationSeconds != null)
             InkWell(
               onTap: () {
-                setState(() {
-                  if (_isTimerRunning) {
-                    _stopTimer();
-                  } else {
-                    _startTimer();
-                  }
-                });
+                if (_isTimerRunning) {
+                  _stopTimer();
+                } else {
+                  _startTimer();
+                }
               },
               child: Container(
                 width: 40,

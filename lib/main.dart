@@ -1,7 +1,7 @@
 import 'package:appmetrica_plugin/appmetrica_plugin.dart';
 import 'package:fithub/di/configure_dependencies.dart';
 import 'package:fithub/di/dependencies.dart';
-import 'package:fithub/features/courses/data/repository/providers/course_provider.dart';
+import 'package:fithub/features/courses/providers/course_provider.dart';
 import 'package:fithub/features/registration/provider/authorization_screen_provider.dart';
 import 'package:fithub/features/registration/provider/first_registration_screen_provider.dart';
 import 'package:fithub/features/registration/provider/new_password_screen_provider.dart';

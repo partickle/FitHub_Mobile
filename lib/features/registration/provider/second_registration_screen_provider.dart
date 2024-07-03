@@ -1,6 +1,7 @@
 import 'package:appmetrica_plugin/appmetrica_plugin.dart';
 import 'package:fithub/features/profile/data/repository/profile_repository.dart';
 import 'package:fithub/features/profile/domain/user_data_request/user_data_request.dart';
+import 'package:fithub/features/registration/domain/message_response/message_response.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/features/registration/data/repository/registration_repository.dart';
 import 'package:fithub/features/registration/domain/user_registration_request/user_registration_request.dart';
@@ -25,7 +26,7 @@ class SecondRegistrationScreenProvider extends ChangeNotifier {
       _setLoading(true);
       try {
         var regData = await _registrationRepository.getFirstPartRegistrationData();
-        var userData = await _profileRepository.getFirstPartRegistrationData();
+        var userData = await _profileRepository.getUserData();
 
         final request = UserRegistrationRequest(
           email: regData['email'] ?? '',
@@ -41,12 +42,14 @@ class SecondRegistrationScreenProvider extends ChangeNotifier {
           ),
         );
 
-        print(request.toJson());
+        final MessageResponse responce =  await _registrationRepository.register(request: request);
 
-
-        await _registrationRepository.register(request: request);
+        _registrationRepository.clearFirstPartRegistrationData();
 
         _setLoading(false);
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text(responce.message)));
+
         AppMetrica.reportEvent('Registration complete');
         AutoRouter.of(context).popUntilRoot();
         AutoRouter.of(context).replace(const AuthorizationRoute());

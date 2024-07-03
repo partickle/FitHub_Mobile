@@ -20,4 +20,13 @@ class OnboardingRepository {
     final preferences = await SharedPreferences.getInstance();
     await preferences.setString('physical_activity_level', physicalActivityLevel);
   }
+
+  String toSnakeCase(String input) {
+    final RegExp exp = RegExp(r'([a-z0-9])([A-Z])');
+    final String snakeCased = input
+        .replaceAllMapped(exp, (Match m) => '${m[1]}_${m[2]}')
+        .replaceAll(' ', '_')
+        .toLowerCase();
+    return snakeCased;
+  }
 }

@@ -1,7 +1,8 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:fithub/features/courses/providers/course_provider.dart';
 import 'package:fithub/res/constants/constants.dart';
-import 'package:fithub/features/courses/data/repository/providers/course_provider.dart';
 import 'package:fithub/features/home/ui/widgets/course_card.dart';
+import 'package:fithub/router/app_router.dart';
 import 'package:fithub/ui/components/base_page.dart';
 import 'package:fithub/ui/widgets/custom_toggle_switch.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +50,9 @@ class _CourseListScreenState extends State<CourseListScreen> {
                         subtitle: course.subtitle,
                         imageUrl: course.imageUrl,
                         isPremium: course.isPremium,
-                        onTap: () {},
+                        onTap: () {
+                          AutoRouter.of(context).push(CourseRoute(courseId: course.id));
+                        },
                       ),
                     );
                   }).toList(),

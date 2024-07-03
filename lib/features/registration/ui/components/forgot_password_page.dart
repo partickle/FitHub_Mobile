@@ -77,7 +77,8 @@ class ForgotPasswordPage extends StatelessWidget {
             ),
             CenterElevatedButton(
               buttonText: buttonText,
-              onPressed: onPressed
+              onPressed: onPressed,
+              isSaveArea: true,
             )
           ],
         )

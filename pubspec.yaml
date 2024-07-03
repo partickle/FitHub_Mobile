@@ -83,6 +83,7 @@ flutter:
     - assets/images/registration/
     - assets/images/onboarding/
     - assets/images/courses/
+    - assets/images/exercises/
   fonts:
   - family:  CustomIcons
     fonts:

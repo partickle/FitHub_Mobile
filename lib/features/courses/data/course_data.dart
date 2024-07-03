@@ -7,6 +7,7 @@ List<Course> courses = [
     id: 0,
     title: 'Learn the Basics of Training',
     subtitle: 'Workouts for Beginners',
+    description: 'This course is designed for those who want to learn the basics or remember them. This complex is quite complex: there are stretches, workouts for all muscle groups, cardio workouts and much more. We recommend taking this course if you are just starting your career in sports.',
     level: levels[0],
     imageUrl: 'assets/images/courses/1.jpg',
     isPremium: true,
@@ -14,13 +15,20 @@ List<Course> courses = [
     isComplete: false,
     workouts: [
       workouts[0].copyWith(courseId: 0),
-      workouts[1].copyWith(courseId: 0)
+      workouts[1].copyWith(courseId: 0),
+      workouts[0].copyWith(courseId: 0),
+      workouts[1].copyWith(courseId: 0),
+      workouts[0].copyWith(courseId: 0),
+      workouts[1].copyWith(courseId: 0),
+      workouts[0].copyWith(courseId: 0),
+      workouts[1].copyWith(courseId: 0),
     ]
   ),
   Course(
     id: 1,
     title: 'Wake Up Call',
     subtitle: 'Workouts for Beginners',
+    description: 'This course is designed for those who want to learn the basics or remember them. This complex is quite complex: there are stretches, workouts for all muscle groups, cardio workouts and much more. We recommend taking this course if you are just starting your career in sports.',
     level: levels[0],
     imageUrl: 'assets/images/courses/2.jpg',
     isPremium: false,
@@ -28,13 +36,22 @@ List<Course> courses = [
     isComplete: false,
     workouts: [
       workouts[0].copyWith(courseId: 1),
-      workouts[1].copyWith(courseId: 1)
+      workouts[1].copyWith(courseId: 1),
+      workouts[0].copyWith(courseId: 1),
+      workouts[1].copyWith(courseId: 1),
+      workouts[0].copyWith(courseId: 1),
+      workouts[1].copyWith(courseId: 1),
+      workouts[0].copyWith(courseId: 1),
+      workouts[1].copyWith(courseId: 1),
+      workouts[0].copyWith(courseId: 1),
+      workouts[1].copyWith(courseId: 1),
     ]
   ),
   Course(
     id: 2,
     title: 'Full Body Goal Crusher',
     subtitle: 'Workouts for Intermediate',
+    description: 'This course is designed for those who want to learn the basics or remember them. This complex is quite complex: there are stretches, workouts for all muscle groups, cardio workouts and much more. We recommend taking this course if you are just starting your career in sports.',
     level: levels[1],
     imageUrl: 'assets/images/courses/3.jpg',
     isPremium: false,
@@ -42,13 +59,20 @@ List<Course> courses = [
     isComplete: false,
     workouts: [
       workouts[0].copyWith(courseId: 2),
-      workouts[1].copyWith(courseId: 2)
+      workouts[1].copyWith(courseId: 2),
+      workouts[0].copyWith(courseId: 2),
+      workouts[1].copyWith(courseId: 2),
+      workouts[0].copyWith(courseId: 2),
+      workouts[1].copyWith(courseId: 2),
+      workouts[0].copyWith(courseId: 2),
+      workouts[1].copyWith(courseId: 2),
     ]
   ),
   Course(
     id: 3,
     title: 'Lower Body Strength',
     subtitle: 'Workouts for Advace',
+    description: 'This course is designed for those who want to learn the basics or remember them. This complex is quite complex: there are stretches, workouts for all muscle groups, cardio workouts and much more. We recommend taking this course if you are just starting your career in sports.',
     level: levels[2],
     imageUrl: 'assets/images/courses/4.jpg',
     isPremium: false,
@@ -56,26 +80,40 @@ List<Course> courses = [
     isComplete: false,
     workouts: [
       workouts[0].copyWith(courseId: 3),
-      workouts[1].copyWith(courseId: 3)
+      workouts[1].copyWith(courseId: 3),
+      workouts[0].copyWith(courseId: 3),
+      workouts[1].copyWith(courseId: 3),
+      workouts[0].copyWith(courseId: 3),
+      workouts[1].copyWith(courseId: 3),
+      workouts[0].copyWith(courseId: 3),
+      workouts[1].copyWith(courseId: 3),
     ]
   ),
   Course(
     id: 4,
     title: 'Wake Up Call',
     subtitle: 'Workouts for Beginners',
+    description: 'This course is designed for those who want to learn the basics or remember them. This complex is quite complex: there are stretches, workouts for all muscle groups, cardio workouts and much more. We recommend taking this course if you are just starting your career in sports.',
     level: levels[0],
     imageUrl: 'assets/images/courses/2.jpg',
     isPremium: false,
     isActive: false,
     isComplete: false,
     workouts: [
-      workouts[0].copyWith(courseId: 1),
-      workouts[1].copyWith(courseId: 1)
+      workouts[0].copyWith(courseId: 4),
+      workouts[1].copyWith(courseId: 4),
+      workouts[0].copyWith(courseId: 4),
+      workouts[1].copyWith(courseId: 4),
+      workouts[0].copyWith(courseId: 4),
+      workouts[1].copyWith(courseId: 4),
+      workouts[0].copyWith(courseId: 4),
+      workouts[1].copyWith(courseId: 4),
     ]
   ),
   Course(
     id: 5,
     title: 'Wake Up Call',
+    description: 'This course is designed for those who want to learn the basics or remember them. This complex is quite complex: there are stretches, workouts for all muscle groups, cardio workouts and much more. We recommend taking this course if you are just starting your career in sports.',
     subtitle: 'Workouts for Beginners',
     level: levels[0],
     imageUrl: 'assets/images/courses/2.jpg',
@@ -83,8 +121,14 @@ List<Course> courses = [
     isActive: false,
     isComplete: false,
     workouts: [
-      workouts[0].copyWith(courseId: 1),
-      workouts[1].copyWith(courseId: 1)
+      workouts[0].copyWith(courseId: 5),
+      workouts[1].copyWith(courseId: 5),
+      workouts[0].copyWith(courseId: 5),
+      workouts[1].copyWith(courseId: 5),
+      workouts[0].copyWith(courseId: 5),
+      workouts[1].copyWith(courseId: 5),
+      workouts[0].copyWith(courseId: 5),
+      workouts[1].copyWith(courseId: 5),
     ]
   ),
 ];

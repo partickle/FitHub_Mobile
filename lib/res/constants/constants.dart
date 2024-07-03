@@ -7,13 +7,13 @@ const timeout = Duration(seconds: 30);
 const List<String> levels = [
   'Beginner',
   'Intermediate',
-  'Advance'
+  'Advanced'
 ];
 
 const List<String> goals = [
   'Gain Weight',
   'Lose weight',
   'Get fitter',
-  'Gain more flexible',
-  'Learn the basics'
+  'Gain flexibility',
+  'Learn the basic'
 ];

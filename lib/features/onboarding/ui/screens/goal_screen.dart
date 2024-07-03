@@ -16,8 +16,8 @@ class GoalScreen extends StatefulWidget {
 }
 
 class _GoalScreenState extends State<GoalScreen> {
-  final int initialItem = 2;
   final OnboardingRepository _repository = OnboardingRepository();
+  int initialItem = 2;
 
   @override
   void initState() {
@@ -34,6 +34,7 @@ class _GoalScreenState extends State<GoalScreen> {
       isBackBtn: true,
       isNextBtn: true,
       onPressed: () {
+        _repository.setGoal(_repository.toSnakeCase(goals[initialItem]));
         AutoRouter.of(context).push(const LevelRoute());
       }, 
       child: OnboardingWheelScroll(
@@ -42,7 +43,11 @@ class _GoalScreenState extends State<GoalScreen> {
         widthBorder: 300,
         textStyle: onboardStrScrollStyle,
         list: goals,
-        onSelectedItemChanged: (value) => _repository.setGoal(goals[value])
+        onSelectedItemChanged: (value) {
+          setState(() {
+            initialItem = value;
+          });
+        }
       ),
     );
   }

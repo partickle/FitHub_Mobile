@@ -55,37 +55,45 @@ class _SecondRegistrationScreenState extends State<SecondRegistrationScreen> {
                   isLoginPage: false,
                   imageHeight: 0.5,
                   onPressed: () => provider.register(context),
-                  child: Column(
-                    children: [
-                      InputField(
-                        labelText: 'First name',
-                        isObscure: false,
-                        isEmail: false,
-                        isPassword: false,
-                        isTag: false,
-                        controller: provider.firstNameController,
-                        passwordController: null
-                      ),
-                      InputField(
-                        labelText: 'Last name',
-                        isObscure: false,
-                        isEmail: false,
-                        isPassword: false,
-                        isTag: false,
-                        controller: provider.lastNameController,
-                        passwordController: null
-                      ),
-                      InputField(
-                        labelText: 'User tag',
-                        isObscure: false,
-                        isEmail: false,
-                        isPassword: false,
-                        isTag: true,
-                        controller: provider.userTagController,
-                        passwordController: null
-                      )
-                    ],
-                  )
+                  child: provider.isLoading
+                      ? const Align(
+                          alignment: Alignment.bottomCenter,
+                          child: SizedBox(
+                            height: 200,
+                            child: Center(child: CircularProgressIndicator())
+                          )
+                        )
+                      : Column(
+                          children: [
+                            InputField(
+                              labelText: 'First name',
+                              isObscure: false,
+                              isEmail: false,
+                              isPassword: false,
+                              isTag: false,
+                              controller: provider.firstNameController,
+                              passwordController: null
+                            ),
+                            InputField(
+                              labelText: 'Last name',
+                              isObscure: false,
+                              isEmail: false,
+                              isPassword: false,
+                              isTag: false,
+                              controller: provider.lastNameController,
+                              passwordController: null
+                            ),
+                            InputField(
+                              labelText: 'User tag',
+                              isObscure: false,
+                              isEmail: false,
+                              isPassword: false,
+                              isTag: true,
+                              controller: provider.userTagController,
+                              passwordController: null
+                            )
+                          ],
+                        )
                 ),
               ),
               Positioned(

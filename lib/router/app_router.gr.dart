@@ -28,9 +28,14 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     BreakRoute.name: (routeData) {
+      final args = routeData.argsAs<BreakRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: BreakScreen(),
+        child: BreakScreen(
+          key: args.key,
+          workoutId: args.workoutId,
+          curExercise: args.curExercise,
+        ),
       );
     },
     CommunityRoute.name: (routeData) {
@@ -51,10 +56,14 @@ abstract class _$AppRouter extends RootStackRouter {
         child: ComplaintScreen(),
       );
     },
-    CongratulationsRoute.name: (routeData) {
+    CongradulationRoute.name: (routeData) {
+      final args = routeData.argsAs<CongradulationRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: CongratulationsScreen(),
+        child: CongradulationScreen(
+          key: args.key,
+          workoutId: args.workoutId,
+        ),
       );
     },
     CourseListRoute.name: (routeData) {
@@ -64,9 +73,35 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     CourseRoute.name: (routeData) {
+      final args = routeData.argsAs<CourseRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const CourseScreen(),
+        child: CourseScreen(
+          key: args.key,
+          courseId: args.courseId,
+        ),
+      );
+    },
+    ExerciseInfoRoute.name: (routeData) {
+      final args = routeData.argsAs<ExerciseInfoRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ExerciseInfoScreen(
+          key: args.key,
+          workoutId: args.workoutId,
+          exerciseId: args.exerciseId,
+        ),
+      );
+    },
+    ExerciseRoute.name: (routeData) {
+      final args = routeData.argsAs<ExerciseRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ExerciseScreen(
+          key: args.key,
+          workoutId: args.workoutId,
+          curExercise: args.curExercise,
+        ),
       );
     },
     FirstRegistrationRoute.name: (routeData) {
@@ -142,7 +177,7 @@ abstract class _$AppRouter extends RootStackRouter {
     ProgressRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const ProgressScreen(),
+        child: ProgressScreen(),
       );
     },
     ProgressTab.name: (routeData) {
@@ -179,16 +214,21 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
-    WarmUpRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: WarmUpScreen(),
-      );
-    },
     WelcomeRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const WelcomeScreen(),
+      );
+    },
+    WorkoutRoute.name: (routeData) {
+      final args = routeData.argsAs<WorkoutRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: WorkoutScreen(
+          key: args.key,
+          courseId: args.courseId,
+          workoutId: args.workoutId,
+        ),
       );
     },
     WriteReviewRoute.name: (routeData) {
@@ -230,16 +270,44 @@ class AuthorizationRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [BreakScreen]
-class BreakRoute extends PageRouteInfo<void> {
-  const BreakRoute({List<PageRouteInfo>? children})
-      : super(
+class BreakRoute extends PageRouteInfo<BreakRouteArgs> {
+  BreakRoute({
+    Key? key,
+    required int workoutId,
+    required int curExercise,
+    List<PageRouteInfo>? children,
+  }) : super(
           BreakRoute.name,
+          args: BreakRouteArgs(
+            key: key,
+            workoutId: workoutId,
+            curExercise: curExercise,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'BreakRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<BreakRouteArgs> page = PageInfo<BreakRouteArgs>(name);
+}
+
+class BreakRouteArgs {
+  const BreakRouteArgs({
+    this.key,
+    required this.workoutId,
+    required this.curExercise,
+  });
+
+  final Key? key;
+
+  final int workoutId;
+
+  final int curExercise;
+
+  @override
+  String toString() {
+    return 'BreakRouteArgs{key: $key, workoutId: $workoutId, curExercise: $curExercise}';
+  }
 }
 
 /// generated route for
@@ -285,17 +353,41 @@ class ComplaintRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [CongratulationsScreen]
-class CongratulationsRoute extends PageRouteInfo<void> {
-  const CongratulationsRoute({List<PageRouteInfo>? children})
-      : super(
-          CongratulationsRoute.name,
+/// [CongradulationScreen]
+class CongradulationRoute extends PageRouteInfo<CongradulationRouteArgs> {
+  CongradulationRoute({
+    Key? key,
+    required int workoutId,
+    List<PageRouteInfo>? children,
+  }) : super(
+          CongradulationRoute.name,
+          args: CongradulationRouteArgs(
+            key: key,
+            workoutId: workoutId,
+          ),
           initialChildren: children,
         );
 
-  static const String name = 'CongratulationsRoute';
+  static const String name = 'CongradulationRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<CongradulationRouteArgs> page =
+      PageInfo<CongradulationRouteArgs>(name);
+}
+
+class CongradulationRouteArgs {
+  const CongradulationRouteArgs({
+    this.key,
+    required this.workoutId,
+  });
+
+  final Key? key;
+
+  final int workoutId;
+
+  @override
+  String toString() {
+    return 'CongradulationRouteArgs{key: $key, workoutId: $workoutId}';
+  }
 }
 
 /// generated route for
@@ -314,44 +406,125 @@ class CourseListRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [CourseScreen]
-class CourseRoute extends PageRouteInfo<void> {
-  const CourseRoute({List<PageRouteInfo>? children})
-      : super(
+class CourseRoute extends PageRouteInfo<CourseRouteArgs> {
+  CourseRoute({
+    Key? key,
+    required int courseId,
+    List<PageRouteInfo>? children,
+  }) : super(
           CourseRoute.name,
+          args: CourseRouteArgs(
+            key: key,
+            courseId: courseId,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'CourseRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<CourseRouteArgs> page = PageInfo<CourseRouteArgs>(name);
+}
+
+class CourseRouteArgs {
+  const CourseRouteArgs({
+    this.key,
+    required this.courseId,
+  });
+
+  final Key? key;
+
+  final int courseId;
+
+  @override
+  String toString() {
+    return 'CourseRouteArgs{key: $key, courseId: $courseId}';
+  }
 }
 
 /// generated route for
-/// [ExerciseView]
-class ExerciseView extends PageRouteInfo<void> {
-  const ExerciseView({List<PageRouteInfo>? children})
-      : super(
-          ExerciseView.name,
+/// [ExerciseInfoScreen]
+class ExerciseInfoRoute extends PageRouteInfo<ExerciseInfoRouteArgs> {
+  ExerciseInfoRoute({
+    Key? key,
+    required int workoutId,
+    required int exerciseId,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ExerciseInfoRoute.name,
+          args: ExerciseInfoRouteArgs(
+            key: key,
+            workoutId: workoutId,
+            exerciseId: exerciseId,
+          ),
           initialChildren: children,
         );
 
-  static const String name = 'ExerciseView';
+  static const String name = 'ExerciseInfoRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<ExerciseInfoRouteArgs> page =
+      PageInfo<ExerciseInfoRouteArgs>(name);
+}
+
+class ExerciseInfoRouteArgs {
+  const ExerciseInfoRouteArgs({
+    this.key,
+    required this.workoutId,
+    required this.exerciseId,
+  });
+
+  final Key? key;
+
+  final int workoutId;
+
+  final int exerciseId;
+
+  @override
+  String toString() {
+    return 'ExerciseInfoRouteArgs{key: $key, workoutId: $workoutId, exerciseId: $exerciseId}';
+  }
 }
 
 /// generated route for
-/// [FirstExercise]
-class FirstExercise extends PageRouteInfo<void> {
-  const FirstExercise({List<PageRouteInfo>? children})
-      : super(
-          FirstExercise.name,
+/// [ExerciseScreen]
+class ExerciseRoute extends PageRouteInfo<ExerciseRouteArgs> {
+  ExerciseRoute({
+    Key? key,
+    required int workoutId,
+    required int curExercise,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ExerciseRoute.name,
+          args: ExerciseRouteArgs(
+            key: key,
+            workoutId: workoutId,
+            curExercise: curExercise,
+          ),
           initialChildren: children,
         );
 
-  static const String name = 'FirstExercise';
+  static const String name = 'ExerciseRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<ExerciseRouteArgs> page =
+      PageInfo<ExerciseRouteArgs>(name);
+}
+
+class ExerciseRouteArgs {
+  const ExerciseRouteArgs({
+    this.key,
+    required this.workoutId,
+    required this.curExercise,
+  });
+
+  final Key? key;
+
+  final int workoutId;
+
+  final int curExercise;
+
+  @override
+  String toString() {
+    return 'ExerciseRouteArgs{key: $key, workoutId: $workoutId, curExercise: $curExercise}';
+  }
 }
 
 /// generated route for
@@ -589,20 +762,6 @@ class SearchCourseRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [SecondExercise]
-class SecondExercise extends PageRouteInfo<void> {
-  const SecondExercise({List<PageRouteInfo>? children})
-      : super(
-          SecondExercise.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'SecondExercise';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
 /// [SecondRegistrationScreen]
 class SecondRegistrationRoute extends PageRouteInfo<void> {
   const SecondRegistrationRoute({List<PageRouteInfo>? children})
@@ -669,20 +828,6 @@ class VerificationRouteArgs {
 }
 
 /// generated route for
-/// [WarmUpScreen]
-class WarmUpRoute extends PageRouteInfo<void> {
-  const WarmUpRoute({List<PageRouteInfo>? children})
-      : super(
-          WarmUpRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'WarmUpRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
 /// [WelcomeScreen]
 class WelcomeRoute extends PageRouteInfo<void> {
   const WelcomeRoute({List<PageRouteInfo>? children})
@@ -697,17 +842,46 @@ class WelcomeRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [WorkoutView]
-class WorkoutView extends PageRouteInfo<void> {
-  const WorkoutView({List<PageRouteInfo>? children})
-      : super(
-          WorkoutView.name,
+/// [WorkoutScreen]
+class WorkoutRoute extends PageRouteInfo<WorkoutRouteArgs> {
+  WorkoutRoute({
+    Key? key,
+    required int courseId,
+    required int workoutId,
+    List<PageRouteInfo>? children,
+  }) : super(
+          WorkoutRoute.name,
+          args: WorkoutRouteArgs(
+            key: key,
+            courseId: courseId,
+            workoutId: workoutId,
+          ),
           initialChildren: children,
         );
 
-  static const String name = 'WorkoutView';
+  static const String name = 'WorkoutRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<WorkoutRouteArgs> page =
+      PageInfo<WorkoutRouteArgs>(name);
+}
+
+class WorkoutRouteArgs {
+  const WorkoutRouteArgs({
+    this.key,
+    required this.courseId,
+    required this.workoutId,
+  });
+
+  final Key? key;
+
+  final int courseId;
+
+  final int workoutId;
+
+  @override
+  String toString() {
+    return 'WorkoutRouteArgs{key: $key, courseId: $courseId, workoutId: $workoutId}';
+  }
 }
 
 /// generated route for

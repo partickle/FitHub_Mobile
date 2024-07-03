@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:fithub/features/courses/data/models/course_model.dart';
 import 'package:fithub/features/home/ui/widgets/course_card.dart';
+import 'package:fithub/router/app_router.dart';
 import 'package:flutter/material.dart';
 
 class CardHorizontalScroll extends StatelessWidget {
@@ -30,7 +32,9 @@ class CardHorizontalScroll extends StatelessWidget {
               subtitle: course.subtitle,
               imageUrl: course.imageUrl,
               isPremium: course.isPremium,
-              onTap: () {},
+              onTap: () {
+                AutoRouter.of(context).push(CourseRoute(courseId: course.id));
+              },
             ),
           );
         },

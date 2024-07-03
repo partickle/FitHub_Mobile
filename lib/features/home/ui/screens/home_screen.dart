@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:fithub/features/courses/providers/course_provider.dart';
 import 'package:fithub/features/home/ui/widgets/card_horizontal_scroll.dart'; 
 import 'package:fithub/features/home/ui/widgets/course_card.dart';
 import 'package:fithub/features/home/ui/widgets/course_splash.dart';
@@ -7,7 +8,6 @@ import 'package:fithub/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:fithub/res/constants/constants.dart';
 import 'package:provider/provider.dart';
-import 'package:fithub/features/courses/data/repository/providers/course_provider.dart';
 
 @RoutePage()
 class HomeScreen extends StatefulWidget {
@@ -121,7 +121,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 subtitle: course.subtitle,
                                 imageUrl: course.imageUrl,
                                 isPremium: course.isPremium,
-                                onTap: () {}
+                                onTap: () {
+                                  AutoRouter.of(context).push(CourseRoute(courseId: course.id));
+                                }
                               ),
                             );
                           }).toList(),

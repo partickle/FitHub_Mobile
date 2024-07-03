@@ -1,9 +1,7 @@
 import 'package:fithub/features/registration/data/service/forgot_password_service.dart';
-import 'package:fithub/features/registration/domain/activation_response/activation_response.dart';
+import 'package:fithub/features/registration/domain/message_response/message_response.dart';
 import 'package:fithub/features/registration/domain/code_verification_request/code_verification_request.dart';
-import 'package:fithub/features/registration/domain/code_verification_response/code_verification_response.dart';
 import 'package:fithub/features/registration/domain/new_password_request/new_password_request.dart';
-import 'package:fithub/features/registration/domain/new_password_response/new_password_response.dart';
 import 'package:fithub/features/registration/domain/send_email_request/send_email_request.dart';
 import 'package:flutter/foundation.dart';
 
@@ -12,7 +10,7 @@ class ForgotPasswordRepository {
 
   ForgotPasswordRepository(this._forgotPasswordService);
 
-  Future<ActivationResponse> sendActivationEmail(
+  Future<MessageResponse> sendActivationEmail(
       {required SendEmailRequest request}) async {
     try {
       debugPrint('Sending activation email with request: ${request.email}');
@@ -27,7 +25,7 @@ class ForgotPasswordRepository {
     }
   }
 
-  Future<NewPasswordResponse> resetPassword({
+  Future<MessageResponse> resetPassword({
     required NewPasswordRequest request,
   }) async {
     try {
@@ -40,7 +38,7 @@ class ForgotPasswordRepository {
     }
   }
 
-  Future<CodeVerificationResponse> verifyActivationCode(
+  Future<MessageResponse> verifyActivationCode(
       {required CodeVerificationRequest request}) async {
     try {
       final result = await _forgotPasswordService.verifyCode(
